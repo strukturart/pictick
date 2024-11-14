@@ -43,14 +43,15 @@
     "url": "^0.11.4"
   },
   "dependencies": {
+    "@openbeta/sandbag": "^0.0.51",
     "@swc/helpers": "^0.5.13",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.1",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
+    "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "mithril": "^2.2.9",
-    "swiped-events": "^1.2.0",
-    "leaflet": "^1.9.4"
+    "swiped-events": "^1.2.0"
   }
 }

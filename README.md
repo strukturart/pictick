@@ -32,7 +32,7 @@ redirect=https://xx
 ## Credits
 
 - bananahackers community 💘
-- openeta.io
+- openbeta.io
 
 ## Donation
 

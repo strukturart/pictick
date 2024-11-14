@@ -1,7 +1,7 @@
 {
   "name": "Pictick",
   "id": "Pictick",
-  "description": "Pictick rock climbing search",
+  "description": "PicTick - Find rock climbing areas, crags, and climbs with data from openBeta.io.",
   "lang": "en-US",
   "start_url": "/index.html",
   "short_name": "Pictick",
@@ -56,9 +56,9 @@
   ],
 
   "b2g_features": {
-    "version": "0.6",
-    "id": "Pictick",
-    "subtitle": "Pictick",
+    "version": "0.9",
+    "id": "PicTick",
+    "subtitle": "PicTick",
     "core": true,
     "type": "privileged",
     "display": "fullscreen",
@@ -78,7 +78,7 @@
     ],
 
     "activities": {
-      "feedolin": {}
+      "pictick": {}
     },
 
     "serviceworker": {

@@ -90,6 +90,11 @@ body {
 
 h1 {
   font-size: 1.2rem;
+  background: yellow;
+  border-radius: 10px;
+  display: block;
+  width: fit-content;
+  padding: 5px;
 }
 
 h2 {
@@ -242,6 +247,137 @@ label {
   background: orange;
 }
 
+.radio-group {
+  width: 100%;
+}
+
+.radio-item {
+}
+
+.radio-item input {
+  display: none; /* Hide the actual radio button */
+}
+
+.radio-item label {
+  width: 90%;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.radio-item input:checked + label {
+  background: orange;
+  color: white;
+}
+
+.radio-item label:focus {
+  background: orange;
+  color: white;
+}
+
+/*Success animation*/
+
+.success-checkmark {
+  width: 40px; /* Half the width */
+  height: 57.5px; /* Half the height */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 50000;
+  animation: hide ease-in forwards;
+  animation-duration: 6.25s;
+}
+
+.success-checkmark .check-icon {
+  width: 40px; /* Half the width */
+  height: 40px; /* Half the height */
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 3px solid #4caf50; /* Half the border thickness */
+}
+
+.success-checkmark .check-icon::before {
+  top: 1.5px; /* Half the value */
+  left: -1px; /* Half the value */
+  width: 15px; /* Half the width */
+  transform-origin: 100% 50%;
+  border-radius: 50px 0 0 50px;
+}
+
+.success-checkmark .check-icon::after {
+  top: 0;
+  left: 15px;
+  width: 30px; /* Half the width */
+  transform-origin: 0 50%;
+  border-radius: 0 50px 50px 0;
+}
+
+.success-checkmark .check-icon::before,
+.success-checkmark .check-icon::after {
+  content: "";
+  height: 50px; /* Half the height */
+  position: absolute;
+  background: #ffffff;
+  transform: rotate(-45deg);
+}
+
+.success-checkmark .check-icon .icon-line {
+  height: 2.5px; /* Half the height */
+  background-color: #1a721d;
+  display: block;
+  border-radius: 1px; /* Half the value */
+  position: absolute;
+  z-index: 10;
+}
+
+.success-checkmark .check-icon .icon-line.line-tip {
+  top: 23px;
+  left: 7px;
+  width: 12.5px;
+  transform: rotate(45deg);
+  animation: icon-line-tip 0.75s forwards;
+}
+
+.success-checkmark .check-icon .icon-line.line-long {
+  top: 19px;
+  right: 4px;
+  width: 23.5px;
+  transform: rotate(-45deg);
+  animation: icon-line-long 0.75s;
+}
+
+.success-checkmark .check-icon .icon-circle {
+  top: -2px;
+  left: -2px;
+  z-index: 10;
+  width: 40px; /* Half the width */
+  height: 40px; /* Half the height */
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: content-box;
+  border: 3px solid rgba(76, 175, 80, 0.5);
+}
+
+.success-checkmark .check-icon .icon-fix {
+  top: 4px;
+  width: 2.5px; /* Half the width */
+  left: 13px;
+  z-index: 1;
+  height: 42.5px;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: #ffffff;
+}
+
+.tick {
+  background: rgba(163, 226, 121, 0.9);
+}
+
 article:focus {
   background: rgb(202, 199, 199);
   padding: 5px;
@@ -374,6 +510,10 @@ article .tags {
   margin: 80px 0 0 0;
   width: 100%;
   height: 5px;
+}
+
+#settings-page button.active {
+  background: blue;
 }
 
 div#map-container {
