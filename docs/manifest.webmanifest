@@ -1,7 +1,7 @@
 {
   "name": "Pictick",
   "id": "Pictick",
-  "description": "Pictick rock climbing search",
+  "description": "PicTick is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database..",
   "lang": "en-US",
   "start_url": "/index.html",
   "short_name": "Pictick",
@@ -56,9 +56,9 @@
   ],
 
   "b2g_features": {
-    "version": "0.6",
-    "id": "Pictick",
-    "subtitle": "Pictick",
+    "version": "1.62",
+    "id": "PicTick",
+    "subtitle": "PicTick",
     "core": true,
     "type": "privileged",
     "display": "fullscreen",
@@ -78,7 +78,7 @@
     ],
 
     "activities": {
-      "feedolin": {}
+      "pictick": {}
     },
 
     "serviceworker": {
@@ -89,9 +89,7 @@
       "desktop-notification": {
         "description": "Needed to fire system notifications"
       },
-      "alarms": {
-        "description": "Required to schedule alarms"
-      },
+
       "feature-detection": {
         "description": "query which keys are available"
       },
@@ -99,10 +97,6 @@
       "wifidata": {},
       "calllog": {},
 
-      "audio-channel-content": {
-        "description": "Allow background audio playback."
-      },
-      "volumemanager": { "description": "" },
       "device-storage:sdcard": {
         "description": "Read/Write from/to sd-card",
         "access": "readwrite"

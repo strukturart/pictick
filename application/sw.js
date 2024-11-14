@@ -13,7 +13,7 @@ self.addEventListener("systemmessage", async (evt) => {
       // Store data for later use
       activityData = data;
 
-      if (activityData.name === "feedolin") {
+      if (activityData.name === "pictick") {
         sw_channel.postMessage({
           oauth_success: activityData.data,
         });
@@ -29,8 +29,8 @@ sw_channel.postMessage({});
 const userAgent = navigator.userAgent || "";
 
 if (userAgent && !userAgent.includes("KAIOS")) {
-  const CACHE_NAME = "pwa-cache-v1.9";
-  const FILE_LIST_URL = "/file-list.json"; // URL of the JSON file containing the array of files
+  const CACHE_NAME = "pwa-cache-v2.1x";
+  const FILE_LIST_URL = "file-list.json"; // URL of the JSON file containing the array of files
 
   self.addEventListener("install", (event) => {
     event.waitUntil(

@@ -16,7 +16,9 @@ find "$DOCS_DIR" -type f | while read -r file; do
     # Escape double quotes and backslashes in file names for JSON format
     escaped_file=$(printf '%s\n' "$relative_path" | sed 's/\\/\\\\/g; s/"/\\"/g')
 
-    echo "\"/$escaped_file\"," >> "$OUTPUT_FILE"
+    echo "\"$escaped_file\"," >> "$OUTPUT_FILE"
+
+
 done
 
 # Remove the trailing comma from the last line

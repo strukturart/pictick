@@ -7,6 +7,8 @@ PicTick is a KaiOS app with which you can search for climbing areas. The data th
 ![badge-release](https://img.shields.io/github/v/release/strukturart/pictick?include_prereleases&style=plastic)
 ![badge-downloads](https://img.shields.io/github/downloads/strukturart/pictick/total)
 
+<img src="image/mockup.svg">
+
 ## How to install
 
 - KaiOS Store
@@ -17,22 +19,12 @@ The app is not auto-updating. To update it, you have to follow the same steps yo
 
 ## create your own
 
-`npm -i`
-
-```
-
-clientId=xx
-clientSecret=xxx
-redirect=https://xx
-
-```
-
 ## How to use
 
 ## Credits
 
 - bananahackers community 💘
-- openeta.io
+- openbeta.io
 
 ## Donation
 

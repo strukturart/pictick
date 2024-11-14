@@ -7,14 +7,14 @@ import {
   top_bar,
   getManifest,
   geolocation,
+  setTabindex,
 } from "./assets/js/helper.js";
 import localforage from "localforage";
 import m from "mithril";
 import dayjs from "dayjs";
-import swiped from "swiped-events";
-import { request, gql } from "graphql-request";
 import L from "leaflet";
-import markerIcon from "./marker-icon.png";
+import { v4 as uuidv4 } from "uuid";
+import jsonToCsvExport from "json-to-csv-export";
 
 const sw_channel = new BroadcastChannel("sw-messages");
 
@@ -22,11 +22,12 @@ const worker = new Worker(new URL("./worker.js", import.meta.url), {
   type: "module",
 });
 
-export let status = { debug: false, version: "", notKaiOS: true };
-
-let default_settings = {};
-
-export let settings = {};
+export let status = {
+  debug: false,
+  version: "",
+  notKaiOS: true,
+  selected_marker: "",
+};
 
 localforage
   .getItem("articles")
@@ -43,6 +44,29 @@ localforage
     console.error("Error accessing localForage:", err);
   });
 
+// Initialize `settings` with default values for export
+export let settings;
+
+localforage
+  .getItem("settings")
+  .then((value) => {
+    if (value === null) {
+      settings = {
+        grade: { climbing: "french", bouldering: "vscale" },
+      };
+      localforage.setItem("settings", settings);
+    } else {
+      settings = value;
+      localforage.setItem("settings", value);
+    }
+  })
+  .catch((err) => {
+    settings = {
+      grade: { climbing: "french", bouldering: "vscale" },
+    };
+    localforage.setItem("settings", settings);
+  });
+
 let cache_search = () => {
   localforage.setItem("articles", articles);
 };
@@ -50,6 +74,16 @@ let cache_search = () => {
 localforage.getItem("searchTerm").then((e) => {
   searchTerm = e;
 });
+
+const show_success_animation = () => {
+  setTimeout(() => {
+    document.querySelector(".success-checkmark").style.display = "block";
+  }, 2000);
+
+  setTimeout(() => {
+    document.querySelector(".success-checkmark").style.display = "none";
+  }, 4000);
+};
 
 if ("b2g" in navigator || "navigator.mozApps" in navigator)
   status.notKaiOS = false;
@@ -118,21 +152,26 @@ function MoveMap(direction) {
 }
 
 // Initialize the map and define the setup
-function map_function(lat, lng) {
+function map_function(lat, lng, id) {
   map = L.map("map-container", {
     keyboard: true,
     zoomControl: false,
-    shadowUrl: null,
+    shadowUrl: "",
   }).setView([lat, lng], 13);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  let once = false;
-  let myMarker;
+  setTimeout(() => {
+    document.querySelector(
+      ".leaflet-control-attribution leaflet-control"
+    ).style.display = "none";
+  }, 5000);
+
+  let myMarker = null;
   L.Icon.Default.prototype.options.shadowUrl = "";
-  L.Icon.Default.prototype.options.iconUrl = markerIcon;
+  L.Icon.Default.prototype.options.iconUrl = "/assets/css/marker-icon.png";
 
   let geolocation_cb = function (e) {
     if (!myMarker) {
@@ -142,18 +181,10 @@ function map_function(lat, lng) {
         .bindPopup("It's me");
       myMarker._icon.classList.add("myMarker");
       myMarker.options.shadowUrl = "";
-      usersPosition = e;
-      myMarker.options.url = markerIcon;
+      myMarker.options.url = "/assets/css/marker-icon.png";
 
-      if (!lat) {
-        // Set the view only once
-        map.setView([lat, lng]);
-        once = true; // Set 'once' to true after the first execution
-      }
-    } else {
       // Update the marker's position
       myMarker.setLatLng([e.coords.latitude, e.coords.longitude]);
-      usersPosition = e;
     }
   };
   geolocation(geolocation_cb);
@@ -161,8 +192,25 @@ function map_function(lat, lng) {
   L.marker([lat, lng]).addTo(map);
   map.setView([lat, lng]);
 
-  articles.map((e, i) => {
-    L.marker([e.metadata.lat, e.metadata.lng]).addTo(map).bindPopup(e.areaName);
+  articles.map((e) => {
+    // Create the marker with a custom 'id' property
+    let marker = L.marker([e.metadata.lat, e.metadata.lng], {
+      id: e.uuid, // Add the unique ID to the marker options
+    })
+      .addTo(map)
+      .bindPopup(e.areaName);
+
+    // Open the popup for the marker matching the given coordinates
+    if (e.metadata.lat === lat && e.metadata.lng === lng) {
+      marker.openPopup();
+    }
+
+    // Add a click event listener to the marker
+    marker.on("click", (event) => {
+      const markerId = event.target.options.id; // Retrieve the ID from the marker options
+      console.log("Clicked Marker ID:", markerId);
+      status.selected_marker = markerId;
+    });
   });
 
   map.on("zoomend", function () {
@@ -285,8 +333,10 @@ async function fetchGraphQL(query, variables) {
     body: JSON.stringify({ query, variables }),
   });
 
-  if (!response.ok)
-    side_toaster(`HTTP error! status: ${response.status}`, 4000);
+  if (!response.ok) {
+    console.error(`HTTP error! status: ${response.status}`);
+    return { errors: [{ message: `HTTP ${response.status}` }] };
+  }
 
   return await response.json();
 }
@@ -464,6 +514,7 @@ const operationsDoc = `
     }
   }
 `;
+
 async function fetchAreas(searchValue) {
   try {
     const { errors, data } = await fetchGraphQL(operationsDoc, {
@@ -478,6 +529,51 @@ async function fetchAreas(searchValue) {
   }
 }
 
+/*
+let operationsDocLocation = `
+  query MyQuery($lat: Float!, $lng: Float!) {
+    cragsNear(
+      maxDistance: 10000000
+      minDistance: 0
+      includeCrags: true
+      lnglat: { lat: $lat, lng: $lng }
+    ) {
+      count
+      crags {
+        areaName
+        totalClimbs
+        pathTokens
+        metadata {
+          lng
+          lat
+          isBoulder
+          leftRightIndex
+        }
+        uuid
+      }
+    }
+  }
+`;
+
+async function fetchAreasByLocation(lat, lng) {
+  try {
+    const { errors, data } = await fetchGraphQL(operationsDocLocation, {
+      lat: lat,
+      lng: lng,
+    });
+
+    if (errors) throw new Error(JSON.stringify(errors));
+
+    return { success: true, data };
+  } catch (error) {
+    console.error("Error:", error);
+    return { success: false, error: error.message };
+  }
+}
+*/
+// Test
+//fetchAreasByLocation(43, -79).then((result) => console.log(result));
+
 var root = document.getElementById("app");
 
 var options = {
@@ -491,7 +587,7 @@ var options = {
           top_bar("", "", "");
 
           if (status.notKaiOS)
-            top_bar("", "", "<img src='assets/icons/back.svg'>");
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
 
           bottom_bar(
             "",
@@ -503,16 +599,33 @@ var options = {
         },
       },
       [
+        ticks.length
+          ? m(
+              "button",
+              {
+                tabindex: 0,
+
+                class: "item",
+                oncreate: ({ dom }) => {
+                  dom.focus();
+
+                  scrollToCenter();
+                },
+                onclick: () => {
+                  m.route.set("/ticksView");
+                },
+              },
+              "TickLog"
+            )
+          : null,
         m(
           "button",
           {
-            tabindex: 0,
+            tabindex: 1,
 
             class: "item",
             oncreate: ({ dom }) => {
-              dom.focus();
-
-              scrollToCenter();
+              if (ticks.length == 0) dom.focus();
             },
             onclick: () => {
               m.route.set("/about");
@@ -523,7 +636,7 @@ var options = {
         m(
           "button",
           {
-            tabindex: 1,
+            tabindex: 2,
 
             class: "item",
             onclick: () => {
@@ -536,7 +649,7 @@ var options = {
         m(
           "button",
           {
-            tabindex: 2,
+            tabindex: 3,
 
             class: "item",
             onclick: () => {
@@ -558,17 +671,269 @@ var options = {
   },
 };
 
+let ticks = [];
+
+// Load ticks from localforage
+localforage
+  .getItem("ticks")
+  .then((value) => {
+    ticks = value || []; // Set to an empty array if `value` is null
+  })
+  .catch(() => {
+    ticks = [];
+  });
+
+let addTick = async (
+  routeId,
+  routeName,
+  routeType,
+  grade,
+  location,
+  style,
+  date,
+  source
+) => {
+  if (!ticks.length) {
+    ticks = (await localforage.getItem("ticks")) || [];
+  }
+
+  ticks.push({
+    id: uuidv4(16),
+    routeId: routeId,
+    routeName: routeName,
+    routeType: routeType,
+    grade: grade,
+    location: location,
+    style: style,
+    date: date,
+    source: source,
+  });
+
+  console.log(ticks);
+
+  // Save updated ticks to localforage
+  localforage.setItem("ticks", ticks).then((value) => {
+    show_success_animation();
+    setTimeout(() => {
+      history.back();
+    }, 200);
+  });
+};
+
+var tickView = {
+  view: function () {
+    return m(
+      "div",
+      {
+        id: "optionsView",
+        class: "flex page",
+        oncreate: () => {
+          top_bar("", "", "");
+
+          if (status.notKaiOS)
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
+
+          bottom_bar(
+            "",
+            "<img class='not-desktop' src='assets/icons/select.svg'>",
+            ""
+          );
+
+          if (status.notKaiOS) bottom_bar("", "", "");
+        },
+      },
+      [
+        m(
+          "button",
+          {
+            "data-tick-type": "onsight",
+            class: "item",
+            oncreate: ({ dom }) => {
+              dom.focus();
+              scrollToCenter();
+            },
+            onclick: () => {
+              console.log(current_article.metadata);
+              let location =
+                "lat:" +
+                current_article.metadata.lat +
+                "/lng:" +
+                current_article.metadata.lng;
+
+              let routetype = Object.entries(current_detail.type).find(
+                ([key, value]) => value
+              )?.[0];
+
+              let grade =
+                Object.entries(current_detail.grades).find(([key, value]) => {
+                  if (current_detail.type.bouldering) {
+                    return key === settings.grade.bouldering;
+                  } else {
+                    return key === settings.grade.climbing;
+                  }
+                })?.[1] ??
+                Object.values(current_detail.grades).find((value) => value);
+
+              addTick(
+                current_detail.uuid,
+                current_detail.name,
+                routetype,
+                grade,
+                location,
+                "onsight",
+                new Date(),
+                "openbeta.io"
+              );
+            },
+          },
+          "Onsight"
+        ),
+
+        m(
+          "button",
+          {
+            "data-tick-type": "toprope",
+            class: "item",
+            oncreate: () => {},
+            onclick: () => {
+              let location =
+                "lat:" +
+                current_article.metadata.lat +
+                "/lng:" +
+                current_article.metadata.lng;
+
+              let routetype = Object.entries(current_detail.type).find(
+                ([key, value]) => value
+              )?.[0];
+
+              let grade =
+                Object.entries(current_detail.grades).find(([key, value]) => {
+                  if (current_detail.type.bouldering) {
+                    return key === settings.grade.bouldering;
+                  } else {
+                    return key === settings.grade.climbing;
+                  }
+                })?.[1] ??
+                Object.values(current_detail.grades).find((value) => value);
+
+              addTick(
+                current_detail.uuid,
+                current_detail.name,
+                routetype,
+                grade,
+                location,
+                "redpoint",
+                new Date(),
+                "openbeta.io"
+              );
+            },
+          },
+          "Redpoint"
+        ),
+
+        m(
+          "button",
+          {
+            "data-tick-type": "flash",
+            class: "item",
+            oncreate: () => {},
+            onclick: () => {
+              let location =
+                "lat:" +
+                current_article.metadata.lat +
+                "/lng:" +
+                current_article.metadata.lng;
+
+              let routetype = Object.entries(current_detail.type).find(
+                ([key, value]) => value
+              )?.[0];
+
+              let grade =
+                Object.entries(current_detail.grades).find(([key, value]) => {
+                  if (current_detail.type.bouldering) {
+                    return key === settings.grade.bouldering;
+                  } else {
+                    return key === settings.grade.climbing;
+                  }
+                })?.[1] ??
+                Object.values(current_detail.grades).find((value) => value);
+
+              addTick(
+                current_detail.uuid,
+                current_detail.name,
+                routetype,
+                grade,
+                location,
+                "flash",
+                new Date(),
+                "openbeta.io"
+              );
+            },
+          },
+          "Flash"
+        ),
+
+        m(
+          "button",
+          {
+            "data-tick-type": "toprope",
+            class: "item",
+            oncreate: () => {
+              setTabindex();
+            },
+            onclick: () => {
+              let location =
+                "lat:" +
+                current_article.metadata.lat +
+                "/lng:" +
+                current_article.metadata.lng;
+
+              let routetype = Object.entries(current_detail.type).find(
+                ([key, value]) => value
+              )?.[0];
+
+              let grade =
+                Object.entries(current_detail.grades).find(([key, value]) => {
+                  if (current_detail.type.bouldering) {
+                    return key === settings.grade.bouldering;
+                  } else {
+                    return key === settings.grade.climbing;
+                  }
+                })?.[1] ??
+                Object.values(current_detail.grades).find((value) => value);
+
+              addTick(
+                current_detail.uuid,
+                current_detail.name,
+                routetype,
+                grade,
+                location,
+                "toprope",
+                new Date(),
+                "openbeta.io"
+              );
+            },
+          },
+          "TopRope"
+        ),
+      ]
+    );
+  },
+};
+
 let articles = [];
 let current_article;
 
 let searchTerm = "";
 let stats = "";
+let focused_article;
 localforage
   .getItem("stats")
   .then((e) => {
     stats = e;
   })
   .catch(() => {});
+
 const start = {
   async search() {
     document.querySelector(".loading-spinner-2").style.display = "block";
@@ -596,6 +961,8 @@ const start = {
   },
 
   oninit() {
+    focused_article = null;
+
     // Retrieve the `search` parameter from the URL
     const params = m.route.param("search");
     if (params) {
@@ -612,6 +979,7 @@ const start = {
       "div",
       {
         id: "start",
+        class: "page",
         oncreate: () => {},
 
         oninit: () => {
@@ -623,7 +991,12 @@ const start = {
           top_bar("", "", "");
         },
       },
-      m("div.loading-spinner-2", [m("div"), m("div"), m("div"), m("div")]),
+      m("div", { class: "loading-spinner-2" }, [
+        m("div"),
+        m("div"),
+        m("div"),
+        m("div"),
+      ]),
 
       m("input[type=text]", {
         id: "search-input",
@@ -665,8 +1038,14 @@ const start = {
                 {
                   class: "item",
                   tabIndex: i + 1,
-                  oncreate: () => {
+                  "data-lat": e.metadata.lat,
+                  "data-lng": e.metadata.lng,
+
+                  oncreate: (vnode) => {
                     document.querySelector("#start").classList.add("search-ok");
+                    if (status.selected_marker == e.uuid) {
+                      vnode.dom.focus();
+                    }
                   },
                   onclick: () => {
                     if (e.totalClimbs == 0) {
@@ -675,6 +1054,9 @@ const start = {
                       current_article = e.uuid;
                       m.route.set("/article?index=" + e.uuid);
                     }
+                  },
+                  onfocus: () => {
+                    focused_article = e;
                   },
 
                   onkeydown: (event) => {
@@ -721,6 +1103,10 @@ const start = {
   },
 };
 
+///////////////
+///CLIMBS/////
+/////////////
+
 function getAllNestedKeys(obj, key) {
   let results = [];
 
@@ -746,7 +1132,6 @@ const article = {
       if (index != h.uuid) return false;
 
       current_article = h;
-      console.log(current_article);
 
       return true;
     });
@@ -757,6 +1142,8 @@ const article = {
       "div",
       {
         id: "article",
+        class: "page",
+
         onremove: () => {
           setTimeout(() => {
             if (current_article != "") {
@@ -769,13 +1156,16 @@ const article = {
 
         oncreate: () => {
           if (status.notKaiOS)
-            top_bar("", "", "<img src='assets/icons/back.svg'>");
-          bottom_bar("<img src='assets/icons/map.svg'>", "", "");
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
+          bottom_bar(
+            "<img src='assets/icons/map.svg'>",
+            "",
+            "<img src='assets/icons/option.svg'>"
+          );
         },
       },
-      m("h1", "Climbs"),
+      m("h1", { class: "extra" }, "Climbs"),
       allClimbs.map((climb, i) => {
-        console.log(climb);
         return m(
           "article",
           {
@@ -835,10 +1225,15 @@ const article = {
               Object.entries(climb.grades)
                 .filter(([key, value]) => value !== null)
                 .map(([key, value]) => {
-                  return value != ""
+                  return value != null
                     ? m("span", { class: "tag" }, value)
                     : null;
                 }),
+
+              ticks
+                .filter((e) => e.routeId === climb.uuid)
+                .slice(0, 1)
+                .map((e) => m("span", { class: "tag tick" }, "tick")),
             ]),
 
             m("h2", climb.name),
@@ -850,10 +1245,9 @@ const article = {
 };
 
 let current_detail;
-
 var detail = {
   view: function () {
-    const matchedArticle = current_article.climbs.find((h) => {
+    current_article.climbs.find((h) => {
       var index = m.route.param("detail");
       if (index != h.uuid) return false;
 
@@ -866,18 +1260,20 @@ var detail = {
       "div",
       {
         id: "article",
+        class: "page",
+
         onremove: () => {
           scrollToTop();
         },
         oncreate: () => {
           if (status.notKaiOS)
-            top_bar("", "", "<img src='assets/icons/back.svg'>");
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
           bottom_bar("<img src='assets/icons/tick.svg'>", "", "");
           scrollToTop();
         },
       },
       m("div", { id: "detail", class: "item" }, [
-        m("h1", "Climb"),
+        m("h1", { class: "extra" }, "Climb"),
 
         m("ul", [
           m(
@@ -903,14 +1299,16 @@ var detail = {
 
           Object.entries(current_detail.type)
             .filter(([key, value]) => value !== null)
-            .map(([key, value]) =>
-              m(
-                "li",
-                { class: "tag" },
-                m.trust("<div>Type</div><span>" + key + "</span>")
-              )
-            ),
-          ,
+            .map(([key, value]) => {
+              return value === true
+                ? m(
+                    "li",
+                    { class: "tag" },
+                    m.trust("<div>Type</div><span>" + key + "</span>")
+                  )
+                : null;
+            }),
+
           Object.entries(current_detail.grades)
             .filter(([key, value]) => value !== null)
             .map(([key, value]) =>
@@ -929,6 +1327,38 @@ var detail = {
               )
             : null,
         ]),
+      ]),
+      ticks
+        ? m(
+            "div",
+            {
+              id: "my-tick-list-title",
+              oncreate: (vnode) => {
+                vnode.dom.style.opacity = "0";
+              },
+            },
+            "My Ticks"
+          )
+        : null,
+      m("ul", { id: "my-tick-list" }, [
+        ticks
+          .filter((e) => e.routeId === current_detail.uuid)
+          .map((e) => {
+            return m(
+              "li",
+              {
+                oncreate: () => {
+                  document.querySelector("#my-tick-list-title").style.opacity =
+                    "1";
+                },
+                class: "flex justify-content-spacebetween ",
+              },
+              [
+                m("span", e.style),
+                m("span", dayjs(e.date).format("DD/MM/YYYY")),
+              ]
+            );
+          }),
       ])
     );
   },
@@ -940,24 +1370,32 @@ let mapView = {
       id: "map-container",
 
       oncreate: (vnode) => {
-        bottom_bar(
-          "<img src='assets/icons/plus.svg'>",
-          "<img src='assets/icons/location.svg'>",
-          "<img src='assets/icons/minus.svg'>"
-        );
+        bottom_bar("", "", "");
+
+        if (!status.notKaiOS)
+          bottom_bar(
+            "<img src='assets/icons/plus.svg'>",
+            "",
+            "<img src='assets/icons/minus.svg'>"
+          );
 
         const params = new URLSearchParams(m.route.get().split("?")[1]);
         const lat = parseFloat(params.get("lat"));
         const lng = parseFloat(params.get("lng"));
+        const id = parseFloat(params.get("uuid"));
 
-        map_function(lat, lng);
+        map_function(lat, lng, id);
 
         if (status.notKaiOS)
-          top_bar("", "", "<img src='assets/icons/back.svg'>");
+          top_bar("<img src='assets/icons/back.svg'>", "", "");
       },
     });
   },
 };
+
+///////////////
+///INTRO//////
+/////////////
 
 var intro = {
   view: function () {
@@ -1021,9 +1459,66 @@ var intro = {
   },
 };
 
+//////////////
+////TICKS////
+////////////
+
+var ticksView = {
+  view: function () {
+    return m(
+      "div",
+      {
+        class: "page",
+        id: "ticks-view",
+        oninit: () => {},
+        onremove: () => {},
+      },
+      [
+        m("h1", { class: "extra" }, "Ticks"),
+        m("div", [
+          ticks.map((e) => {
+            return m(
+              "article",
+              {
+                class: "item",
+                oncreate: () => {
+                  bottom_bar("<img src='assets/icons/save.svg'>", "", "");
+                },
+              },
+              [
+                m("div", { class: "tags" }, [
+                  m("span", { class: "tag" }, e.style),
+                  m("span", { class: "tag" }, e.routeType),
+                  m("span", { class: "tag" }, e.grade),
+                ]),
+                m("div", { class: "flex justify-content-spacebetween" }, [
+                  m("span", { class: "name" }, e.routeName),
+                  m(
+                    "span",
+                    { class: "date" },
+                    dayjs(e.date).format("DD.MM.YYYY")
+                  ),
+                ]),
+              ]
+            );
+          }),
+        ]),
+      ]
+    );
+  },
+};
+
 var about = {
   view: function () {
-    return m("div", { class: "page" }, [m("li", "Version: " + status.version)]);
+    return m("div", { class: "page" }, [
+      m(
+        "div",
+        m.trust(
+          "<strong>PicTick</strong> is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database. <br><br>"
+        ),
+        m("li", "Version: " + status.version)
+      ),
+    ]);
   },
 };
 
@@ -1119,15 +1614,125 @@ var privacy_policy = {
 
 var settingsView = {
   view: function () {
-    return m("div", {
-      class: "flex justify-content-center page",
-      id: "settings-page",
-      oncreate: () => {
-        if (status.notKaiOS)
-          top_bar("", "", "<img src='assets/icons/back.svg'>");
-        if (status.notKaiOS) bottom_bar("", "", "");
+    return m(
+      "div",
+      {
+        class: "page",
+        id: "settings-page",
+        oncreate: () => {
+          if (status.notKaiOS)
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
+          if (status.notKaiOS) bottom_bar("", "", "");
+        },
       },
-    });
+      [
+        m("div", "Set your default grade type"),
+        m("h2", { class: "" }, "Climbing"),
+        m(
+          "div",
+          { class: "radio-group" },
+          ["french", "yds", "uuia"].map((grade) =>
+            m(
+              "div",
+              {
+                class: "radio-item flex justify-content-spacearoun",
+              },
+              [
+                m("input", {
+                  type: "radio",
+                  name: "climbing-grade",
+                  id: `climbing-${grade}`,
+                  value: grade,
+                  checked: settings.grade.climbing === grade,
+                  onchange: () => {
+                    settings.grade.climbing = grade;
+                    m.redraw();
+                  },
+                }),
+                m(
+                  "label",
+                  {
+                    class: "item",
+                    for: `climbing-${grade}`, // Associate label with input
+                    tabindex: 0, // Make label focusable
+                    onkeydown: (e) => {
+                      if (e.key === "Enter") {
+                        document.getElementById(`climbing-${grade}`).click();
+                      }
+                    },
+                  },
+                  grade
+                ),
+              ]
+            )
+          )
+        ),
+
+        m("h2", { class: "" }, "Bouldering"),
+
+        m(
+          "div",
+          { class: "radio-group" },
+          ["fb", "vscale"].map((grade) =>
+            m(
+              "div",
+              {
+                class: "radio-item flex justify-content-spacearoun",
+              },
+              [
+                m("input", {
+                  type: "radio",
+                  name: "bouldering-grade",
+                  id: `bouldering-${grade}`,
+                  value: grade,
+                  checked: settings.grade.bouldering === grade,
+                  onchange: () => {
+                    settings.grade.bouldering = grade;
+                    m.redraw();
+                  },
+                }),
+                m(
+                  "label",
+                  {
+                    class: "item",
+                    for: `bouldering-${grade}`, // Associate label with input
+                    tabindex: 0, // Make label focusable
+                    onkeydown: (e) => {
+                      if (e.key === "Enter") {
+                        document.getElementById(`bouldering-${grade}`).click();
+                      }
+                    },
+                  },
+                  grade // Capitalize the label
+                ),
+              ]
+            )
+          )
+        ),
+
+        m(
+          "button",
+          {
+            class: "item button-save-settings",
+            tabindex: 5,
+            oncreate: () => {
+              setTabindex();
+            },
+            onkeydown: (e) => {
+              if (e.key === "Enter") {
+                e.target.click();
+              }
+            },
+            onclick: () => {
+              localforage.setItem("settings", settings).then(() => {
+                side_toaster("settings saved", 4000);
+              });
+            },
+          },
+          "Save"
+        ),
+      ]
+    );
   },
 };
 
@@ -1141,6 +1746,8 @@ m.route(root, "/intro", {
   "/options": options,
   "/about": about,
   "/privacy_policy": privacy_policy,
+  "/tickView": tickView,
+  "/ticksView": ticksView,
 });
 
 function scrollToCenter() {
@@ -1225,8 +1832,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     items = document.getElementById("app").querySelectorAll(".item");
 
-    console.log(items);
-
     if (document.activeElement.parentNode.classList.contains("input-parent")) {
       document.activeElement.parentNode.focus();
       return true;
@@ -1246,47 +1851,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     scrollToCenter();
   };
-
-  //detect swiping to fire animation
-
-  let swiper = () => {
-    let startX = 0;
-    let maxSwipeDistance = 300; // Maximum swipe distance for full fade-out
-
-    document.addEventListener(
-      "touchstart",
-      function (e) {
-        startX = e.touches[0].pageX;
-        document.querySelector("body").style.opacity = 1; // Start with full opacity
-      },
-      false
-    );
-
-    document.addEventListener(
-      "touchmove",
-      function (e) {
-        let diffX = Math.abs(e.touches[0].pageX - startX);
-
-        // Calculate the inverted opacity based on swipe distance
-        let opacity = 1 - Math.min(diffX / maxSwipeDistance, 1);
-
-        // Apply opacity to the body (or any other element)
-        document.querySelector("body").style.opacity = opacity;
-      },
-      false
-    );
-
-    document.addEventListener(
-      "touchend",
-      function (e) {
-        // Reset opacity to 1 when the swipe ends
-        document.querySelector("body").style.opacity = 1;
-      },
-      false
-    );
-  };
-
-  swiper();
 
   // Add click listeners to simulate key events
   document
@@ -1310,7 +1874,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   //top bar
 
   document
-    .querySelector("#top-bar div div.button-right")
+    .querySelector("#top-bar div div.button-left")
     .addEventListener("click", function (event) {
       simulateKeyPress("Backspace");
     });
@@ -1353,31 +1917,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
       setTimeout(() => {
         isKeyUpHandled = false;
       }, 300); // Optional timeout to reset the flag after a short delay
-    }
-  });
-
-  document.addEventListener("swiped", function (e) {
-    let r = m.route.get();
-
-    let dir = e.detail.dir;
-
-    if (dir == "down") {
-      if (window.scrollY === 0 || document.documentElement.scrollTop === 0) {
-        // Page is at the top
-        const swipeDistance = e.detail.yEnd - e.detail.yStart;
-
-        if (swipeDistance > 300) {
-          // reload_data();
-        }
-      }
-    }
-    if (dir == "right") {
-      if (r.startsWith("/start")) {
-      }
-    }
-    if (dir == "left") {
-      if (r.startsWith("/start")) {
-      }
     }
   });
 
@@ -1427,23 +1966,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
         break;
       case "ArrowUp":
-        nav(-1);
         if (r.startsWith("/mapView")) {
           MoveMap("up");
+        } else {
+          nav(-1);
         }
 
         break;
       case "ArrowDown":
         if (r.startsWith("/mapView")) {
           MoveMap("down");
+        } else {
+          nav(+1);
         }
-        nav(+1);
 
         break;
 
       case "SoftRight":
       case "Alt":
         if (r.startsWith("/start")) {
+          m.route.set("/options");
+        }
+
+        if (r.startsWith("/article")) {
           m.route.set("/options");
         }
 
@@ -1459,17 +2004,37 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/start")) {
-          m.route.set("/mapView", {
-            lat: articles[0].metadata.lat,
-            lng: articles[0].metadata.lng,
-          });
+          console.log(current_article);
+          if (articles.length == 0) return false;
+          if (focused_article != null) {
+            m.route.set("/mapView", {
+              lat: current_article.metadata.lat,
+              lng: current_article.metadata.lng,
+              uuid: current_article.uuid,
+            });
+          } else {
+            m.route.set("/mapView", {
+              lat: current_article.metadata.lat,
+              lng: current_article.metadata.lng,
+              uuid: current_article.uuid,
+            });
+          }
         }
 
         if (r.startsWith("/article")) {
           m.route.set("/mapView", {
             lat: current_article.metadata.lat,
             lng: current_article.metadata.lng,
+            uuid: current_article.uuid,
           });
+        }
+
+        if (r.startsWith("/detail")) {
+          m.route.set("/tickView");
+        }
+
+        if (r.startsWith("/ticksView")) {
+          jsonToCsvExport({ data: ticks });
         }
 
         break;
@@ -1478,6 +2043,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (document.activeElement.classList.contains("input-parent")) {
           document.activeElement.children[0].focus();
         }
+
         break;
 
       case "#":
@@ -1509,6 +2075,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/privacy_policy")) {
+          history.back();
+        }
+
+        if (r.startsWith("/tickView")) {
+          history.back();
+        }
+
+        if (r.startsWith("/ticksView")) {
           history.back();
         }
 
