@@ -18,10 +18,6 @@ import jsonToCsvExport from "json-to-csv-export";
 
 const sw_channel = new BroadcastChannel("sw-messages");
 
-const worker = new Worker(new URL("./worker.js", import.meta.url), {
-  type: "module",
-});
-
 export let status = {
   debug: false,
   version: "",
@@ -85,8 +81,11 @@ const show_success_animation = () => {
   }, 4000);
 };
 
-if ("b2g" in navigator || "navigator.mozApps" in navigator)
+const userAgent = navigator.userAgent || "";
+
+if (userAgent && userAgent.includes("KAIOS")) {
   status.notKaiOS = false;
+}
 
 if (!status.notKaiOS) {
   const scripts = [
@@ -603,8 +602,6 @@ var options = {
           ? m(
               "button",
               {
-                tabindex: 0,
-
                 class: "item",
                 oncreate: ({ dom }) => {
                   dom.focus();
@@ -621,8 +618,6 @@ var options = {
         m(
           "button",
           {
-            tabindex: 1,
-
             class: "item",
             oncreate: ({ dom }) => {
               if (ticks.length == 0) dom.focus();
@@ -636,8 +631,6 @@ var options = {
         m(
           "button",
           {
-            tabindex: 2,
-
             class: "item",
             onclick: () => {
               m.route.set("/settingsView");
@@ -649,18 +642,18 @@ var options = {
         m(
           "button",
           {
-            tabindex: 3,
-
             class: "item",
             onclick: () => {
               m.route.set("/privacy_policy");
+            },
+            oncreate: () => {
+              setTabindex();
             },
           },
           "Privacy Policy"
         ),
         m("div", {
           id: "KaiOSads-Wrapper",
-          class: "",
 
           oncreate: () => {
             if (status.notKaiOS == false) load_ads();
@@ -1107,6 +1100,12 @@ const start = {
 ///CLIMBS/////
 /////////////
 
+function flattenArray(arr) {
+  return arr.reduce((acc, val) => {
+    return acc.concat(Array.isArray(val) ? flattenArray(val) : val);
+  }, []);
+}
+
 function getAllNestedKeys(obj, key) {
   let results = [];
 
@@ -1122,7 +1121,7 @@ function getAllNestedKeys(obj, key) {
   }
 
   search(obj);
-  return results.flat(); // Flatten in case each 'climbs' is an array
+  return flattenArray(results); // Use the custom flatten function
 }
 
 const article = {
@@ -1260,35 +1259,46 @@ var detail = {
       "div",
       {
         id: "article",
-        class: "page",
+        class: "page scroll",
+        tabIndex: 0,
 
         onremove: () => {
           scrollToTop();
         },
-        oncreate: () => {
+        oncreate: (vnode) => {
+          setTimeout(() => {
+            setTabindex();
+          }, 500);
+          vnode.dom.focus();
           if (status.notKaiOS)
             top_bar("<img src='assets/icons/back.svg'>", "", "");
+
           bottom_bar("<img src='assets/icons/tick.svg'>", "", "");
           scrollToTop();
         },
       },
-      m("div", { id: "detail", class: "item" }, [
+      m("div", { id: "detail", class: "" }, [
         m("h1", { class: "extra" }, "Climb"),
 
         m("ul", [
           m(
             "li",
+            { class: "" },
             m.trust(
               "<div>Area</div><span>" + current_article.areaName + "</span>"
             )
           ),
           m(
             "li",
+            { class: "" },
+
             m.trust("<div>Name</div><span>" + current_detail.name + "</span>")
           ),
           current_detail.fa
             ? m(
                 "li",
+                { class: "" },
+
                 m.trust(
                   "<div>First ascent</div><span>" +
                     current_detail.fa +
@@ -1321,6 +1331,8 @@ var detail = {
           current_detail.length > 0
             ? m(
                 "li",
+                { class: "" },
+
                 m.trust(
                   "<div>Type</div><span>" + current_detail.length + "</span>"
                 )
@@ -1351,10 +1363,10 @@ var detail = {
                   document.querySelector("#my-tick-list-title").style.opacity =
                     "1";
                 },
-                class: "flex justify-content-spacebetween ",
+                class: "flex justify-content-spacebetween",
               },
               [
-                m("span", e.style),
+                m("span", { class: "" }, e.style),
                 m("span", dayjs(e.date).format("DD/MM/YYYY")),
               ]
             );
@@ -1510,105 +1522,134 @@ var ticksView = {
 
 var about = {
   view: function () {
-    return m("div", { class: "page" }, [
-      m(
-        "div",
-        m.trust(
-          "<strong>PicTick</strong> is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database. <br><br>"
+    return m(
+      "div",
+      {
+        class: "scoll page",
+        tabindex: 0,
+        oncreate: (vnode) => {
+          vnode.dom.focus();
+        },
+      },
+      [
+        m(
+          "div",
+          m.trust(
+            "<strong>PicTick</strong> is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database. <br><br>"
+          ),
+          m("li", "Version: " + status.version)
         ),
-        m("li", "Version: " + status.version)
-      ),
-    ]);
+      ]
+    );
   },
 };
 
 var privacy_policy = {
   view: function () {
-    return m("div", { id: "privacy_policy", class: "page" }, [
-      m("h1", "Privacy Policy for PicTick"),
-      m(
-        "p",
-        "PicTick is committed to protecting your privacy. This policy explains how data is handled within the app."
-      ),
-
-      m("h2", "Data Collection and Storage"),
-      m(
-        "p",
-        "PicTick does not collect, store, or transmit any personal data to external servers beyond what is necessary for core app functionality. All climbing data related to areas, crags, and climbs is fetched directly from openBeta.io and stored temporarily on your device for your convenience."
-      ),
-
-      m("h2", "User Authentication and Data Access"),
-      m("p", [
-        "PicTick provides an option for users to connect their openBeta.io accounts through Auth0 authentication. By connecting your account, you allow PicTick to access specific personal data, including your profile information and your list of ticked climbs, directly from openBeta.io. This data is only used within the app to enhance your experience, such as by displaying your personal climbing records and preferences.",
-      ]),
-      m("p", [
-        "No user data accessed from openBeta.io is stored on external servers or shared with third parties. This data remains temporarily stored on your device for the duration of your session.",
-      ]),
-
-      m("h2", "Third-Party Services"),
-      m("p", [
-        "PicTick uses data from ",
+    return m(
+      "div",
+      {
+        id: "privacy_policy",
+        class: "page scroll",
+        tabindex: "0",
+        oncreate: (vnode) => {
+          vnode.dom.focus();
+        },
+      },
+      [
         m(
-          "a",
+          "h1",
           {
-            href: "https://openbeta.io/",
-            target: "_blank",
-            rel: "noopener noreferrer",
+            oncreate: (vnode) => {
+              vnode.dom.focus();
+            },
           },
-          "openBeta.io"
+          "Privacy Policy for PicTick"
         ),
-        " for climbing information. The app also uses Auth0 for secure user authentication. For more details on how these services handle user data, please refer to the ",
         m(
-          "a",
-          {
-            href: "https://auth0.com/privacy",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          "Auth0 Privacy Policy"
+          "p",
+          "PicTick is committed to protecting your privacy. This policy explains how data is handled within the app."
         ),
-        " and the openBeta.io privacy policy.",
-      ]),
 
-      m("h2", "KaiOS Users"),
-      m("p", [
-        "If you are using PicTick on a KaiOS device, the app uses ",
-        m("strong", "KaiOS Ads"),
-        ", which may collect data related to your usage. The data collected by KaiOS Ads is subject to the ",
+        m("h2", "Data Collection and Storage"),
         m(
-          "a",
-          {
-            href: "https://www.kaiostech.com/privacy-policy/",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          "KaiOS privacy policy"
+          "p",
+          "PicTick does not collect, store, or transmit any personal data to external servers beyond what is necessary for core app functionality. All climbing data related to areas, crags, and climbs is fetched directly from openBeta.io and stored temporarily on your device for your convenience."
         ),
-        ".",
-      ]),
-      m("p", [
-        "For users on all other platforms, ",
-        m("strong", "no ads"),
-        " are displayed, and no external data collection occurs.",
-      ]),
 
-      m("h2", "User Rights"),
-      m(
-        "p",
-        "As a user, you have the right to access, manage, and delete any data that the app may temporarily store on your device. If you connect to openBeta.io, you can manage or revoke access to PicTick through your openBeta.io account settings."
-      ),
+        m("h2", "User Authentication and Data Access"),
+        m("p", [
+          "PicTick provides an option for users to connect their openBeta.io accounts through Auth0 authentication. By connecting your account, you allow PicTick to access specific personal data, including your profile information and your list of ticked climbs, directly from openBeta.io. This data is only used within the app to enhance your experience, such as by displaying your personal climbing records and preferences.",
+        ]),
+        m("p", [
+          "No user data accessed from openBeta.io is stored on external servers or shared with third parties. This data remains temporarily stored on your device for the duration of your session.",
+        ]),
 
-      m("h2", "Policy Updates"),
-      m(
-        "p",
-        "This Privacy Policy may be updated periodically. Any changes will be communicated through updates to the app."
-      ),
+        m("h2", "Third-Party Services"),
+        m("p", [
+          "PicTick uses data from ",
+          m(
+            "a",
+            {
+              href: "https://openbeta.io/",
+              target: "_blank",
+              rel: "noopener noreferrer",
+            },
+            "openBeta.io"
+          ),
+          " for climbing information. The app also uses Auth0 for secure user authentication. For more details on how these services handle user data, please refer to the ",
+          m(
+            "a",
+            {
+              href: "https://auth0.com/privacy",
+              target: "_blank",
+              rel: "noopener noreferrer",
+            },
+            "Auth0 Privacy Policy"
+          ),
+          " and the openBeta.io privacy policy.",
+        ]),
 
-      m(
-        "p",
-        "By using PicTick, you acknowledge and agree to this Privacy Policy."
-      ),
-    ]);
+        m("h2", "KaiOS Users"),
+        m("p", [
+          "If you are using PicTick on a KaiOS device, the app uses ",
+          m("strong", "KaiOS Ads"),
+          ", which may collect data related to your usage. The data collected by KaiOS Ads is subject to the ",
+          m(
+            "a",
+            {
+              href: "https://www.kaiostech.com/privacy-policy/",
+              target: "_blank",
+              rel: "noopener noreferrer",
+            },
+            "KaiOS privacy policy"
+          ),
+          ".",
+        ]),
+        m("p", [
+          "For users on all other platforms, ",
+          m("strong", "no ads"),
+          " are displayed, and no external data collection occurs.",
+        ]),
+
+        m("h2", "User Rights"),
+        m(
+          "p",
+          "As a user, you have the right to access, manage, and delete any data that the app may temporarily store on your device. If you connect to openBeta.io, you can manage or revoke access to PicTick through your openBeta.io account settings."
+        ),
+
+        m("h2", "Policy Updates"),
+        m(
+          "p",
+          "This Privacy Policy may be updated periodically. Any changes will be communicated through updates to the app."
+        ),
+
+        m(
+          "p",
+          "By using PicTick, you acknowledge and agree to this Privacy Policy."
+        ),
+      ]
+    );
   },
 };
 
@@ -1617,7 +1658,7 @@ var settingsView = {
     return m(
       "div",
       {
-        class: "page",
+        class: "page flex ",
         id: "settings-page",
         oncreate: () => {
           if (status.notKaiOS)
@@ -1627,94 +1668,65 @@ var settingsView = {
       },
       [
         m("div", "Set your default grade type"),
-        m("h2", { class: "" }, "Climbing"),
+
+        m("h2", {}, "Climbing"),
         m(
           "div",
-          { class: "radio-group" },
-          ["french", "yds", "uuia"].map((grade) =>
+          {
+            class: "item input-parent",
+            oncreate: (vnode) => {
+              vnode.dom.focus();
+            },
+          },
+          [
+            m("label", { for: "climbing-grade" }, ""),
             m(
-              "div",
+              "select",
               {
-                class: "radio-item flex justify-content-spacearoun",
+                name: "climbing-grade",
+                class: "select-box",
+                id: "climbing-grade",
+                value: settings.grade.climbing,
+                onchange: (e) => {
+                  settings.grade.climbing = e.target.value;
+                  m.redraw();
+                },
               },
               [
-                m("input", {
-                  type: "radio",
-                  name: "climbing-grade",
-                  id: `climbing-${grade}`,
-                  value: grade,
-                  checked: settings.grade.climbing === grade,
-                  onchange: () => {
-                    settings.grade.climbing = grade;
-                    m.redraw();
-                  },
-                }),
-                m(
-                  "label",
-                  {
-                    class: "item",
-                    for: `climbing-${grade}`, // Associate label with input
-                    tabindex: 0, // Make label focusable
-                    onkeydown: (e) => {
-                      if (e.key === "Enter") {
-                        document.getElementById(`climbing-${grade}`).click();
-                      }
-                    },
-                  },
-                  grade
-                ),
+                m("option", { value: "french" }, "French"),
+                m("option", { value: "yds" }, "YDS"),
+                m("option", { value: "uuia" }, "UIAA"),
               ]
-            )
-          )
+            ),
+          ]
         ),
 
-        m("h2", { class: "" }, "Bouldering"),
-
-        m(
-          "div",
-          { class: "radio-group" },
-          ["fb", "vscale"].map((grade) =>
-            m(
-              "div",
-              {
-                class: "radio-item flex justify-content-spacearoun",
+        m("h2", {}, "Bouldering"),
+        m("div", { class: "item input-parent" }, [
+          m("label", { for: "bouldering-grade" }, ""),
+          m(
+            "select",
+            {
+              name: "bouldering-grade",
+              class: "select-box",
+              id: "bouldering-grade",
+              value: settings.grade.bouldering,
+              onchange: (e) => {
+                settings.grade.bouldering = e.target.value;
+                m.redraw();
               },
-              [
-                m("input", {
-                  type: "radio",
-                  name: "bouldering-grade",
-                  id: `bouldering-${grade}`,
-                  value: grade,
-                  checked: settings.grade.bouldering === grade,
-                  onchange: () => {
-                    settings.grade.bouldering = grade;
-                    m.redraw();
-                  },
-                }),
-                m(
-                  "label",
-                  {
-                    class: "item",
-                    for: `bouldering-${grade}`, // Associate label with input
-                    tabindex: 0, // Make label focusable
-                    onkeydown: (e) => {
-                      if (e.key === "Enter") {
-                        document.getElementById(`bouldering-${grade}`).click();
-                      }
-                    },
-                  },
-                  grade // Capitalize the label
-                ),
-              ]
-            )
-          )
-        ),
+            },
+            [
+              m("option", { value: "fb" }, "Fontainebleau (FB)"),
+              m("option", { value: "vscale" }, "V-Scale"),
+            ]
+          ),
+        ]),
 
         m(
           "button",
           {
             class: "item button-save-settings",
-            tabindex: 5,
             oncreate: () => {
               setTabindex();
             },
@@ -1813,21 +1825,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
       document.activeElement.nodeName == "SELECT" ||
       document.activeElement.type == "date" ||
       document.activeElement.type == "time" ||
-      status.window_status == "volume"
+      document.activeElement.classList.contains("scroll")
     )
       return false;
 
-    if (document.activeElement.classList.contains("scroll")) {
-      const scrollableElement = document.querySelector(".scroll");
-      if (move == 1) {
-        scrollableElement.scrollBy({ left: 0, top: 10 });
-      } else {
-        scrollableElement.scrollBy({ left: 0, top: -10 });
-      }
-    }
-
     const currentIndex = document.activeElement.tabIndex;
+
     let next = currentIndex + move;
+
     let items = 0;
 
     items = document.getElementById("app").querySelectorAll(".item");
@@ -2146,6 +2151,15 @@ window.addEventListener("online", () => {
 window.addEventListener("offline", () => {
   status.deviceOnline = false;
 });
+
+//worker sleep mode
+try {
+  const worker = new Worker(new URL("./worker.js", import.meta.url), {
+    type: "module",
+  });
+} catch (e) {
+  console.log(e);
+}
 
 //webActivity KaiOS 3
 
