@@ -7,10 +7,25 @@
   "short_name": "Pictick",
   "categories": ["Sport"],
   "display": "standalone",
-  "theme_color": "#ffffff",
+  "theme_color": "#000000",
   "userAgentInfo": "Pictick written by strukturart@gmail.com",
 
   "icons": [
+    {
+      "src": "assets/icons/icon-16-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "assets/icons/icon-32-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "assets/icons/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16 32x32"
+    },
     {
       "src": "assets/icons/icon-56-56.png",
       "type": "image/png",
@@ -20,23 +35,6 @@
       "src": "assets/icons/icon-112-112.png",
       "type": "image/png",
       "sizes": "112x112"
-    },
-
-    {
-      "src": "assets/icons/icon-16-16.png",
-      "type": "image/png",
-      "sizes": "16x16"
-    },
-    {
-      "src": "assets/icons/icon-32-32.png",
-      "typew": "image/png",
-      "sizes": "32x32"
-    },
-
-    {
-      "src": "assets/icons/favicon.ico",
-      "type": "image/x-icon",
-      "sizes": "16x16 32x32"
     },
     {
       "src": "assets/icons/icon-144-144.png",
@@ -56,7 +54,7 @@
   ],
 
   "b2g_features": {
-    "version": "1.62",
+    "version": "1.64",
     "id": "PicTick",
     "subtitle": "PicTick",
     "core": true,

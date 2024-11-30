@@ -1,71 +1,2776 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   height="35.971043"
-   width="41.081963"
+   height="61.133114"
+   width="52.141792"
    id="svg14"
    xml:space="preserve"
    enable-background="new 0 0 1000 1000"
-   viewBox="0 0 41.081963 35.971043"
+   viewBox="0 0 52.141792 61.133114"
    y="0px"
    x="0px"
    version="1.1"
-   sodipodi:docname="icon.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   inkscape:export-filename="/home/strukturart/Desktop/Pages/OpenBeta-woodpecker/application/assets/icons/icon-144-144.png"
-   inkscape:export-xdpi="246.85715"
-   inkscape:export-ydpi="246.85715"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"><g
-   id="g825"
-   transform="matrix(0.95856497,0,0,0.95856497,-6.1325815,-8.8865324)"><text
-     xml:space="preserve"
-     style="font-size:13.9096px;line-height:26.0807px;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:none;stroke:#000000;stroke-width:1.04323px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="8.6879206"
-     y="-69.374306"
-     id="text2162"><tspan
-       id="tspan2160"
-       x="8.6879206"
-       y="-69.374306"
-       style="stroke-width:1.04323px" /></text><g
-     id="layer1"
-     transform="matrix(1.0432261,0,0,1.0432261,-0.01477811,-21.615105)" /><path
-     d="m 47.933812,17.77734 c -0.0082,-0.02609 -1.203231,-3.096948 -1.381059,-3.54458 -0.617619,-1.555425 -2.432433,-2.108005 -2.880071,-2.308406 -0.557803,-0.255912 -1.078287,-0.410329 -2.056823,-0.624601 a 40.947504,40.947504 0 0 0 -5.326425,-0.798099 c 0,0 -4.902208,-0.464959 -11.338157,0.06846 a 6.2286118,6.2286118 0 0 0 -2.382133,0.651499 c -1.936251,0.999352 -2.59729,2.834968 -2.845377,3.522898 -0.603778,1.676856 -0.411211,3.529826 0.177828,5.712447 0.07462,0.295814 0.02345,0.604644 -0.144005,0.87184 a 1.4339673,1.4339673 0 0 1 -0.7686,0.582957 c -0.329649,0.110181 -0.693124,0.115378 -1.026246,0.01566 a 1.4556561,1.4556561 0 0 1 -0.79202,-0.560376 c -0.327926,-0.49881 -0.839739,-0.891793 -1.454789,-1.1156 a 3.4960032,3.4960032 0 0 0 -1.945794,-0.12145 c -0.647157,0.144005 -1.21969,0.468437 -1.629152,0.920423 -0.409458,0.453687 -0.633274,1.009755 -0.635,1.583167 -0.0016,0.572546 0.21687,1.13034 0.622858,1.585778 0.405982,0.455447 0.975924,0.782486 1.622198,0.930812 0.644564,0.148359 1.32901,0.109323 1.945803,-0.111036 0.616793,-0.220333 1.132077,-0.609845 1.463465,-1.10692 a 1.4053416,1.4053416 0 0 1 0.544789,-0.475383 c 0.228143,-0.11451 0.485791,-0.176109 0.749513,-0.176974 h 0.314027 c 0.583827,0 1.152044,0.160489 1.619621,0.459775 0.468443,0.298418 0.81111,0.718294 0.978528,1.197138 0.252446,0.721766 0.516167,1.47474 0.782481,2.264159 0.0607,0.183909 0.170028,0.50489 0.319236,0.939513 a 0.82932498,0.82932498 0 0 1 -0.06497,0.689653 c -0.12146,0.214269 -0.332253,0.381685 -0.59164,0.469304 -0.258514,0.08765 -0.546518,0.08848 -0.806766,0.0019 -0.258522,-0.08601 -0.471074,-0.252557 -0.594236,-0.466832 A 2.7976699,2.7976699 0 0 0 19.27706,27.77682 3.4144592,3.4144592 0 0 0 17.6609,27.398585 3.3962437,3.3962437 0 0 0 16.057774,27.814988 c -0.477114,0.26546 -0.858821,0.641941 -1.099108,1.084359 a 0.88137446,0.88137446 0 0 1 -0.357417,0.34093 1.0791628,1.0791628 0 0 1 -0.514424,0.123176 1.1043207,1.1043207 0 0 1 -0.523973,-0.132718 0.89959197,0.89959197 0 0 1 -0.360004,-0.351346 C 12.907006,28.346868 12.407327,27.916585 11.788806,27.658941 A 3.4864602,3.4864602 0 0 0 9.7944241,27.464665 c -0.6705726,0.131861 -1.2691392,0.455433 -1.6968162,0.917808 -0.4285449,0.462377 -0.6592967,1.034929 -0.6566909,1.62482 0.0023,0.589892 0.2402925,1.162444 0.6731755,1.622212 0.4320157,0.458913 1.0340508,0.777284 1.7063655,0.903935 0.672304,0.126648 1.374103,0.05286 1.991762,-0.208194 0.615925,-0.261989 1.110393,-0.696601 1.40187,-1.231848 0.08068,-0.138807 0.205597,-0.255911 0.359141,-0.338327 0.154408,-0.08154 0.332251,-0.124919 0.513562,-0.124919 0.182174,0 0.359144,0.04341 0.513561,0.124919 0.154412,0.08237 0.27847,0.19952 0.359135,0.338327 0.240295,0.443295 0.622,0.818909 1.099983,1.084366 a 3.3962437,3.3962437 0 0 0 1.603132,0.416392 3.4179303,3.4179303 0 0 0 1.615271,-0.378218 2.798534,2.798534 0 0 0 1.134681,-1.056612 c 0.09191,-0.15875 0.234234,-0.291479 0.409467,-0.385162 a 1.2578679,1.2578679 0 0 1 0.582959,-0.144012 h 0.670573 c 0.369546,0 0.730411,0.100649 1.02884,0.288012 0.299278,0.187377 0.520495,0.451095 0.633278,0.753858 a 154.58755,154.58755 0 0 0 1.613534,4.139656 0.52049718,0.52049718 0 0 1 0.03117,0.28193 0.55519682,0.55519682 0 0 1 -0.12144,0.263719 0.67924817,0.67924817 0 0 1 -0.24985,0.185645 0.79549261,0.79549261 0 0 1 -0.708734,-0.03462 0.63240324,0.63240324 0 0 1 -0.25764,-0.269797 c -0.268898,-0.555208 -0.754695,-1.012375 -1.372356,-1.29518 a 3.4751831,3.4751831 0 0 0 -2.017778,-0.255046 c -0.687062,0.117979 -1.305583,0.436347 -1.748867,0.901325 -0.444164,0.464107 -0.687061,1.046199 -0.687061,1.647375 0,0.600304 0.242897,1.183262 0.687061,1.648235 0.443284,0.464117 1.061805,0.782468 1.748867,0.899603 a 3.4760519,3.4760519 0 0 0 2.017786,-0.255065 c 0.618527,-0.281926 1.10346,-0.739965 1.372382,-1.29429 a 0.62459674,0.62459674 0 0 1 0.256773,-0.261131 0.77467307,0.77467307 0 0 1 0.381697,-0.09631 h 0.318367 c 0.354819,0 0.700077,0.09279 0.991553,0.265461 0.291481,0.173497 0.514418,0.418134 0.638474,0.702663 a 97.59315,97.59315 0 0 0 1.408808,3.065792 c 0.454588,0.942103 1.347217,2.712652 3.369349,3.473427 1.822605,0.687084 3.727633,0.25677 4.719184,-0.04504 2.628503,-1.047925 4.116256,-2.179135 6.88097,-3.737155 a 11.755407,11.755407 0 0 0 2.476715,-1.747111 c 0.446731,-0.415537 1.425258,-1.365446 1.685523,-2.868819 A 4.3947322,4.3947322 0 0 0 47.018612,34.88796 l 0.04077,-0.02255 c 0.260228,-0.150081 0.43982,-0.381701 0.501407,-0.64542 0.06072,-0.263719 -0.0019,-0.537846 -0.175222,-0.760798 L 38.937026,22.609399 a 1.2110225,1.2110225 0 0 0 -0.75212,-0.430281 1.3498228,1.3498228 0 0 0 -0.887444,0.149218 l -4.092836,2.345699 c -0.26024,0.150091 -0.439814,0.381706 -0.501431,0.645422 -0.06067,0.263721 0.0019,0.537854 0.175246,0.76166 l 8.446806,10.848885 c 0.11796,0.150071 0.279331,0.270654 0.469297,0.348737 0.18998,0.07806 0.399936,0.112772 0.609843,0.09809 a 2.0030454,2.0030454 0 0 1 -0.120579,0.275866 c -0.130978,0.245489 -0.312278,0.46845 -0.536084,0.659283 -2.69792,2.000452 -4.730455,3.065729 -5.867748,3.605318 -0.537839,0.25331 -1.361957,0.698332 -2.07852,0.376493 -1.066144,-0.479722 -2.240737,-3.162025 -2.399479,-3.629603 -1.269157,-3.73196 -1.292567,-3.84821 -6.409928,-20.091176 -0.138788,-0.437225 -0.690522,-1.951867 -0.03992,-2.95642 0.140534,-0.206461 0.311435,-0.39731 0.508353,-0.56647 1.294304,-1.087844 12.088552,-0.758194 14.134969,-0.320984 1.117327,0.238565 2.267635,0.576015 2.927779,1.450456 0.357416,0.470176 0.528323,1.038386 0.664516,1.493821 0.183023,0.610727 0.281923,1.238785 0.292345,1.869457 0.06244,0.596831 0.06584,0.867492 0.312269,1.017561 0.168317,0.101502 0.364384,0.0954 0.894413,0.0103 0.670566,-0.112772 1.49209,-0.305361 2.854917,-0.874439 0.347011,-0.145748 0.446774,-0.198654 0.539577,-0.309695 0.242913,-0.31229 0.121462,-0.711342 -0.148322,-1.610071 z m -33.406346,6.194766 c -0.306232,0 -0.606377,-0.07807 -0.861417,-0.223798 a 1.3975345,1.3975345 0 0 1 -0.570812,-0.596835 1.1555028,1.1555028 0 0 1 -0.08847,-0.768611 c 0.06074,-0.257635 0.208204,-0.494464 0.42506,-0.680974 0.216893,-0.185658 0.492745,-0.312297 0.792897,-0.364351 0.301028,-0.05111 0.613333,-0.02422 0.896124,0.07631 0.283672,0.100639 0.525709,0.270641 0.695741,0.49012 0.170887,0.218607 0.261114,0.475392 0.261114,0.738243 0,0.353068 -0.163955,0.690527 -0.45457,0.94037 a 1.6916154,1.6916154 0 0 1 -1.095645,0.390377 z m -4.05988,7.360708 c -0.306232,0 -0.60637,-0.07809 -0.8614218,-0.225549 A 1.3984019,1.3984019 0 0 1 9.0344864,30.510432 1.1563706,1.1563706 0 0 1 8.9468748,29.741824 c 0.059874,-0.258513 0.2073329,-0.495344 0.4242033,-0.681856 0.2168696,-0.18563 0.4936025,-0.312303 0.7946279,-0.364347 0.301025,-0.05111 0.612449,-0.02422 0.896119,0.07634 0.283669,0.100649 0.525708,0.271535 0.696597,0.490135 0.170031,0.218616 0.261115,0.476248 0.261115,0.739104 0,0.353073 -0.163956,0.691387 -0.45456,0.941229 a 1.6916154,1.6916154 0 0 1 -1.096516,0.390374 z m 7.234912,0 c -0.306235,0 -0.606379,-0.07809 -0.86143,-0.223815 a 1.3984019,1.3984019 0 0 1 -0.572539,-0.597698 1.1555028,1.1555028 0 0 1 -0.08846,-0.7686 c 0.06074,-0.258532 0.208192,-0.496221 0.425072,-0.681863 0.216874,-0.1865 0.492731,-0.313173 0.793743,-0.36433 0.301029,-0.05207 0.613336,-0.02607 0.897007,0.07542 0.283665,0.100629 0.525696,0.270653 0.696588,0.490139 0.170039,0.218613 0.261124,0.476255 0.261124,0.739102 0,0.175229 -0.04077,0.348736 -0.118858,0.510088 -0.07806,0.161349 -0.192577,0.307945 -0.336588,0.432009 a 1.5909853,1.5909853 0 0 1 -0.504875,0.287997 c -0.188242,0.06681 -0.390366,0.101524 -0.594228,0.101524 h 0.0043 z m 3.54372,7.242715 c -0.306234,0 -0.607259,-0.07807 -0.862296,-0.223815 a 1.3984019,1.3984019 0 0 1 -0.571677,-0.596844 1.1563706,1.1563706 0 0 1 -0.08846,-0.769456 c 0.0599,-0.258512 0.207317,-0.495342 0.424198,-0.681861 0.21687,-0.1865 0.493609,-0.3123 0.794624,-0.364339 0.301012,-0.05205 0.612454,-0.02513 0.896117,0.07543 0.283682,0.100638 0.526574,0.271517 0.6966,0.490126 0.170896,0.219485 0.26198,0.477129 0.26198,0.73998 -0.0019,0.352198 -0.166557,0.690528 -0.458032,0.938625 -0.291474,0.248974 -0.685325,0.388637 -1.097375,0.387776 z M 42.470335,34.42196 a 1.1103922,1.1103922 0 0 1 0.366956,-0.589893 c 0.187371,-0.160479 0.425051,-0.26979 0.685307,-0.314904 0.260249,-0.04335 0.530045,-0.02166 0.775542,0.06589 0.244631,0.0868 0.454599,0.234226 0.602036,0.423335 0.147495,0.189111 0.225541,0.411199 0.225541,0.639339 0,0.227295 -0.07805,0.449362 -0.225541,0.638478 -0.147437,0.189115 -0.357405,0.336598 -0.602896,0.423345 a 1.5476109,1.5476109 0 0 1 -1.260468,-0.10581 1.263073,1.263073 0 0 1 -0.373031,-0.317502 1.0661504,1.0661504 0 0 1 -0.200389,-0.416403 0.98981157,0.98981157 0 0 1 0,-0.450219 z"
-     id="path956"
-     style="stroke-width:0.867464" /></g><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1016"
-   id="namedview10"
-   showgrid="false"
-   inkscape:zoom="3.104502"
-   inkscape:cx="-65.549966"
-   inkscape:cy="7.5696521"
-   inkscape:window-x="0"
-   inkscape:window-y="0"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="g825"
-   inkscape:document-rotation="0"
-   inkscape:pagecheckerboard="false"
-   fit-margin-top="1"
-   fit-margin-left="1"
-   fit-margin-right="1"
-   fit-margin-bottom="1" /><defs
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:ns1="https://launchpad.net/jessyink"><defs
    id="defs18" />
 <metadata
    id="metadata2"> Svg Vector Icons : http://www.onlinewebfonts.com/icon <rdf:RDF><cc:Work
      rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
        rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata>
 
-</svg>
+<circle
+   style="fill:#ff0000;stroke-width:1.09672"
+   id="path1065"
+   cx="26.070896"
+   cy="30.566557"
+   r="25" /><text
+   xml:space="preserve"
+   style="font-size:13.3333px;line-height:25px;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   x="6.4129987"
+   y="-50.58881"
+   id="text2162"><tspan
+     id="tspan2160"
+     x="6.4129987"
+     y="-50.58881" /></text><script
+   id="JessyInk"
+   ns1:version="1.5.5">// Copyright 2008, 2009 Hannes Hochreiner
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+
+// Set onload event handler.
+window.onload = jessyInkInit;
+
+// Creating a namespace dictionary. The standard Inkscape namespaces are taken from inkex.py.
+var NSS = new Object();
+NSS['sodipodi']='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd';
+NSS['cc']='http://web.resource.org/cc/';
+NSS['svg']='http://www.w3.org/2000/svg';
+NSS['dc']='http://purl.org/dc/elements/1.1/';
+NSS['rdf']='http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+NSS['inkscape']='http://www.inkscape.org/namespaces/inkscape';
+NSS['xlink']='http://www.w3.org/1999/xlink';
+NSS['xml']='http://www.w3.org/XML/1998/namespace';
+NSS['jessyink']='https://launchpad.net/jessyink';
+
+// Keycodes.
+var LEFT_KEY = 37; // cursor left keycode
+var UP_KEY = 38; // cursor up keycode
+var RIGHT_KEY = 39; // cursor right keycode
+var DOWN_KEY = 40; // cursor down keycode
+var PAGE_UP_KEY = 33; // page up keycode
+var PAGE_DOWN_KEY = 34; // page down keycode
+var HOME_KEY = 36; // home keycode
+var END_KEY = 35; // end keycode
+var ENTER_KEY = 13; // next slide
+var SPACE_KEY = 32;
+var ESCAPE_KEY = 27;
+
+// Presentation modes.
+var SLIDE_MODE = 1;
+var INDEX_MODE = 2;
+var DRAWING_MODE = 3;
+
+// Mouse handler actions.
+var MOUSE_UP = 1;
+var MOUSE_DOWN = 2;
+var MOUSE_MOVE = 3;
+var MOUSE_WHEEL = 4;
+
+// Parameters.
+var ROOT_NODE = document.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;svg&quot;)[0];
+var HEIGHT = 0;
+var WIDTH = 0;
+var INDEX_COLUMNS_DEFAULT = 4;
+var INDEX_COLUMNS = INDEX_COLUMNS_DEFAULT;
+var INDEX_OFFSET = 0;
+var STATE_START = -1;
+var STATE_END = -2;
+var BACKGROUND_COLOR = null;
+var slides = new Array();
+
+// Initialisation.
+var currentMode = SLIDE_MODE;
+var masterSlide = null;
+var activeSlide = 0;
+var activeEffect = 0;
+var timeStep = 30; // 40 ms equal 25 frames per second.
+var lastFrameTime = null;
+var processingEffect = false;
+var transCounter = 0;
+var effectArray = 0;
+var defaultTransitionInDict = new Object();
+defaultTransitionInDict[&quot;name&quot;] = &quot;appear&quot;;
+var defaultTransitionOutDict = new Object();
+defaultTransitionOutDict[&quot;name&quot;] = &quot;appear&quot;;
+var jessyInkInitialised = false;
+
+// Initialise char and key code dictionaries.
+var charCodeDictionary = getDefaultCharCodeDictionary();
+var keyCodeDictionary = getDefaultKeyCodeDictionary();
+
+// Initialise mouse handler dictionary.
+var mouseHandlerDictionary = getDefaultMouseHandlerDictionary();
+
+var progress_bar_visible = false;
+var timer_elapsed = 0;
+var timer_start = timer_elapsed;
+var timer_duration = 15; // 15 minutes
+
+var history_counter = 0;
+var history_original_elements = new Array();
+var history_presentation_elements = new Array();
+
+var mouse_original_path = null;
+var mouse_presentation_path = null;
+var mouse_last_x = -1;
+var mouse_last_y = -1;
+var mouse_min_dist_sqr = 3 * 3;
+var path_colour = &quot;red&quot;;
+var path_width_default = 3;
+var path_width = path_width_default;
+var path_paint_width = path_width;
+
+var number_of_added_slides = 0;
+
+/** Initialisation function.
+ *  The whole presentation is set-up in this function.
+ */
+function jessyInkInit()
+{
+    // Make sure we only execute this code once. Double execution can occur if the onload event handler is set
+    // in the main svg tag as well (as was recommended in earlier versions). Executing this function twice does
+    // not lead to any problems, but it takes more time.
+    if (jessyInkInitialised)
+        return;
+
+    // Making the presentation scalable.
+    var VIEWBOX = ROOT_NODE.getAttribute(&quot;viewBox&quot;);
+
+    if (VIEWBOX)
+    {
+        WIDTH = ROOT_NODE.viewBox.animVal.width;
+        HEIGHT = ROOT_NODE.viewBox.animVal.height;
+    }
+    else
+    {
+        HEIGHT = parseFloat(ROOT_NODE.getAttribute(&quot;height&quot;));
+        WIDTH = parseFloat(ROOT_NODE.getAttribute(&quot;width&quot;));
+        ROOT_NODE.setAttribute(&quot;viewBox&quot;, &quot;0 0 &quot; + WIDTH + &quot; &quot; + HEIGHT);
+    }
+
+    ROOT_NODE.setAttribute(&quot;width&quot;, &quot;100%&quot;);
+    ROOT_NODE.setAttribute(&quot;height&quot;, &quot;100%&quot;);
+
+    // Setting the background color.
+    var namedViews = document.getElementsByTagNameNS(NSS[&quot;sodipodi&quot;], &quot;namedview&quot;);
+
+    for (var counter = 0; counter &lt; namedViews.length; counter++)
+    {
+        if (namedViews[counter].hasAttribute(&quot;id&quot;) &amp;&amp; namedViews[counter].hasAttribute(&quot;pagecolor&quot;))
+        {
+            if (namedViews[counter].getAttribute(&quot;id&quot;) == &quot;base&quot;)
+            {
+                BACKGROUND_COLOR = namedViews[counter].getAttribute(&quot;pagecolor&quot;);
+                var newAttribute = &quot;background-color:&quot; + BACKGROUND_COLOR + &quot;;&quot;;
+
+                if (ROOT_NODE.hasAttribute(&quot;style&quot;))
+                    newAttribute += ROOT_NODE.getAttribute(&quot;style&quot;);
+
+                ROOT_NODE.setAttribute(&quot;style&quot;, newAttribute);
+            }
+        }
+    }
+
+    // Defining clip-path.
+    var defsNodes = document.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;defs&quot;);
+
+    if (defsNodes.length &gt; 0)
+    {
+        var existingClipPath = document.getElementById(&quot;jessyInkSlideClipPath&quot;);
+
+        if (!existingClipPath)
+        {
+            var rectNode = document.createElementNS(NSS[&quot;svg&quot;], &quot;rect&quot;);
+            var clipPath = document.createElementNS(NSS[&quot;svg&quot;], &quot;clipPath&quot;);
+
+            rectNode.setAttribute(&quot;x&quot;, 0);
+            rectNode.setAttribute(&quot;y&quot;, 0);
+            rectNode.setAttribute(&quot;width&quot;, WIDTH);
+            rectNode.setAttribute(&quot;height&quot;, HEIGHT);
+
+            clipPath.setAttribute(&quot;id&quot;, &quot;jessyInkSlideClipPath&quot;);
+            clipPath.setAttribute(&quot;clipPathUnits&quot;, &quot;userSpaceOnUse&quot;);
+
+            clipPath.appendChild(rectNode);
+            defsNodes[0].appendChild(clipPath);
+        }
+    }
+
+    // Making a list of the slide and finding the master slide.
+    var nodes = document.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+    var tempSlides = new Array();
+    var existingJessyInkPresentationLayer = null;
+
+    for (var counter = 0; counter &lt; nodes.length; counter++)
+    {
+        if (nodes[counter].getAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;) &amp;&amp; (nodes[counter].getAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;) == &quot;layer&quot;))
+        {
+            if (nodes[counter].getAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;) &amp;&amp; nodes[counter].getAttributeNS(NSS[&quot;jessyink&quot;], &quot;masterSlide&quot;) == &quot;masterSlide&quot;)
+                masterSlide = nodes[counter];
+            else if (nodes[counter].getAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;) &amp;&amp; nodes[counter].getAttributeNS(NSS[&quot;jessyink&quot;], &quot;presentationLayer&quot;) == &quot;presentationLayer&quot;)
+                existingJessyInkPresentationLayer = nodes[counter];
+            else
+                tempSlides.push(nodes[counter].getAttribute(&quot;id&quot;));
+        }
+        else if (nodes[counter].getAttributeNS(NSS['jessyink'], 'element'))
+        {
+            handleElement(nodes[counter]);
+        }
+    }
+
+    // Hide master slide set default transitions.
+    if (masterSlide)
+    {
+        masterSlide.style.display = &quot;none&quot;;
+
+        if (masterSlide.hasAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionIn&quot;))
+            defaultTransitionInDict = propStrToDict(masterSlide.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionIn&quot;));
+
+        if (masterSlide.hasAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionOut&quot;))
+            defaultTransitionOutDict = propStrToDict(masterSlide.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionOut&quot;));
+    }
+
+    if (existingJessyInkPresentationLayer != null)
+    {
+        existingJessyInkPresentationLayer.parentNode.removeChild(existingJessyInkPresentationLayer);
+    }
+
+    // Set start slide.
+    var hashObj = new LocationHash(window.location.hash);
+
+    activeSlide = hashObj.slideNumber;
+    activeEffect = hashObj.effectNumber;
+
+    if (activeSlide &lt; 0)
+        activeSlide = 0;
+    else if (activeSlide &gt;= tempSlides.length)
+        activeSlide = tempSlides.length - 1;
+
+    var originalNode = document.getElementById(tempSlides[counter]);
+
+    var JessyInkPresentationLayer = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+    JessyInkPresentationLayer.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;, &quot;layer&quot;);
+    JessyInkPresentationLayer.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;, &quot;JessyInk Presentation Layer&quot;);
+    JessyInkPresentationLayer.setAttributeNS(NSS[&quot;jessyink&quot;], &quot;presentationLayer&quot;, &quot;presentationLayer&quot;);
+    JessyInkPresentationLayer.setAttribute(&quot;id&quot;, &quot;jessyink_presentation_layer&quot;);
+    JessyInkPresentationLayer.style.display = &quot;inherit&quot;;
+    ROOT_NODE.appendChild(JessyInkPresentationLayer);
+
+    // Gathering all the information about the transitions and effects of the slides, set the background
+    // from the master slide and substitute the auto-texts.
+    for (var counter = 0; counter &lt; tempSlides.length; counter++)
+    {
+        var originalNode = document.getElementById(tempSlides[counter]);
+        originalNode.style.display = &quot;none&quot;;
+        var node = suffixNodeIds(originalNode.cloneNode(true), &quot;_&quot; + counter);
+        JessyInkPresentationLayer.appendChild(node);
+        slides[counter] = new Object();
+        slides[counter][&quot;original_element&quot;] = originalNode;
+        slides[counter][&quot;element&quot;] = node;
+
+        // Set build in transition.
+        slides[counter][&quot;transitionIn&quot;] = new Object();
+
+        var dict;
+
+        if (node.hasAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionIn&quot;))
+            dict = propStrToDict(node.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionIn&quot;));
+        else
+            dict = defaultTransitionInDict;
+
+        slides[counter][&quot;transitionIn&quot;][&quot;name&quot;] = dict[&quot;name&quot;];
+        slides[counter][&quot;transitionIn&quot;][&quot;options&quot;] = new Object();
+
+        for (key in dict)
+            if (key != &quot;name&quot;)
+                slides[counter][&quot;transitionIn&quot;][&quot;options&quot;][key] = dict[key];
+
+        // Set build out transition.
+        slides[counter][&quot;transitionOut&quot;] = new Object();
+
+        if (node.hasAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionOut&quot;))
+            dict = propStrToDict(node.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;transitionOut&quot;));
+        else
+            dict = defaultTransitionOutDict;
+
+        slides[counter][&quot;transitionOut&quot;][&quot;name&quot;] = dict[&quot;name&quot;];
+        slides[counter][&quot;transitionOut&quot;][&quot;options&quot;] = new Object();
+
+        for (key in dict)
+            if (key != &quot;name&quot;)
+                slides[counter][&quot;transitionOut&quot;][&quot;options&quot;][key] = dict[key];
+
+        // Copy master slide content.
+        if (masterSlide)
+        {
+            var clonedNode = suffixNodeIds(masterSlide.cloneNode(true), &quot;_&quot; + counter);
+            clonedNode.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;);
+            clonedNode.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;);
+            clonedNode.style.display = &quot;inherit&quot;;
+
+            node.insertBefore(clonedNode, node.firstChild);
+        }
+
+        // Setting clip path.
+        node.setAttribute(&quot;clip-path&quot;, &quot;url(#jessyInkSlideClipPath)&quot;);
+
+        // Substitute auto texts.
+        substituteAutoTexts(node, node.getAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;), counter + 1, tempSlides.length);
+
+        node.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;);
+        node.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;);
+
+        // Set effects.
+        var tempEffects = new Array();
+        var groups = new Object();
+
+        for (var IOCounter = 0; IOCounter &lt;= 1; IOCounter++)
+        {
+            var propName = &quot;&quot;;
+            var dir = 0;
+
+            if (IOCounter == 0)
+            {
+                propName = &quot;effectIn&quot;;
+                dir = 1;
+            }
+            else if (IOCounter == 1)
+            {
+                propName = &quot;effectOut&quot;;
+                dir = -1;
+            }
+
+            var effects = getElementsByPropertyNS(node, NSS[&quot;jessyink&quot;], propName);
+
+            for (var effectCounter = 0; effectCounter &lt; effects.length; effectCounter++)
+            {
+                var element = document.getElementById(effects[effectCounter]);
+                var dict = propStrToDict(element.getAttributeNS(NSS[&quot;jessyink&quot;], propName));
+
+                // Put every element that has an effect associated with it, into its own group.
+                // Unless of course, we already put it into its own group.
+                if (!(groups[element.id]))
+                {
+                    var newGroup = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+                    element.parentNode.insertBefore(newGroup, element);
+                    newGroup.appendChild(element.parentNode.removeChild(element));
+                    groups[element.id] = newGroup;
+                }
+
+                var effectDict = new Object();
+
+                effectDict[&quot;effect&quot;] = dict[&quot;name&quot;];
+                effectDict[&quot;dir&quot;] = dir;
+                effectDict[&quot;element&quot;] = groups[element.id];
+
+                for (var option in dict)
+                {
+                    if ((option != &quot;name&quot;) &amp;&amp; (option != &quot;order&quot;))
+                    {
+                        if (!effectDict[&quot;options&quot;])
+                            effectDict[&quot;options&quot;] = new Object();
+
+                        effectDict[&quot;options&quot;][option] = dict[option];
+                    }
+                }
+
+                if (!tempEffects[dict[&quot;order&quot;]])
+                    tempEffects[dict[&quot;order&quot;]] = new Array();
+
+                tempEffects[dict[&quot;order&quot;]][tempEffects[dict[&quot;order&quot;]].length] = effectDict;
+            }
+        }
+
+        // Make invisible, but keep in rendering tree to ensure that bounding box can be calculated.
+        node.setAttribute(&quot;opacity&quot;,0);
+        node.style.display = &quot;inherit&quot;;
+
+        // Create a transform group.
+        var transformGroup = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+        // Add content to transform group.
+        while (node.firstChild)
+            transformGroup.appendChild(node.firstChild);
+
+        // Transfer the transform attribute from the node to the transform group.
+        if (node.getAttribute(&quot;transform&quot;))
+        {
+            transformGroup.setAttribute(&quot;transform&quot;, node.getAttribute(&quot;transform&quot;));
+            node.removeAttribute(&quot;transform&quot;);
+        }
+
+        // Create a view group.
+        var viewGroup = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+        viewGroup.appendChild(transformGroup);
+        slides[counter][&quot;viewGroup&quot;] = node.appendChild(viewGroup);
+
+        // Insert background.
+        if (BACKGROUND_COLOR != null)
+        {
+            var rectNode = document.createElementNS(NSS[&quot;svg&quot;], &quot;rect&quot;);
+
+            rectNode.setAttribute(&quot;x&quot;, 0);
+            rectNode.setAttribute(&quot;y&quot;, 0);
+            rectNode.setAttribute(&quot;width&quot;, WIDTH);
+            rectNode.setAttribute(&quot;height&quot;, HEIGHT);
+            rectNode.setAttribute(&quot;id&quot;, &quot;jessyInkBackground&quot; + counter);
+            rectNode.setAttribute(&quot;fill&quot;, BACKGROUND_COLOR);
+
+            slides[counter][&quot;viewGroup&quot;].insertBefore(rectNode, slides[counter][&quot;viewGroup&quot;].firstChild);
+        }
+
+        // Set views.
+        var tempViews = new Array();
+        var views = getElementsByPropertyNS(node, NSS[&quot;jessyink&quot;], &quot;view&quot;);
+        var matrixOld = (new matrixSVG()).fromElements(1, 0, 0, 0, 1, 0, 0, 0, 1);
+
+        // Set initial view even if there are no other views.
+        slides[counter][&quot;viewGroup&quot;].setAttribute(&quot;transform&quot;, matrixOld.toAttribute());
+        slides[counter].initialView = matrixOld.toAttribute();
+
+        for (var viewCounter = 0; viewCounter &lt; views.length; viewCounter++)
+        {
+            var element = document.getElementById(views[viewCounter]);
+            var dict = propStrToDict(element.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;view&quot;));
+
+            if (dict[&quot;order&quot;] == 0)
+            {
+                matrixOld = pointMatrixToTransformation(rectToMatrix(element)).mult((new matrixSVG()).fromSVGMatrix(slides[counter].viewGroup.getScreenCTM()).inv().mult((new matrixSVG()).fromSVGMatrix(element.parentNode.getScreenCTM())).inv());
+                slides[counter].initialView = matrixOld.toAttribute();
+            }
+            else
+            {
+                var effectDict = new Object();
+
+                effectDict[&quot;effect&quot;] = dict[&quot;name&quot;];
+                effectDict[&quot;dir&quot;] = 1;
+                effectDict[&quot;element&quot;] = slides[counter][&quot;viewGroup&quot;];
+                effectDict[&quot;order&quot;] = dict[&quot;order&quot;];
+
+                for (var option in dict)
+                {
+                    if ((option != &quot;name&quot;) &amp;&amp; (option != &quot;order&quot;))
+                    {
+                        if (!effectDict[&quot;options&quot;])
+                            effectDict[&quot;options&quot;] = new Object();
+
+                        effectDict[&quot;options&quot;][option] = dict[option];
+                    }
+                }
+
+                effectDict[&quot;options&quot;][&quot;matrixNew&quot;] = pointMatrixToTransformation(rectToMatrix(element)).mult((new matrixSVG()).fromSVGMatrix(slides[counter].viewGroup.getScreenCTM()).inv().mult((new matrixSVG()).fromSVGMatrix(element.parentNode.getScreenCTM())).inv());
+
+                tempViews[dict[&quot;order&quot;]] = effectDict;
+            }
+
+            // Remove element.
+            element.parentNode.removeChild(element);
+        }
+
+        // Consolidate view array and append it to the effect array.
+        if (tempViews.length &gt; 0)
+        {
+            for (var viewCounter = 0; viewCounter &lt; tempViews.length; viewCounter++)
+            {
+                if (tempViews[viewCounter])
+                {
+                    tempViews[viewCounter][&quot;options&quot;][&quot;matrixOld&quot;] = matrixOld;
+                    matrixOld = tempViews[viewCounter][&quot;options&quot;][&quot;matrixNew&quot;];
+
+                    if (!tempEffects[tempViews[viewCounter][&quot;order&quot;]])
+                        tempEffects[tempViews[viewCounter][&quot;order&quot;]] = new Array();
+
+                    tempEffects[tempViews[viewCounter][&quot;order&quot;]][tempEffects[tempViews[viewCounter][&quot;order&quot;]].length] = tempViews[viewCounter];
+                }
+            }
+        }
+
+        // Set consolidated effect array.
+        if (tempEffects.length &gt; 0)
+        {
+            slides[counter][&quot;effects&quot;] = new Array();
+
+            for (var effectCounter = 0; effectCounter &lt; tempEffects.length; effectCounter++)
+            {
+                if (tempEffects[effectCounter])
+                    slides[counter][&quot;effects&quot;][slides[counter][&quot;effects&quot;].length] = tempEffects[effectCounter];
+            }
+        }
+
+        node.setAttribute(&quot;onmouseover&quot;, &quot;if ((currentMode == INDEX_MODE) &amp;&amp; ( activeSlide != &quot; + counter + &quot;)) { indexSetActiveSlide(&quot; + counter + &quot;); };&quot;);
+
+        // Set visibility for initial state.
+        if (counter == activeSlide)
+        {
+            node.style.display = &quot;inherit&quot;;
+            node.setAttribute(&quot;opacity&quot;,1);
+        }
+        else
+        {
+            node.style.display = &quot;none&quot;;
+            node.setAttribute(&quot;opacity&quot;,0);
+        }
+    }
+
+    // Set key handler.
+    var jessyInkObjects = document.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+    for (var counter = 0; counter &lt; jessyInkObjects.length; counter++)
+    {
+        var elem = jessyInkObjects[counter];
+
+        if (elem.getAttributeNS(NSS[&quot;jessyink&quot;], &quot;customKeyBindings&quot;))
+        {
+            if (elem.getCustomKeyBindings != undefined)
+                keyCodeDictionary = elem.getCustomKeyBindings();
+
+            if (elem.getCustomCharBindings != undefined)
+                charCodeDictionary = elem.getCustomCharBindings();
+        }
+    }
+
+    // Set mouse handler.
+    var jessyInkMouseHandler = document.getElementsByTagNameNS(NSS[&quot;jessyink&quot;], &quot;mousehandler&quot;);
+
+    for (var counter = 0; counter &lt; jessyInkMouseHandler.length; counter++)
+    {
+        var elem = jessyInkMouseHandler[counter];
+
+        if (elem.getMouseHandler != undefined)
+        {
+            var tempDict = elem.getMouseHandler();
+
+            for (mode in tempDict)
+            {
+                if (!mouseHandlerDictionary[mode])
+                    mouseHandlerDictionary[mode] = new Object();
+
+                for (handler in tempDict[mode])
+                    mouseHandlerDictionary[mode][handler] = tempDict[mode][handler];
+            }
+        }
+    }
+
+    // Check effect number.
+    if ((activeEffect &lt; 0) || (!slides[activeSlide].effects))
+    {
+        activeEffect = 0;
+    }
+    else if (activeEffect &gt; slides[activeSlide].effects.length)
+    {
+        activeEffect = slides[activeSlide].effects.length;
+    }
+
+    createProgressBar(JessyInkPresentationLayer);
+    hideProgressBar();
+    setProgressBarValue(activeSlide);
+    setTimeIndicatorValue(0);
+    setInterval(&quot;updateTimer()&quot;, 1000);
+    setSlideToState(activeSlide, activeEffect);
+    jessyInkInitialised = true;
+}
+
+/** Function to substitute the auto-texts.
+ *
+ *  @param node the node
+ *  @param slideName name of the slide the node is on
+ *  @param slideNumber number of the slide the node is on
+ *  @param numberOfSlides number of slides in the presentation
+ */
+function substituteAutoTexts(node, slideName, slideNumber, numberOfSlides)
+{
+    var texts = node.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;tspan&quot;);
+
+    for (var textCounter = 0; textCounter &lt; texts.length; textCounter++)
+    {
+        if (texts[textCounter].getAttributeNS(NSS[&quot;jessyink&quot;], &quot;autoText&quot;) == &quot;slideNumber&quot;)
+            texts[textCounter].firstChild.nodeValue = slideNumber;
+        else if (texts[textCounter].getAttributeNS(NSS[&quot;jessyink&quot;], &quot;autoText&quot;) == &quot;numberOfSlides&quot;)
+            texts[textCounter].firstChild.nodeValue = numberOfSlides;
+        else if (texts[textCounter].getAttributeNS(NSS[&quot;jessyink&quot;], &quot;autoText&quot;) == &quot;slideTitle&quot;)
+            texts[textCounter].firstChild.nodeValue = slideName;
+    }
+}
+
+/** Convenience function to get an element depending on whether it has a property with a particular name.
+ *    This function emulates some dearly missed XPath functionality.
+ *
+ *  @param node the node
+ *  @param namespace namespace of the attribute
+ *  @param name attribute name
+ */
+function getElementsByPropertyNS(node, namespace, name)
+{
+    var elems = new Array();
+
+    if (node.getAttributeNS(namespace, name))
+        elems.push(node.getAttribute(&quot;id&quot;));
+
+    for (var counter = 0; counter &lt; node.childNodes.length; counter++)
+    {
+        if (node.childNodes[counter].nodeType == 1)
+            elems = elems.concat(getElementsByPropertyNS(node.childNodes[counter], namespace, name));
+    }
+
+    return elems;
+}
+
+/** Function to dispatch the next effect, if there is none left, change the slide.
+ *
+ *  @param dir direction of the change (1 = forwards, -1 = backwards)
+ */
+function dispatchEffects(dir)
+{
+    if (slides[activeSlide][&quot;effects&quot;] &amp;&amp; (((dir == 1) &amp;&amp; (activeEffect &lt; slides[activeSlide][&quot;effects&quot;].length)) || ((dir == -1) &amp;&amp; (activeEffect &gt; 0))))
+    {
+        processingEffect = true;
+
+        if (dir == 1)
+        {
+            effectArray = slides[activeSlide][&quot;effects&quot;][activeEffect];
+            activeEffect += dir;
+        }
+        else if (dir == -1)
+        {
+            activeEffect += dir;
+            effectArray = slides[activeSlide][&quot;effects&quot;][activeEffect];
+        }
+
+        transCounter = 0;
+        startTime = (new Date()).getTime();
+        lastFrameTime = null;
+        effect(dir);
+    }
+    else if (((dir == 1) &amp;&amp; (activeSlide &lt; (slides.length - 1))) || (((dir == -1) &amp;&amp; (activeSlide &gt; 0))))
+    {
+        changeSlide(dir);
+    }
+}
+
+/** Function to skip effects and directly either put the slide into start or end state or change slides.
+ *
+ *  @param dir direction of the change (1 = forwards, -1 = backwards)
+ */
+function skipEffects(dir)
+{
+    if (slides[activeSlide][&quot;effects&quot;] &amp;&amp; (((dir == 1) &amp;&amp; (activeEffect &lt; slides[activeSlide][&quot;effects&quot;].length)) || ((dir == -1) &amp;&amp; (activeEffect &gt; 0))))
+    {
+        processingEffect = true;
+
+        if (slides[activeSlide][&quot;effects&quot;] &amp;&amp; (dir == 1))
+            activeEffect = slides[activeSlide][&quot;effects&quot;].length;
+        else
+            activeEffect = 0;
+
+        if (dir == 1)
+            setSlideToState(activeSlide, STATE_END);
+        else
+            setSlideToState(activeSlide, STATE_START);
+
+        processingEffect = false;
+    }
+    else if (((dir == 1) &amp;&amp; (activeSlide &lt; (slides.length - 1))) || (((dir == -1) &amp;&amp; (activeSlide &gt; 0))))
+    {
+        changeSlide(dir);
+    }
+}
+
+/** Function to change between slides.
+ *
+ *  @param dir direction (1 = forwards, -1 = backwards)
+ */
+function changeSlide(dir)
+{
+    processingEffect = true;
+    effectArray = new Array();
+
+    effectArray[0] = new Object();
+    if (dir == 1)
+    {
+        effectArray[0][&quot;effect&quot;] = slides[activeSlide][&quot;transitionOut&quot;][&quot;name&quot;];
+        effectArray[0][&quot;options&quot;] = slides[activeSlide][&quot;transitionOut&quot;][&quot;options&quot;];
+        effectArray[0][&quot;dir&quot;] = -1;
+    }
+    else if (dir == -1)
+    {
+        effectArray[0][&quot;effect&quot;] = slides[activeSlide][&quot;transitionIn&quot;][&quot;name&quot;];
+        effectArray[0][&quot;options&quot;] = slides[activeSlide][&quot;transitionIn&quot;][&quot;options&quot;];
+        effectArray[0][&quot;dir&quot;] = 1;
+    }
+    effectArray[0][&quot;element&quot;] = slides[activeSlide][&quot;element&quot;];
+
+    activeSlide += dir;
+    setProgressBarValue(activeSlide);
+
+    effectArray[1] = new Object();
+
+    if (dir == 1)
+    {
+        effectArray[1][&quot;effect&quot;] = slides[activeSlide][&quot;transitionIn&quot;][&quot;name&quot;];
+        effectArray[1][&quot;options&quot;] = slides[activeSlide][&quot;transitionIn&quot;][&quot;options&quot;];
+        effectArray[1][&quot;dir&quot;] = 1;
+    }
+    else if (dir == -1)
+    {
+        effectArray[1][&quot;effect&quot;] = slides[activeSlide][&quot;transitionOut&quot;][&quot;name&quot;];
+        effectArray[1][&quot;options&quot;] = slides[activeSlide][&quot;transitionOut&quot;][&quot;options&quot;];
+        effectArray[1][&quot;dir&quot;] = -1;
+    }
+
+    effectArray[1][&quot;element&quot;] = slides[activeSlide][&quot;element&quot;];
+
+    if (slides[activeSlide][&quot;effects&quot;] &amp;&amp; (dir == -1))
+        activeEffect = slides[activeSlide][&quot;effects&quot;].length;
+    else
+        activeEffect = 0;
+
+    if (dir == -1)
+        setSlideToState(activeSlide, STATE_END);
+    else
+        setSlideToState(activeSlide, STATE_START);
+
+    transCounter = 0;
+    startTime = (new Date()).getTime();
+    lastFrameTime = null;
+    effect(dir);
+}
+
+/** Function to toggle between index and slide mode.
+*/
+function toggleSlideIndex()
+{
+    var suspendHandle = ROOT_NODE.suspendRedraw(500);
+
+    if (currentMode == SLIDE_MODE)
+    {
+        hideProgressBar();
+        INDEX_OFFSET = -1;
+        indexSetPageSlide(activeSlide);
+        currentMode = INDEX_MODE;
+    }
+    else if (currentMode == INDEX_MODE)
+    {
+        for (var counter = 0; counter &lt; slides.length; counter++)
+        {
+            slides[counter][&quot;element&quot;].setAttribute(&quot;transform&quot;,&quot;scale(1)&quot;);
+
+            if (counter == activeSlide)
+            {
+                slides[counter][&quot;element&quot;].style.display = &quot;inherit&quot;;
+                slides[counter][&quot;element&quot;].setAttribute(&quot;opacity&quot;,1);
+                activeEffect = 0;
+            }
+            else
+            {
+                slides[counter][&quot;element&quot;].setAttribute(&quot;opacity&quot;,0);
+                slides[counter][&quot;element&quot;].style.display = &quot;none&quot;;
+            }
+        }
+        currentMode = SLIDE_MODE;
+        setSlideToState(activeSlide, STATE_START);
+        setProgressBarValue(activeSlide);
+
+        if (progress_bar_visible)
+        {
+            showProgressBar();
+        }
+    }
+
+    ROOT_NODE.unsuspendRedraw(suspendHandle);
+    ROOT_NODE.forceRedraw();
+}
+
+/** Function to run an effect.
+ *
+ *  @param dir direction in which to play the effect (1 = forwards, -1 = backwards)
+ */
+function effect(dir)
+{
+    var done = true;
+
+    var suspendHandle = ROOT_NODE.suspendRedraw(200);
+
+    for (var counter = 0; counter &lt; effectArray.length; counter++)
+    {
+        if (effectArray[counter][&quot;effect&quot;] == &quot;fade&quot;)
+            done &amp;= fade(parseInt(effectArray[counter][&quot;dir&quot;]) * dir, effectArray[counter][&quot;element&quot;], transCounter, effectArray[counter][&quot;options&quot;]);
+        else if (effectArray[counter][&quot;effect&quot;] == &quot;appear&quot;)
+            done &amp;= appear(parseInt(effectArray[counter][&quot;dir&quot;]) * dir, effectArray[counter][&quot;element&quot;], transCounter, effectArray[counter][&quot;options&quot;]);
+        else if (effectArray[counter][&quot;effect&quot;] == &quot;pop&quot;)
+            done &amp;= pop(parseInt(effectArray[counter][&quot;dir&quot;]) * dir, effectArray[counter][&quot;element&quot;], transCounter, effectArray[counter][&quot;options&quot;]);
+        else if (effectArray[counter][&quot;effect&quot;] == &quot;view&quot;)
+            done &amp;= view(parseInt(effectArray[counter][&quot;dir&quot;]) * dir, effectArray[counter][&quot;element&quot;], transCounter, effectArray[counter][&quot;options&quot;]);
+    }
+
+    ROOT_NODE.unsuspendRedraw(suspendHandle);
+    ROOT_NODE.forceRedraw();
+
+    if (!done)
+    {
+        var currentTime = (new Date()).getTime();
+        var timeDiff = 1;
+
+        transCounter = currentTime - startTime;
+
+        if (lastFrameTime != null)
+        {
+            timeDiff = timeStep - (currentTime - lastFrameTime);
+
+            if (timeDiff &lt;= 0)
+                timeDiff = 1;
+        }
+
+        lastFrameTime = currentTime;
+
+        window.setTimeout(&quot;effect(&quot; + dir + &quot;)&quot;, timeDiff);
+    }
+    else
+    {
+        window.location.hash = (activeSlide + 1) + '_' + activeEffect;
+        processingEffect = false;
+    }
+}
+
+/** Function to display the index sheet.
+ *
+ *  @param offsetNumber offset number
+ */
+function displayIndex(offsetNumber)
+{
+    var offsetX = 0;
+    var offsetY = 0;
+
+    if (offsetNumber &lt; 0)
+        offsetNumber = 0;
+    else if (offsetNumber &gt;= slides.length)
+        offsetNumber = slides.length - 1;
+
+    for (var counter = 0; counter &lt; slides.length; counter++)
+    {
+        if ((counter &lt; offsetNumber) || (counter &gt; offsetNumber + INDEX_COLUMNS * INDEX_COLUMNS - 1))
+        {
+            slides[counter][&quot;element&quot;].setAttribute(&quot;opacity&quot;,0);
+            slides[counter][&quot;element&quot;].style.display = &quot;none&quot;;
+        }
+        else
+        {
+            offsetX = ((counter - offsetNumber) % INDEX_COLUMNS) * WIDTH;
+            offsetY = Math.floor((counter - offsetNumber) / INDEX_COLUMNS) * HEIGHT;
+
+            slides[counter][&quot;element&quot;].setAttribute(&quot;transform&quot;,&quot;scale(&quot;+1/INDEX_COLUMNS+&quot;) translate(&quot;+offsetX+&quot;,&quot;+offsetY+&quot;)&quot;);
+            slides[counter][&quot;element&quot;].style.display = &quot;inherit&quot;;
+            slides[counter][&quot;element&quot;].setAttribute(&quot;opacity&quot;,0.5);
+        }
+
+        setSlideToState(counter, STATE_END);
+    }
+
+    //do we need to save the current offset?
+    if (INDEX_OFFSET != offsetNumber)
+        INDEX_OFFSET = offsetNumber;
+}
+
+/** Function to set the active slide in the slide view.
+ *
+ *  @param nbr index of the active slide
+ */
+function slideSetActiveSlide(nbr)
+{
+    if (nbr &gt;= slides.length)
+        nbr = slides.length - 1;
+    else if (nbr &lt; 0)
+        nbr = 0;
+
+    slides[activeSlide][&quot;element&quot;].setAttribute(&quot;opacity&quot;,0);
+    slides[activeSlide][&quot;element&quot;].style.display = &quot;none&quot;;
+
+    activeSlide = parseInt(nbr);
+
+    setSlideToState(activeSlide, STATE_START);
+    slides[activeSlide][&quot;element&quot;].style.display = &quot;inherit&quot;;
+    slides[activeSlide][&quot;element&quot;].setAttribute(&quot;opacity&quot;,1);
+
+    activeEffect = 0;
+    setProgressBarValue(nbr);
+}
+
+/** Function to set the active slide in the index view.
+ *
+ *  @param nbr index of the active slide
+ */
+function indexSetActiveSlide(nbr)
+{
+    if (nbr &gt;= slides.length)
+        nbr = slides.length - 1;
+    else if (nbr &lt; 0)
+        nbr = 0;
+
+    slides[activeSlide][&quot;element&quot;].setAttribute(&quot;opacity&quot;,0.5);
+
+    activeSlide = parseInt(nbr);
+    window.location.hash = (activeSlide + 1) + '_0';
+
+    slides[activeSlide][&quot;element&quot;].setAttribute(&quot;opacity&quot;,1);
+}
+
+/** Function to set the page and active slide in index view.
+ *
+ *  @param nbr index of the active slide
+ *
+ *  NOTE: To force a redraw,
+ *  set INDEX_OFFSET to -1 before calling indexSetPageSlide().
+ *
+ *  This is necessary for zooming (otherwise the index might not
+ *  get redrawn) and when switching to index mode.
+ *
+ *  INDEX_OFFSET = -1
+ *  indexSetPageSlide(activeSlide);
+ */
+function indexSetPageSlide(nbr)
+{
+    if (nbr &gt;= slides.length)
+        nbr = slides.length - 1;
+    else if (nbr &lt; 0)
+        nbr = 0;
+
+    //calculate the offset
+    var offset = nbr - nbr % (INDEX_COLUMNS * INDEX_COLUMNS);
+
+    if (offset &lt; 0)
+        offset = 0;
+
+    //if different from kept offset, then record and change the page
+    if (offset != INDEX_OFFSET)
+    {
+        INDEX_OFFSET = offset;
+        displayIndex(INDEX_OFFSET);
+    }
+
+    //set the active slide
+    indexSetActiveSlide(nbr);
+}
+
+/** Event handler for key press.
+ *
+ *  @param e the event
+ */
+function keydown(e)
+{
+    if (!e)
+        e = window.event;
+
+    code = e.keyCode || e.charCode;
+
+    if (!processingEffect &amp;&amp; keyCodeDictionary[currentMode] &amp;&amp; keyCodeDictionary[currentMode][code])
+        return keyCodeDictionary[currentMode][code]();
+    else
+        document.onkeypress = keypress;
+}
+// Set event handler for key down.
+document.onkeydown = keydown;
+
+/** Event handler for key press.
+ *
+ *  @param e the event
+ */
+function keypress(e)
+{
+    document.onkeypress = null;
+
+    if (!e)
+        e = window.event;
+
+    str = String.fromCharCode(e.keyCode || e.charCode);
+
+    if (!processingEffect &amp;&amp; charCodeDictionary[currentMode] &amp;&amp; charCodeDictionary[currentMode][str])
+        return charCodeDictionary[currentMode][str]();
+}
+
+/** Function to supply the default char code dictionary.
+ *
+ * @returns default char code dictionary
+ */
+function getDefaultCharCodeDictionary()
+{
+    var charCodeDict = new Object();
+
+    charCodeDict[SLIDE_MODE] = new Object();
+    charCodeDict[INDEX_MODE] = new Object();
+    charCodeDict[DRAWING_MODE] = new Object();
+
+    charCodeDict[SLIDE_MODE][&quot;i&quot;] = function () { return toggleSlideIndex(); };
+    charCodeDict[SLIDE_MODE][&quot;d&quot;] = function () { return slideSwitchToDrawingMode(); };
+    charCodeDict[SLIDE_MODE][&quot;D&quot;] = function () { return slideQueryDuration(); };
+    charCodeDict[SLIDE_MODE][&quot;n&quot;] = function () { return slideAddSlide(activeSlide); };
+    charCodeDict[SLIDE_MODE][&quot;p&quot;] = function () { return slideToggleProgressBarVisibility(); };
+    charCodeDict[SLIDE_MODE][&quot;t&quot;] = function () { return slideResetTimer(); };
+    charCodeDict[SLIDE_MODE][&quot;e&quot;] = function () { return slideUpdateExportLayer(); };
+
+    charCodeDict[DRAWING_MODE][&quot;d&quot;] = function () { return drawingSwitchToSlideMode(); };
+    charCodeDict[DRAWING_MODE][&quot;0&quot;] = function () { return drawingResetPathWidth(); };
+    charCodeDict[DRAWING_MODE][&quot;1&quot;] = function () { return drawingSetPathWidth(1.0); };
+    charCodeDict[DRAWING_MODE][&quot;3&quot;] = function () { return drawingSetPathWidth(3.0); };
+    charCodeDict[DRAWING_MODE][&quot;5&quot;] = function () { return drawingSetPathWidth(5.0); };
+    charCodeDict[DRAWING_MODE][&quot;7&quot;] = function () { return drawingSetPathWidth(7.0); };
+    charCodeDict[DRAWING_MODE][&quot;9&quot;] = function () { return drawingSetPathWidth(9.0); };
+    charCodeDict[DRAWING_MODE][&quot;b&quot;] = function () { return drawingSetPathColour(&quot;blue&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;c&quot;] = function () { return drawingSetPathColour(&quot;cyan&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;g&quot;] = function () { return drawingSetPathColour(&quot;green&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;k&quot;] = function () { return drawingSetPathColour(&quot;black&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;m&quot;] = function () { return drawingSetPathColour(&quot;magenta&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;o&quot;] = function () { return drawingSetPathColour(&quot;orange&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;r&quot;] = function () { return drawingSetPathColour(&quot;red&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;w&quot;] = function () { return drawingSetPathColour(&quot;white&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;y&quot;] = function () { return drawingSetPathColour(&quot;yellow&quot;); };
+    charCodeDict[DRAWING_MODE][&quot;z&quot;] = function () { return drawingUndo(); };
+
+    charCodeDict[INDEX_MODE][&quot;i&quot;] = function () { return toggleSlideIndex(); };
+    charCodeDict[INDEX_MODE][&quot;-&quot;] = function () { return indexDecreaseNumberOfColumns(); };
+    charCodeDict[INDEX_MODE][&quot;=&quot;] = function () { return indexIncreaseNumberOfColumns(); };
+    charCodeDict[INDEX_MODE][&quot;+&quot;] = function () { return indexIncreaseNumberOfColumns(); };
+    charCodeDict[INDEX_MODE][&quot;0&quot;] = function () { return indexResetNumberOfColumns(); };
+
+    return charCodeDict;
+}
+
+/** Function to supply the default key code dictionary.
+ *
+ * @returns default key code dictionary
+ */
+function getDefaultKeyCodeDictionary()
+{
+    var keyCodeDict = new Object();
+
+    keyCodeDict[SLIDE_MODE] = new Object();
+    keyCodeDict[INDEX_MODE] = new Object();
+    keyCodeDict[DRAWING_MODE] = new Object();
+
+    keyCodeDict[SLIDE_MODE][LEFT_KEY] = function() { return dispatchEffects(-1); };
+    keyCodeDict[SLIDE_MODE][RIGHT_KEY] = function() { return dispatchEffects(1); };
+    keyCodeDict[SLIDE_MODE][UP_KEY] = function() { return skipEffects(-1); };
+    keyCodeDict[SLIDE_MODE][DOWN_KEY] = function() { return skipEffects(1); };
+    keyCodeDict[SLIDE_MODE][PAGE_UP_KEY] = function() { return dispatchEffects(-1); };
+    keyCodeDict[SLIDE_MODE][PAGE_DOWN_KEY] = function() { return dispatchEffects(1); };
+    keyCodeDict[SLIDE_MODE][HOME_KEY] = function() { return slideSetActiveSlide(0); };
+    keyCodeDict[SLIDE_MODE][END_KEY] = function() { return slideSetActiveSlide(slides.length - 1); };
+    keyCodeDict[SLIDE_MODE][SPACE_KEY] = function() { return dispatchEffects(1); };
+
+    keyCodeDict[INDEX_MODE][LEFT_KEY] = function() { return indexSetPageSlide(activeSlide - 1); };
+    keyCodeDict[INDEX_MODE][RIGHT_KEY] = function() { return indexSetPageSlide(activeSlide + 1); };
+    keyCodeDict[INDEX_MODE][UP_KEY] = function() { return indexSetPageSlide(activeSlide - INDEX_COLUMNS); };
+    keyCodeDict[INDEX_MODE][DOWN_KEY] = function() { return indexSetPageSlide(activeSlide + INDEX_COLUMNS); };
+    keyCodeDict[INDEX_MODE][PAGE_UP_KEY] = function() { return indexSetPageSlide(activeSlide - INDEX_COLUMNS * INDEX_COLUMNS); };
+    keyCodeDict[INDEX_MODE][PAGE_DOWN_KEY] = function() { return indexSetPageSlide(activeSlide + INDEX_COLUMNS * INDEX_COLUMNS); };
+    keyCodeDict[INDEX_MODE][HOME_KEY] = function() { return indexSetPageSlide(0); };
+    keyCodeDict[INDEX_MODE][END_KEY] = function() { return indexSetPageSlide(slides.length - 1); };
+    keyCodeDict[INDEX_MODE][ENTER_KEY] = function() { return toggleSlideIndex(); };
+
+    keyCodeDict[DRAWING_MODE][ESCAPE_KEY] = function () { return drawingSwitchToSlideMode(); };
+
+    return keyCodeDict;
+}
+
+/** Function to handle all mouse events.
+ *
+ *    @param    evnt    event
+ *    @param    action    type of event (e.g. mouse up, mouse wheel)
+ */
+function mouseHandlerDispatch(evnt, action)
+{
+    if (!evnt)
+        evnt = window.event;
+
+    var retVal = true;
+
+    if (!processingEffect &amp;&amp; mouseHandlerDictionary[currentMode] &amp;&amp; mouseHandlerDictionary[currentMode][action])
+    {
+        var subRetVal = mouseHandlerDictionary[currentMode][action](evnt);
+
+        if (subRetVal != null &amp;&amp; subRetVal != undefined)
+            retVal = subRetVal;
+    }
+
+    if (evnt.preventDefault &amp;&amp; !retVal)
+        evnt.preventDefault();
+
+    evnt.returnValue = retVal;
+
+    return retVal;
+}
+
+// Set mouse event handler.
+document.onmousedown = function(e) { return mouseHandlerDispatch(e, MOUSE_DOWN); };
+document.onmouseup = function(e) { return mouseHandlerDispatch(e, MOUSE_UP); };
+document.onmousemove = function(e) { return mouseHandlerDispatch(e, MOUSE_MOVE); };
+
+// Moz
+if (window.addEventListener)
+{
+    window.addEventListener('DOMMouseScroll', function(e) { return mouseHandlerDispatch(e, MOUSE_WHEEL); }, false);
+}
+
+// Opera Safari OK - may not work in IE
+window.onmousewheel = function(e) { return mouseHandlerDispatch(e, MOUSE_WHEEL); };
+
+/** Function to supply the default mouse handler dictionary.
+ *
+ * @returns default mouse handler dictionary
+ */
+function getDefaultMouseHandlerDictionary()
+{
+    var mouseHandlerDict = new Object();
+
+    mouseHandlerDict[SLIDE_MODE] = new Object();
+    mouseHandlerDict[INDEX_MODE] = new Object();
+    mouseHandlerDict[DRAWING_MODE] = new Object();
+
+    mouseHandlerDict[SLIDE_MODE][MOUSE_DOWN] = function(evnt) { return dispatchEffects(1); };
+    mouseHandlerDict[SLIDE_MODE][MOUSE_WHEEL] = function(evnt) { return slideMousewheel(evnt); };
+
+    mouseHandlerDict[INDEX_MODE][MOUSE_DOWN] = function(evnt) { return toggleSlideIndex(); };
+
+    mouseHandlerDict[DRAWING_MODE][MOUSE_DOWN] = function(evnt) { return drawingMousedown(evnt); };
+    mouseHandlerDict[DRAWING_MODE][MOUSE_UP] = function(evnt) { return drawingMouseup(evnt); };
+    mouseHandlerDict[DRAWING_MODE][MOUSE_MOVE] = function(evnt) { return drawingMousemove(evnt); };
+
+    return mouseHandlerDict;
+}
+
+/** Function to switch from slide mode to drawing mode.
+*/
+function slideSwitchToDrawingMode()
+{
+    currentMode = DRAWING_MODE;
+
+    var tempDict;
+
+    if (ROOT_NODE.hasAttribute(&quot;style&quot;))
+        tempDict = propStrToDict(ROOT_NODE.getAttribute(&quot;style&quot;));
+    else
+        tempDict = new Object();
+
+    tempDict[&quot;cursor&quot;] = &quot;crosshair&quot;;
+    ROOT_NODE.setAttribute(&quot;style&quot;, dictToPropStr(tempDict));
+}
+
+/** Function to switch from drawing mode to slide mode.
+*/
+function drawingSwitchToSlideMode()
+{
+    currentMode = SLIDE_MODE;
+
+    var tempDict;
+
+    if (ROOT_NODE.hasAttribute(&quot;style&quot;))
+        tempDict = propStrToDict(ROOT_NODE.getAttribute(&quot;style&quot;));
+    else
+        tempDict = new Object();
+
+    tempDict[&quot;cursor&quot;] = &quot;auto&quot;;
+    ROOT_NODE.setAttribute(&quot;style&quot;, dictToPropStr(tempDict));
+}
+
+/** Function to decrease the number of columns in index mode.
+*/
+function indexDecreaseNumberOfColumns()
+{
+    if (INDEX_COLUMNS &gt;= 3)
+    {
+        INDEX_COLUMNS -= 1;
+        INDEX_OFFSET = -1
+            indexSetPageSlide(activeSlide);
+    }
+}
+
+/** Function to increase the number of columns in index mode.
+*/
+function indexIncreaseNumberOfColumns()
+{
+    if (INDEX_COLUMNS &lt; 7)
+    {
+        INDEX_COLUMNS += 1;
+        INDEX_OFFSET = -1
+            indexSetPageSlide(activeSlide);
+    }
+}
+
+/** Function to reset the number of columns in index mode.
+*/
+function indexResetNumberOfColumns()
+{
+    if (INDEX_COLUMNS != INDEX_COLUMNS_DEFAULT)
+    {
+        INDEX_COLUMNS = INDEX_COLUMNS_DEFAULT;
+        INDEX_OFFSET = -1
+            indexSetPageSlide(activeSlide);
+    }
+}
+
+/** Function to reset path width in drawing mode.
+*/
+function drawingResetPathWidth()
+{
+    path_width = path_width_default;
+    set_path_paint_width();
+}
+
+/** Function to set path width in drawing mode.
+ *
+ * @param width new path width
+ */
+function drawingSetPathWidth(width)
+{
+    path_width = width;
+    set_path_paint_width();
+}
+
+/** Function to set path colour in drawing mode.
+ *
+ * @param colour new path colour
+ */
+function drawingSetPathColour(colour)
+{
+    path_colour = colour;
+}
+
+/** Function to query the duration of the presentation from the user in slide mode.
+*/
+function slideQueryDuration()
+{
+    var new_duration = prompt(&quot;Length of presentation in minutes?&quot;, timer_duration);
+
+    if ((new_duration != null) &amp;&amp; (new_duration != ''))
+    {
+        timer_duration = new_duration;
+    }
+
+    updateTimer();
+}
+
+/** Function to add new slide in slide mode.
+ *
+ * @param afterSlide after which slide to insert the new one
+ */
+function slideAddSlide(afterSlide)
+{
+    addSlide(afterSlide);
+    slideSetActiveSlide(afterSlide + 1);
+    updateTimer();
+}
+
+/** Function to toggle the visibility of the progress bar in slide mode.
+*/
+function slideToggleProgressBarVisibility()
+{
+    if (progress_bar_visible)
+    {
+        progress_bar_visible = false;
+        hideProgressBar();
+    }
+    else
+    {
+        progress_bar_visible = true;
+        showProgressBar();
+    }
+}
+
+/** Function to reset the timer in slide mode.
+*/
+function slideResetTimer()
+{
+    timer_start = timer_elapsed;
+    updateTimer();
+}
+
+/** Convenience function to pad a string with zero in front up to a certain length.
+ */
+function padString(str, len)
+{
+    var outStr = str;
+
+    while (outStr.length &lt; len)
+    {
+        outStr = '0' + outStr;
+    }
+
+    return outStr;
+}
+
+/** Function to update the export layer.
+ */
+function slideUpdateExportLayer()
+{
+    // Suspend redraw since we are going to mess with the slides.
+    var suspendHandle = ROOT_NODE.suspendRedraw(2000);
+
+    var tmpActiveSlide = activeSlide;
+    var tmpActiveEffect = activeEffect;
+    var exportedLayers = new Array();
+
+    for (var counterSlides = 0; counterSlides &lt; slides.length; counterSlides++)
+    {
+        var exportNode;
+
+        setSlideToState(counterSlides, STATE_START);
+
+        var maxEffect = 0;
+
+        if (slides[counterSlides].effects)
+        {
+            maxEffect = slides[counterSlides].effects.length;
+        }
+
+        exportNode = slides[counterSlides].element.cloneNode(true);
+        exportNode.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;, &quot;layer&quot;);
+        exportNode.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;, &quot;slide_&quot; + padString((counterSlides + 1).toString(), slides.length.toString().length) + &quot;_effect_&quot; + padString(&quot;0&quot;, maxEffect.toString().length));
+
+        exportedLayers.push(exportNode);
+
+        if (slides[counterSlides][&quot;effects&quot;])
+        {
+            for (var counter = 0; counter &lt; slides[counterSlides][&quot;effects&quot;].length; counter++)
+            {
+                for (var subCounter = 0; subCounter &lt; slides[counterSlides][&quot;effects&quot;][counter].length; subCounter++)
+                {
+                    var effect = slides[counterSlides][&quot;effects&quot;][counter][subCounter];
+                    if (effect[&quot;effect&quot;] == &quot;fade&quot;)
+                        fade(parseInt(effect[&quot;dir&quot;]), effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;appear&quot;)
+                        appear(parseInt(effect[&quot;dir&quot;]), effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;pop&quot;)
+                        pop(parseInt(effect[&quot;dir&quot;]), effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;view&quot;)
+                        view(parseInt(effect[&quot;dir&quot;]), effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                }
+
+                var layerName = &quot;slide_&quot; + padString((counterSlides + 1).toString(), slides.length.toString().length) + &quot;_effect_&quot; + padString((counter + 1).toString(), maxEffect.toString().length);
+                exportNode = slides[counterSlides].element.cloneNode(true);
+                exportNode.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;, &quot;layer&quot;);
+                exportNode.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;, layerName);
+                exportNode.setAttribute(&quot;id&quot;, layerName);
+
+                exportedLayers.push(exportNode);
+            }
+        }
+    }
+
+    activeSlide = tmpActiveSlide;
+    activeEffect = tmpActiveEffect;
+    setSlideToState(activeSlide, activeEffect);
+
+    // Copy image.
+    var newDoc = document.documentElement.cloneNode(true);
+
+    // Delete viewbox form new imag and set width and height.
+    newDoc.removeAttribute('viewbox');
+    newDoc.setAttribute('width', WIDTH);
+    newDoc.setAttribute('height', HEIGHT);
+
+    // Delete all layers and script elements.
+    var nodesToBeRemoved = new Array();
+
+    for (var childCounter = 0; childCounter &lt;  newDoc.childNodes.length; childCounter++)
+    {
+        var child = newDoc.childNodes[childCounter];
+
+        if (child.nodeType == 1)
+        {
+            if ((child.nodeName.toUpperCase() == 'G') || (child.nodeName.toUpperCase() == 'SCRIPT'))
+            {
+                nodesToBeRemoved.push(child);
+            }
+        }
+    }
+
+    for (var ndCounter = 0; ndCounter &lt; nodesToBeRemoved.length; ndCounter++)
+    {
+        var nd = nodesToBeRemoved[ndCounter];
+
+        // Before removing the node, check whether it contains any definitions.
+        var defs = nd.getElementsByTagNameNS(NSS[&quot;svg&quot;], &quot;defs&quot;);
+
+        for (var defsCounter = 0; defsCounter &lt; defs.length; defsCounter++)
+        {
+            if (defs[defsCounter].id)
+            {
+                newDoc.appendChild(defs[defsCounter].cloneNode(true));
+            }
+        }
+
+        // Remove node.
+        nd.parentNode.removeChild(nd);
+    }
+
+    // Set current layer.
+    if (exportedLayers[0])
+    {
+        var namedView;
+
+        for (var nodeCounter = 0; nodeCounter &lt; newDoc.childNodes.length; nodeCounter++)
+        {
+            if ((newDoc.childNodes[nodeCounter].nodeType == 1) &amp;&amp; (newDoc.childNodes[nodeCounter].getAttribute('id') == 'base'))
+            {
+                namedView = newDoc.childNodes[nodeCounter];
+            }
+        }
+
+        if (namedView)
+        {
+            namedView.setAttributeNS(NSS['inkscape'], 'current-layer', exportedLayers[0].getAttributeNS(NSS['inkscape'], 'label'));
+        }
+    }
+
+    // Add exported layers.
+    while (exportedLayers.length &gt; 0)
+    {
+        var nd = exportedLayers.pop();
+
+        nd.setAttribute(&quot;opacity&quot;,1);
+        nd.style.display = &quot;inherit&quot;;
+
+        newDoc.appendChild(nd);
+    }
+
+    // Serialise the new document.
+  window.location = 'data:application/svg+xml;base64;charset=utf-8,' + window.btoa(unescape(encodeURIComponent((new XMLSerializer()).serializeToString(newDoc))));
+
+    // Unsuspend redraw.
+    ROOT_NODE.unsuspendRedraw(suspendHandle);
+    ROOT_NODE.forceRedraw();
+}
+
+/** Function to undo last drawing operation.
+*/
+function drawingUndo()
+{
+    mouse_presentation_path = null;
+    mouse_original_path = null;
+
+    if (history_presentation_elements.length &gt; 0)
+    {
+        var p = history_presentation_elements.pop();
+        var parent = p.parentNode.removeChild(p);
+
+        p = history_original_elements.pop();
+        parent = p.parentNode.removeChild(p);
+    }
+}
+
+/** Event handler for mouse down in drawing mode.
+ *
+ *  @param e the event
+ */
+function drawingMousedown(e)
+{
+    var value = 0;
+
+    if (e.button)
+        value = e.button;
+    else if (e.which)
+        value = e.which;
+
+    if (value == 1)
+    {
+        history_counter++;
+
+        var p = calcCoord(e);
+
+        mouse_last_x = e.clientX;
+        mouse_last_y = e.clientY;
+        mouse_original_path = document.createElementNS(NSS[&quot;svg&quot;], &quot;path&quot;);
+        mouse_original_path.setAttribute(&quot;stroke&quot;, path_colour);
+        mouse_original_path.setAttribute(&quot;stroke-width&quot;, path_paint_width);
+        mouse_original_path.setAttribute(&quot;fill&quot;, &quot;none&quot;);
+        mouse_original_path.setAttribute(&quot;id&quot;, &quot;path &quot; + Date());
+        mouse_original_path.setAttribute(&quot;d&quot;, &quot;M&quot; + p.x + &quot;,&quot; + p.y);
+        slides[activeSlide][&quot;original_element&quot;].appendChild(mouse_original_path);
+        history_original_elements.push(mouse_original_path);
+
+        mouse_presentation_path = document.createElementNS(NSS[&quot;svg&quot;], &quot;path&quot;);
+        mouse_presentation_path.setAttribute(&quot;stroke&quot;, path_colour);
+        mouse_presentation_path.setAttribute(&quot;stroke-width&quot;, path_paint_width);
+        mouse_presentation_path.setAttribute(&quot;fill&quot;, &quot;none&quot;);
+        mouse_presentation_path.setAttribute(&quot;id&quot;, &quot;path &quot; + Date() + &quot; presentation copy&quot;);
+        mouse_presentation_path.setAttribute(&quot;d&quot;, &quot;M&quot; + p.x + &quot;,&quot; + p.y);
+
+        if (slides[activeSlide][&quot;viewGroup&quot;])
+            slides[activeSlide][&quot;viewGroup&quot;].appendChild(mouse_presentation_path);
+        else
+            slides[activeSlide][&quot;element&quot;].appendChild(mouse_presentation_path);
+
+        history_presentation_elements.push(mouse_presentation_path);
+
+        return false;
+    }
+
+    return true;
+}
+
+/** Event handler for mouse up in drawing mode.
+ *
+ *  @param e the event
+ */
+function drawingMouseup(e)
+{
+    if(!e)
+        e = window.event;
+
+    if (mouse_presentation_path != null)
+    {
+        var p = calcCoord(e);
+        var d = mouse_presentation_path.getAttribute(&quot;d&quot;);
+        d += &quot; L&quot; + p.x + &quot;,&quot; + p.y;
+        mouse_presentation_path.setAttribute(&quot;d&quot;, d);
+        mouse_presentation_path = null;
+        mouse_original_path.setAttribute(&quot;d&quot;, d);
+        mouse_original_path = null;
+
+        return false;
+    }
+
+    return true;
+}
+
+/** Event handler for mouse move in drawing mode.
+ *
+ *  @param e the event
+ */
+function drawingMousemove(e)
+{
+    if(!e)
+        e = window.event;
+
+    var dist = (mouse_last_x - e.clientX) * (mouse_last_x - e.clientX) + (mouse_last_y - e.clientY) * (mouse_last_y - e.clientY);
+
+    if (mouse_presentation_path == null)
+    {
+        return true;
+    }
+
+    if (dist &gt;= mouse_min_dist_sqr)
+    {
+        var p = calcCoord(e);
+        var d = mouse_presentation_path.getAttribute(&quot;d&quot;);
+        d += &quot; L&quot; + p.x + &quot;,&quot; + p.y;
+        mouse_presentation_path.setAttribute(&quot;d&quot;, d);
+        mouse_original_path.setAttribute(&quot;d&quot;, d);
+        mouse_last_x = e.clientX;
+        mouse_last_y = e.clientY;
+    }
+
+    return false;
+}
+
+/** Event handler for mouse wheel events in slide mode.
+ *  based on http://adomas.org/javascript-mouse-wheel/
+ *
+ *  @param e the event
+ */
+function slideMousewheel(e)
+{
+    var delta = 0;
+
+    if (!e)
+        e = window.event;
+
+    if (e.wheelDelta)
+    { // IE Opera
+        delta = e.wheelDelta/120;
+    }
+    else if (e.detail)
+    { // MOZ
+        delta = -e.detail/3;
+    }
+
+    if (delta &gt; 0)
+        skipEffects(-1);
+    else if (delta &lt; 0)
+        skipEffects(1);
+
+    if (e.preventDefault)
+        e.preventDefault();
+
+    e.returnValue = false;
+}
+
+/** Event handler for mouse wheel events in index mode.
+ *  based on http://adomas.org/javascript-mouse-wheel/
+ *
+ *  @param e the event
+ */
+function indexMousewheel(e)
+{
+    var delta = 0;
+
+    if (!e)
+        e = window.event;
+
+    if (e.wheelDelta)
+    { // IE Opera
+        delta = e.wheelDelta/120;
+    }
+    else if (e.detail)
+    { // MOZ
+        delta = -e.detail/3;
+    }
+
+    if (delta &gt; 0)
+        indexSetPageSlide(activeSlide - INDEX_COLUMNS * INDEX_COLUMNS);
+    else if (delta &lt; 0)
+        indexSetPageSlide(activeSlide + INDEX_COLUMNS * INDEX_COLUMNS);
+
+    if (e.preventDefault)
+        e.preventDefault();
+
+    e.returnValue = false;
+}
+
+/** Function to set the path paint width.
+*/
+function set_path_paint_width()
+{
+    var svgPoint1 = document.documentElement.createSVGPoint();
+    var svgPoint2 = document.documentElement.createSVGPoint();
+
+    svgPoint1.x = 0.0;
+    svgPoint1.y = 0.0;
+    svgPoint2.x = 1.0;
+    svgPoint2.y = 0.0;
+
+    var matrix = slides[activeSlide][&quot;element&quot;].getTransformToElement(ROOT_NODE);
+
+    if (slides[activeSlide][&quot;viewGroup&quot;])
+        matrix = slides[activeSlide][&quot;viewGroup&quot;].getTransformToElement(ROOT_NODE);
+
+    svgPoint1 = svgPoint1.matrixTransform(matrix);
+    svgPoint2 = svgPoint2.matrixTransform(matrix);
+
+    path_paint_width = path_width / Math.sqrt((svgPoint2.x - svgPoint1.x) * (svgPoint2.x - svgPoint1.x) + (svgPoint2.y - svgPoint1.y) * (svgPoint2.y - svgPoint1.y));
+}
+
+/** The view effect.
+ *
+ *  @param dir direction the effect should be played (1 = forwards, -1 = backwards)
+ *  @param element the element the effect should be applied to
+ *  @param time the time that has elapsed since the beginning of the effect
+ *  @param options a dictionary with additional options (e.g. length of the effect); for the view effect the options need to contain the old and the new matrix.
+ */
+function view(dir, element, time, options)
+{
+    var length = 250;
+    var fraction;
+
+    if (!options[&quot;matrixInitial&quot;])
+    {
+        var tempString = slides[activeSlide][&quot;viewGroup&quot;].getAttribute(&quot;transform&quot;);
+
+        if (tempString)
+            options[&quot;matrixInitial&quot;] = (new matrixSVG()).fromAttribute(tempString);
+        else
+            options[&quot;matrixInitial&quot;] = (new matrixSVG()).fromSVGElements(1, 0, 0, 1, 0, 0);
+    }
+
+    if ((time == STATE_END) || (time == STATE_START))
+        fraction = 1;
+    else
+    {
+        if (options &amp;&amp; options[&quot;length&quot;])
+            length = options[&quot;length&quot;];
+
+        fraction = time / length;
+    }
+
+    if (dir == 1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixInitial&quot;].toAttribute());
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixNew&quot;].toAttribute());
+
+            set_path_paint_width();
+
+            options[&quot;matrixInitial&quot;] = null;
+            return true;
+        }
+        else
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixInitial&quot;].mix(options[&quot;matrixNew&quot;], fraction).toAttribute());
+        }
+    }
+    else if (dir == -1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixInitial&quot;].toAttribute());
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixOld&quot;].toAttribute());
+            set_path_paint_width();
+
+            options[&quot;matrixInitial&quot;] = null;
+            return true;
+        }
+        else
+        {
+            element.setAttribute(&quot;transform&quot;, options[&quot;matrixInitial&quot;].mix(options[&quot;matrixOld&quot;], fraction).toAttribute());
+        }
+    }
+
+    return false;
+}
+
+/** The fade effect.
+ *
+ *  @param dir direction the effect should be played (1 = forwards, -1 = backwards)
+ *  @param element the element the effect should be applied to
+ *  @param time the time that has elapsed since the beginning of the effect
+ *  @param options a dictionary with additional options (e.g. length of the effect)
+ */
+function fade(dir, element, time, options)
+{
+    var length = 250;
+    var fraction;
+
+    if ((time == STATE_END) || (time == STATE_START))
+        fraction = 1;
+    else
+    {
+        if (options &amp;&amp; options[&quot;length&quot;])
+            length = options[&quot;length&quot;];
+
+        fraction = time / length;
+    }
+
+    if (dir == 1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.style.display = &quot;none&quot;;
+            element.setAttribute(&quot;opacity&quot;, 0);
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.style.display = &quot;inherit&quot;;
+            element.setAttribute(&quot;opacity&quot;, 1);
+            return true;
+        }
+        else
+        {
+            element.style.display = &quot;inherit&quot;;
+            element.setAttribute(&quot;opacity&quot;, fraction);
+        }
+    }
+    else if (dir == -1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.style.display = &quot;inherit&quot;;
+            element.setAttribute(&quot;opacity&quot;, 1);
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.setAttribute(&quot;opacity&quot;, 0);
+            element.style.display = &quot;none&quot;;
+            return true;
+        }
+        else
+        {
+            element.style.display = &quot;inherit&quot;;
+            element.setAttribute(&quot;opacity&quot;, 1 - fraction);
+        }
+    }
+    return false;
+}
+
+/** The appear effect.
+ *
+ *  @param dir direction the effect should be played (1 = forwards, -1 = backwards)
+ *  @param element the element the effect should be applied to
+ *  @param time the time that has elapsed since the beginning of the effect
+ *  @param options a dictionary with additional options (e.g. length of the effect)
+ */
+function appear(dir, element, time, options)
+{
+    if (dir == 1)
+    {
+        element.style.display = &quot;inherit&quot;;
+        element.setAttribute(&quot;opacity&quot;,1);
+    }
+    else if (dir == -1)
+    {
+        element.style.display = &quot;none&quot;;
+        element.setAttribute(&quot;opacity&quot;,0);
+    }
+    return true;
+}
+
+/** The pop effect.
+ *
+ *  @param dir direction the effect should be played (1 = forwards, -1 = backwards)
+ *  @param element the element the effect should be applied to
+ *  @param time the time that has elapsed since the beginning of the effect
+ *  @param options a dictionary with additional options (e.g. length of the effect)
+ */
+function pop(dir, element, time, options)
+{
+    var length = 500;
+    var fraction;
+
+    if ((time == STATE_END) || (time == STATE_START))
+        fraction = 1;
+    else
+    {
+        if (options &amp;&amp; options[&quot;length&quot;])
+            length = options[&quot;length&quot;];
+
+        fraction = time / length;
+    }
+
+    if (dir == 1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.setAttribute(&quot;opacity&quot;, 0);
+            element.setAttribute(&quot;transform&quot;, &quot;scale(0)&quot;);
+            element.style.display = &quot;none&quot;;
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.setAttribute(&quot;opacity&quot;, 1);
+            element.removeAttribute(&quot;transform&quot;);
+            element.style.display = &quot;inherit&quot;;
+            return true;
+        }
+        else
+        {
+            element.style.display = &quot;inherit&quot;;
+            var opacityFraction = fraction * 3;
+            if (opacityFraction &gt; 1)
+                opacityFraction = 1;
+            element.setAttribute(&quot;opacity&quot;, opacityFraction);
+            var offsetX = WIDTH * (1.0 - fraction) / 2.0;
+            var offsetY = HEIGHT * (1.0 - fraction) / 2.0;
+            element.setAttribute(&quot;transform&quot;, &quot;translate(&quot; + offsetX + &quot;,&quot; + offsetY + &quot;) scale(&quot; + fraction + &quot;)&quot;);
+        }
+    }
+    else if (dir == -1)
+    {
+        if (fraction &lt;= 0)
+        {
+            element.setAttribute(&quot;opacity&quot;, 1);
+            element.setAttribute(&quot;transform&quot;, &quot;scale(1)&quot;);
+            element.style.display = &quot;inherit&quot;;
+        }
+        else if (fraction &gt;= 1)
+        {
+            element.setAttribute(&quot;opacity&quot;, 0);
+            element.removeAttribute(&quot;transform&quot;);
+            element.style.display = &quot;none&quot;;
+            return true;
+        }
+        else
+        {
+            element.setAttribute(&quot;opacity&quot;, 1 - fraction);
+            element.setAttribute(&quot;transform&quot;, &quot;scale(&quot; + 1 - fraction + &quot;)&quot;);
+            element.style.display = &quot;inherit&quot;;
+        }
+    }
+    return false;
+}
+
+/** Function to set a slide either to the start or the end state.
+ *
+ *  @param slide the slide to use
+ *  @param state the state into which the slide should be set
+ */
+function setSlideToState(slide, state)
+{
+    slides[slide][&quot;viewGroup&quot;].setAttribute(&quot;transform&quot;, slides[slide].initialView);
+
+    if (slides[slide][&quot;effects&quot;])
+    {
+        if (state == STATE_END)
+        {
+            for (var counter = 0; counter &lt; slides[slide][&quot;effects&quot;].length; counter++)
+            {
+                for (var subCounter = 0; subCounter &lt; slides[slide][&quot;effects&quot;][counter].length; subCounter++)
+                {
+                    var effect = slides[slide][&quot;effects&quot;][counter][subCounter];
+                    if (effect[&quot;effect&quot;] == &quot;fade&quot;)
+                        fade(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;appear&quot;)
+                        appear(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;pop&quot;)
+                        pop(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;view&quot;)
+                        view(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                }
+            }
+        }
+        else if (state == STATE_START)
+        {
+            for (var counter = slides[slide][&quot;effects&quot;].length - 1; counter &gt;= 0; counter--)
+            {
+                for (var subCounter = 0; subCounter &lt; slides[slide][&quot;effects&quot;][counter].length; subCounter++)
+                {
+                    var effect = slides[slide][&quot;effects&quot;][counter][subCounter];
+                    if (effect[&quot;effect&quot;] == &quot;fade&quot;)
+                        fade(parseInt(effect[&quot;dir&quot;]) * -1, effect[&quot;element&quot;], STATE_START, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;appear&quot;)
+                        appear(parseInt(effect[&quot;dir&quot;]) * -1, effect[&quot;element&quot;], STATE_START, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;pop&quot;)
+                        pop(parseInt(effect[&quot;dir&quot;]) * -1, effect[&quot;element&quot;], STATE_START, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;view&quot;)
+                        view(parseInt(effect[&quot;dir&quot;]) * -1, effect[&quot;element&quot;], STATE_START, effect[&quot;options&quot;]);
+                }
+            }
+        }
+        else
+        {
+            setSlideToState(slide, STATE_START);
+
+            for (var counter = 0; counter &lt; slides[slide][&quot;effects&quot;].length &amp;&amp; counter &lt; state; counter++)
+            {
+                for (var subCounter = 0; subCounter &lt; slides[slide][&quot;effects&quot;][counter].length; subCounter++)
+                {
+                    var effect = slides[slide][&quot;effects&quot;][counter][subCounter];
+                    if (effect[&quot;effect&quot;] == &quot;fade&quot;)
+                        fade(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;appear&quot;)
+                        appear(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;pop&quot;)
+                        pop(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                    else if (effect[&quot;effect&quot;] == &quot;view&quot;)
+                        view(effect[&quot;dir&quot;], effect[&quot;element&quot;], STATE_END, effect[&quot;options&quot;]);
+                }
+            }
+        }
+    }
+
+    window.location.hash = (activeSlide + 1) + '_' + activeEffect;
+}
+
+/** Convenience function to translate a attribute string into a dictionary.
+ *
+ *    @param str the attribute string
+ *  @return a dictionary
+ *  @see dictToPropStr
+ */
+function propStrToDict(str)
+{
+    var list = str.split(&quot;;&quot;);
+    var obj = new Object();
+
+    for (var counter = 0; counter &lt; list.length; counter++)
+    {
+        var subStr = list[counter];
+        var subList = subStr.split(&quot;:&quot;);
+        if (subList.length == 2)
+        {
+            obj[subList[0]] = subList[1];
+        }
+    }
+
+    return obj;
+}
+
+/** Convenience function to translate a dictionary into a string that can be used as an attribute.
+ *
+ *  @param dict the dictionary to convert
+ *  @return a string that can be used as an attribute
+ *  @see propStrToDict
+ */
+function dictToPropStr(dict)
+{
+    var str = &quot;&quot;;
+
+    for (var key in dict)
+    {
+        str += key + &quot;:&quot; + dict[key] + &quot;;&quot;;
+    }
+
+    return str;
+}
+
+/** Sub-function to add a suffix to the ids of the node and all its children.
+ *
+ *    @param node the node to change
+ *    @param suffix the suffix to add
+ *    @param replace dictionary of replaced ids
+ *  @see suffixNodeIds
+ */
+function suffixNoneIds_sub(node, suffix, replace)
+{
+    if (node.nodeType == 1)
+    {
+        if (node.getAttribute(&quot;id&quot;))
+        {
+            var id = node.getAttribute(&quot;id&quot;)
+                replace[&quot;#&quot; + id] = id + suffix;
+            node.setAttribute(&quot;id&quot;, id + suffix);
+        }
+
+        if ((node.nodeName == &quot;use&quot;) &amp;&amp; (node.getAttributeNS(NSS[&quot;xlink&quot;], &quot;href&quot;)) &amp;&amp; (replace[node.getAttribute(NSS[&quot;xlink&quot;], &quot;href&quot;)]))
+            node.setAttribute(NSS[&quot;xlink&quot;], &quot;href&quot;, node.getAttribute(NSS[&quot;xlink&quot;], &quot;href&quot;) + suffix);
+
+        if (node.childNodes)
+        {
+            for (var counter = 0; counter &lt; node.childNodes.length; counter++)
+                suffixNoneIds_sub(node.childNodes[counter], suffix, replace);
+        }
+    }
+}
+
+/** Function to add a suffix to the ids of the node and all its children.
+ *
+ *    @param node the node to change
+ *    @param suffix the suffix to add
+ *  @return the changed node
+ *  @see suffixNodeIds_sub
+ */
+function suffixNodeIds(node, suffix)
+{
+    var replace = new Object();
+
+    suffixNoneIds_sub(node, suffix, replace);
+
+    return node;
+}
+
+/** Function to build a progress bar.
+ *
+ *  @param parent node to attach the progress bar to
+ */
+function createProgressBar(parent_node)
+{
+    var g = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+    g.setAttribute(&quot;clip-path&quot;, &quot;url(#jessyInkSlideClipPath)&quot;);
+    g.setAttribute(&quot;id&quot;, &quot;layer_progress_bar&quot;);
+    g.setAttribute(&quot;style&quot;, &quot;display: none;&quot;);
+
+    var rect_progress_bar = document.createElementNS(NSS[&quot;svg&quot;], &quot;rect&quot;);
+    rect_progress_bar.setAttribute(&quot;style&quot;, &quot;marker: none; fill: rgb(128, 128, 128); stroke: none;&quot;);
+    rect_progress_bar.setAttribute(&quot;id&quot;, &quot;rect_progress_bar&quot;);
+    rect_progress_bar.setAttribute(&quot;x&quot;, 0);
+    rect_progress_bar.setAttribute(&quot;y&quot;, 0.99 * HEIGHT);
+    rect_progress_bar.setAttribute(&quot;width&quot;, 0);
+    rect_progress_bar.setAttribute(&quot;height&quot;, 0.01 * HEIGHT);
+    g.appendChild(rect_progress_bar);
+
+    var circle_timer_indicator = document.createElementNS(NSS[&quot;svg&quot;], &quot;circle&quot;);
+    circle_timer_indicator.setAttribute(&quot;style&quot;, &quot;marker: none; fill: rgb(255, 0, 0); stroke: none;&quot;);
+    circle_timer_indicator.setAttribute(&quot;id&quot;, &quot;circle_timer_indicator&quot;);
+    circle_timer_indicator.setAttribute(&quot;cx&quot;, 0.005 * HEIGHT);
+    circle_timer_indicator.setAttribute(&quot;cy&quot;, 0.995 * HEIGHT);
+    circle_timer_indicator.setAttribute(&quot;r&quot;, 0.005 * HEIGHT);
+    g.appendChild(circle_timer_indicator);
+
+    parent_node.appendChild(g);
+}
+
+/** Function to hide the progress bar.
+ *
+ */
+function hideProgressBar()
+{
+    var progress_bar = document.getElementById(&quot;layer_progress_bar&quot;);
+
+    if (!progress_bar)
+    {
+        return;
+    }
+
+    progress_bar.setAttribute(&quot;style&quot;, &quot;display: none;&quot;);
+}
+
+/** Function to show the progress bar.
+ *
+ */
+function showProgressBar()
+{
+    var progress_bar = document.getElementById(&quot;layer_progress_bar&quot;);
+
+    if (!progress_bar)
+    {
+        return;
+    }
+
+    progress_bar.setAttribute(&quot;style&quot;, &quot;display: inherit;&quot;);
+}
+
+/** Set progress bar value.
+ *
+ *    @param value the current slide number
+ *
+ */
+function setProgressBarValue(value)
+{
+    var rect_progress_bar = document.getElementById(&quot;rect_progress_bar&quot;);
+
+    if (!rect_progress_bar)
+    {
+        return;
+    }
+
+    if (value &lt; 1)
+    {
+        // First slide, assumed to be the title of the presentation
+        var x = 0;
+        var w = 0.01 * HEIGHT;
+    }
+    else if (value &gt;= slides.length - 1)
+    {
+        // Last slide, assumed to be the end of the presentation
+        var x = WIDTH - 0.01 * HEIGHT;
+        var w = 0.01 * HEIGHT;
+    }
+    else
+    {
+        value -= 1;
+        value /= (slides.length - 2);
+
+        var x = WIDTH * value;
+        var w = WIDTH / (slides.length - 2);
+    }
+
+    rect_progress_bar.setAttribute(&quot;x&quot;, x);
+    rect_progress_bar.setAttribute(&quot;width&quot;, w);
+}
+
+/** Set time indicator.
+ *
+ *    @param value the percentage of time elapse so far between 0.0 and 1.0
+ *
+ */
+function setTimeIndicatorValue(value)
+{
+    var circle_timer_indicator = document.getElementById(&quot;circle_timer_indicator&quot;);
+
+    if (!circle_timer_indicator)
+    {
+        return;
+    }
+
+    if (value &lt; 0.0)
+    {
+        value = 0.0;
+    }
+
+    if (value &gt; 1.0)
+    {
+        value = 1.0;
+    }
+
+    var cx = (WIDTH - 0.01 * HEIGHT) * value + 0.005 * HEIGHT;
+    circle_timer_indicator.setAttribute(&quot;cx&quot;, cx);
+}
+
+/** Update timer.
+ *
+ */
+function updateTimer()
+{
+    timer_elapsed += 1;
+    setTimeIndicatorValue((timer_elapsed - timer_start) / (60 * timer_duration));
+}
+
+/** Convert screen coordinates to document coordinates.
+ *
+ *  @param e event with screen coordinates
+ *
+ *  @return coordinates in SVG file coordinate system
+ */
+function calcCoord(e)
+{
+    var svgPoint = document.documentElement.createSVGPoint();
+    svgPoint.x = e.clientX + window.pageXOffset;
+    svgPoint.y = e.clientY + window.pageYOffset;
+
+    var matrix = slides[activeSlide][&quot;element&quot;].getScreenCTM();
+
+    if (slides[activeSlide][&quot;viewGroup&quot;])
+        matrix = slides[activeSlide][&quot;viewGroup&quot;].getScreenCTM();
+
+    svgPoint = svgPoint.matrixTransform(matrix.inverse());
+    return svgPoint;
+}
+
+/** Add slide.
+ *
+ *    @param after_slide after which slide the new slide should be inserted into the presentation
+ */
+function addSlide(after_slide)
+{
+    number_of_added_slides++;
+
+    var g = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+    g.setAttribute(&quot;clip-path&quot;, &quot;url(#jessyInkSlideClipPath)&quot;);
+    g.setAttribute(&quot;id&quot;, &quot;Whiteboard &quot; + Date() + &quot; presentation copy&quot;);
+    g.setAttribute(&quot;style&quot;, &quot;display: none;&quot;);
+
+    var new_slide = new Object();
+    new_slide[&quot;element&quot;] = g;
+
+    // Set build in transition.
+    new_slide[&quot;transitionIn&quot;] = new Object();
+    var dict = defaultTransitionInDict;
+    new_slide[&quot;transitionIn&quot;][&quot;name&quot;] = dict[&quot;name&quot;];
+    new_slide[&quot;transitionIn&quot;][&quot;options&quot;] = new Object();
+
+    for (key in dict)
+        if (key != &quot;name&quot;)
+            new_slide[&quot;transitionIn&quot;][&quot;options&quot;][key] = dict[key];
+
+    // Set build out transition.
+    new_slide[&quot;transitionOut&quot;] = new Object();
+    dict = defaultTransitionOutDict;
+    new_slide[&quot;transitionOut&quot;][&quot;name&quot;] = dict[&quot;name&quot;];
+    new_slide[&quot;transitionOut&quot;][&quot;options&quot;] = new Object();
+
+    for (key in dict)
+        if (key != &quot;name&quot;)
+            new_slide[&quot;transitionOut&quot;][&quot;options&quot;][key] = dict[key];
+
+    // Copy master slide content.
+    if (masterSlide)
+    {
+        var clonedNode = suffixNodeIds(masterSlide.cloneNode(true), &quot;_&quot; + Date() + &quot; presentation_copy&quot;);
+        clonedNode.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;);
+        clonedNode.removeAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;);
+        clonedNode.style.display = &quot;inherit&quot;;
+
+        g.appendChild(clonedNode);
+    }
+
+    // Substitute auto texts.
+    substituteAutoTexts(g, &quot;Whiteboard &quot; + number_of_added_slides, &quot;W&quot; + number_of_added_slides, slides.length);
+
+    g.setAttribute(&quot;onmouseover&quot;, &quot;if ((currentMode == INDEX_MODE) &amp;&amp; ( activeSlide != &quot; + (after_slide + 1) + &quot;)) { indexSetActiveSlide(&quot; + (after_slide + 1) + &quot;); };&quot;);
+
+    // Create a transform group.
+    var transformGroup = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+    // Add content to transform group.
+    while (g.firstChild)
+        transformGroup.appendChild(g.firstChild);
+
+    // Transfer the transform attribute from the node to the transform group.
+    if (g.getAttribute(&quot;transform&quot;))
+    {
+        transformGroup.setAttribute(&quot;transform&quot;, g.getAttribute(&quot;transform&quot;));
+        g.removeAttribute(&quot;transform&quot;);
+    }
+
+    // Create a view group.
+    var viewGroup = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+
+    viewGroup.appendChild(transformGroup);
+    new_slide[&quot;viewGroup&quot;] = g.appendChild(viewGroup);
+
+    // Insert background.
+    if (BACKGROUND_COLOR != null)
+    {
+        var rectNode = document.createElementNS(NSS[&quot;svg&quot;], &quot;rect&quot;);
+
+        rectNode.setAttribute(&quot;x&quot;, 0);
+        rectNode.setAttribute(&quot;y&quot;, 0);
+        rectNode.setAttribute(&quot;width&quot;, WIDTH);
+        rectNode.setAttribute(&quot;height&quot;, HEIGHT);
+        rectNode.setAttribute(&quot;id&quot;, &quot;jessyInkBackground&quot; + Date());
+        rectNode.setAttribute(&quot;fill&quot;, BACKGROUND_COLOR);
+
+        new_slide[&quot;viewGroup&quot;].insertBefore(rectNode, new_slide[&quot;viewGroup&quot;].firstChild);
+    }
+
+    // Set initial view even if there are no other views.
+    var matrixOld = (new matrixSVG()).fromElements(1, 0, 0, 0, 1, 0, 0, 0, 1);
+
+    new_slide[&quot;viewGroup&quot;].setAttribute(&quot;transform&quot;, matrixOld.toAttribute());
+    new_slide.initialView = matrixOld.toAttribute();
+
+    // Insert slide
+    var node = slides[after_slide][&quot;element&quot;];
+    var next_node = node.nextSibling;
+    var parent_node = node.parentNode;
+
+    if (next_node)
+    {
+        parent_node.insertBefore(g, next_node);
+    }
+    else
+    {
+        parent_node.appendChild(g);
+    }
+
+    g = document.createElementNS(NSS[&quot;svg&quot;], &quot;g&quot;);
+    g.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;groupmode&quot;, &quot;layer&quot;);
+    g.setAttributeNS(NSS[&quot;inkscape&quot;], &quot;label&quot;, &quot;Whiteboard &quot; + number_of_added_slides);
+    g.setAttribute(&quot;clip-path&quot;, &quot;url(#jessyInkSlideClipPath)&quot;);
+    g.setAttribute(&quot;id&quot;, &quot;Whiteboard &quot; + Date());
+    g.setAttribute(&quot;style&quot;, &quot;display: none;&quot;);
+
+    new_slide[&quot;original_element&quot;] = g;
+
+    node = slides[after_slide][&quot;original_element&quot;];
+    next_node = node.nextSibling;
+    parent_node = node.parentNode;
+
+    if (next_node)
+    {
+        parent_node.insertBefore(g, next_node);
+    }
+    else
+    {
+        parent_node.appendChild(g);
+    }
+
+    before_new_slide = slides.slice(0, after_slide + 1);
+    after_new_slide = slides.slice(after_slide + 1);
+    slides = before_new_slide.concat(new_slide, after_new_slide);
+
+    //resetting the counter attributes on the slides that follow the new slide...
+    for (var counter = after_slide+2; counter &lt; slides.length; counter++)
+    {
+        slides[counter][&quot;element&quot;].setAttribute(&quot;onmouseover&quot;, &quot;if ((currentMode == INDEX_MODE) &amp;&amp; ( activeSlide != &quot; + counter + &quot;)) { indexSetActiveSlide(&quot; + counter + &quot;); };&quot;);
+    }
+}
+
+/** Convenience function to obtain a transformation matrix from a point matrix.
+ *
+ *    @param mPoints Point matrix.
+ *    @return A transformation matrix.
+ */
+function pointMatrixToTransformation(mPoints)
+{
+    mPointsOld = (new matrixSVG()).fromElements(0, WIDTH, WIDTH, 0, 0, HEIGHT, 1, 1, 1);
+
+    return mPointsOld.mult(mPoints.inv());
+}
+
+/** Convenience function to obtain a matrix with three corners of a rectangle.
+ *
+ *    @param rect an svg rectangle
+ *    @return a matrixSVG containing three corners of the rectangle
+ */
+function rectToMatrix(rect)
+{
+    rectWidth = rect.getBBox().width;
+    rectHeight = rect.getBBox().height;
+    rectX = rect.getBBox().x;
+    rectY = rect.getBBox().y;
+    rectXcorr = 0;
+    rectYcorr = 0;
+
+    scaleX = WIDTH / rectWidth;
+    scaleY = HEIGHT / rectHeight;
+
+    if (scaleX &gt; scaleY)
+    {
+        scaleX = scaleY;
+        rectXcorr -= (WIDTH / scaleX - rectWidth) / 2;
+        rectWidth = WIDTH / scaleX;
+    }
+    else
+    {
+        scaleY = scaleX;
+        rectYcorr -= (HEIGHT / scaleY - rectHeight) / 2;
+        rectHeight = HEIGHT / scaleY;
+    }
+
+    if (rect.transform.baseVal.numberOfItems &lt; 1)
+    {
+        mRectTrans = (new matrixSVG()).fromElements(1, 0, 0, 0, 1, 0, 0, 0, 1);
+    }
+    else
+    {
+        mRectTrans = (new matrixSVG()).fromSVGMatrix(rect.transform.baseVal.consolidate().matrix);
+    }
+
+    newBasePoints = (new matrixSVG()).fromElements(rectX, rectX, rectX, rectY, rectY, rectY, 1, 1, 1);
+    newVectors = (new matrixSVG()).fromElements(rectXcorr, rectXcorr + rectWidth, rectXcorr + rectWidth, rectYcorr, rectYcorr, rectYcorr + rectHeight, 0, 0, 0);
+
+    return mRectTrans.mult(newBasePoints.add(newVectors));
+}
+
+/** Function to handle JessyInk elements.
+ *
+ *    @param    node    Element node.
+ */
+function handleElement(node)
+{
+    if (node.getAttributeNS(NSS['jessyink'], 'element') == 'core.video')
+    {
+        var url;
+        var width;
+        var height;
+        var x;
+        var y;
+        var transform;
+
+        var tspans = node.getElementsByTagNameNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;tspan&quot;);
+
+        for (var tspanCounter = 0; tspanCounter &lt; tspans.length; tspanCounter++)
+        {
+            if (tspans[tspanCounter].getAttributeNS(&quot;https://launchpad.net/jessyink&quot;, &quot;video&quot;) == &quot;url&quot;)
+            {
+                url = tspans[tspanCounter].firstChild.nodeValue;
+            }
+        }
+
+        var rects = node.getElementsByTagNameNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;rect&quot;);
+
+        for (var rectCounter = 0; rectCounter &lt; rects.length; rectCounter++)
+        {
+            if (rects[rectCounter].getAttributeNS(&quot;https://launchpad.net/jessyink&quot;, &quot;video&quot;) == &quot;rect&quot;)
+            {
+                x = rects[rectCounter].getAttribute(&quot;x&quot;);
+                y = rects[rectCounter].getAttribute(&quot;y&quot;);
+                width = rects[rectCounter].getAttribute(&quot;width&quot;);
+                height = rects[rectCounter].getAttribute(&quot;height&quot;);
+                transform = rects[rectCounter].getAttribute(&quot;transform&quot;);
+            }
+        }
+
+        for (var childCounter = 0; childCounter &lt; node.childNodes.length; childCounter++)
+        {
+            if (node.childNodes[childCounter].nodeType == 1)
+            {
+                if (node.childNodes[childCounter].style)
+                {
+                    node.childNodes[childCounter].style.display = 'none';
+                }
+                else
+                {
+                    node.childNodes[childCounter].setAttribute(&quot;style&quot;, &quot;display: none;&quot;);
+                }
+            }
+        }
+
+        var foreignNode = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;foreignObject&quot;);
+        foreignNode.setAttribute(&quot;x&quot;, x);
+        foreignNode.setAttribute(&quot;y&quot;, y);
+        foreignNode.setAttribute(&quot;width&quot;, width);
+        foreignNode.setAttribute(&quot;height&quot;, height);
+        foreignNode.setAttribute(&quot;transform&quot;, transform);
+
+        var videoNode = document.createElementNS(&quot;http://www.w3.org/1999/xhtml&quot;, &quot;video&quot;);
+        videoNode.setAttribute(&quot;src&quot;, url);
+
+        foreignNode.appendChild(videoNode);
+        node.appendChild(foreignNode);
+    }
+}
+
+/** Class processing the location hash.
+ *
+ *    @param str location hash
+ */
+function LocationHash(str)
+{
+    this.slideNumber = 0;
+    this.effectNumber = 0;
+
+    str = str.substr(1, str.length - 1);
+
+    var parts = str.split('_');
+
+    // Try to extract slide number.
+    if (parts.length &gt;= 1)
+    {
+        try
+        {
+            var slideNumber = parseInt(parts[0]);
+
+            if (!isNaN(slideNumber))
+            {
+                this.slideNumber = slideNumber - 1;
+            }
+        }
+        catch (e)
+        {
+        }
+    }
+
+    // Try to extract effect number.
+    if (parts.length &gt;= 2)
+    {
+        try
+        {
+            var effectNumber = parseInt(parts[1]);
+
+            if (!isNaN(effectNumber))
+            {
+                this.effectNumber = effectNumber;
+            }
+        }
+        catch (e)
+        {
+        }
+    }
+}
+
+/** Class representing an svg matrix.
+*/
+function matrixSVG()
+{
+    this.e11 = 0; // a
+    this.e12 = 0; // c
+    this.e13 = 0; // e
+    this.e21 = 0; // b
+    this.e22 = 0; // d
+    this.e23 = 0; // f
+    this.e31 = 0;
+    this.e32 = 0;
+    this.e33 = 0;
+}
+
+/** Constructor function.
+ *
+ *    @param a element a (i.e. 1, 1) as described in the svg standard.
+ *    @param b element b (i.e. 2, 1) as described in the svg standard.
+ *    @param c element c (i.e. 1, 2) as described in the svg standard.
+ *    @param d element d (i.e. 2, 2) as described in the svg standard.
+ *    @param e element e (i.e. 1, 3) as described in the svg standard.
+ *    @param f element f (i.e. 2, 3) as described in the svg standard.
+ */
+matrixSVG.prototype.fromSVGElements = function(a, b, c, d, e, f)
+{
+    this.e11 = a;
+    this.e12 = c;
+    this.e13 = e;
+    this.e21 = b;
+    this.e22 = d;
+    this.e23 = f;
+    this.e31 = 0;
+    this.e32 = 0;
+    this.e33 = 1;
+
+    return this;
+}
+
+/** Constructor function.
+ *
+ *    @param matrix an svg matrix as described in the svg standard.
+ */
+matrixSVG.prototype.fromSVGMatrix = function(m)
+{
+    this.e11 = m.a;
+    this.e12 = m.c;
+    this.e13 = m.e;
+    this.e21 = m.b;
+    this.e22 = m.d;
+    this.e23 = m.f;
+    this.e31 = 0;
+    this.e32 = 0;
+    this.e33 = 1;
+
+    return this;
+}
+
+/** Constructor function.
+ *
+ *    @param e11 element 1, 1 of the matrix.
+ *    @param e12 element 1, 2 of the matrix.
+ *    @param e13 element 1, 3 of the matrix.
+ *    @param e21 element 2, 1 of the matrix.
+ *    @param e22 element 2, 2 of the matrix.
+ *    @param e23 element 2, 3 of the matrix.
+ *    @param e31 element 3, 1 of the matrix.
+ *    @param e32 element 3, 2 of the matrix.
+ *    @param e33 element 3, 3 of the matrix.
+ */
+matrixSVG.prototype.fromElements = function(e11, e12, e13, e21, e22, e23, e31, e32, e33)
+{
+    this.e11 = e11;
+    this.e12 = e12;
+    this.e13 = e13;
+    this.e21 = e21;
+    this.e22 = e22;
+    this.e23 = e23;
+    this.e31 = e31;
+    this.e32 = e32;
+    this.e33 = e33;
+
+    return this;
+}
+
+/** Constructor function.
+ *
+ *    @param attrString string value of the &quot;transform&quot; attribute (currently only &quot;matrix&quot; is accepted)
+ */
+matrixSVG.prototype.fromAttribute = function(attrString)
+{
+    str = attrString.substr(7, attrString.length - 8);
+
+    str = str.trim();
+
+    strArray = str.split(&quot;,&quot;);
+
+    // Opera does not use commas to separate the values of the matrix, only spaces.
+    if (strArray.length != 6)
+        strArray = str.split(&quot; &quot;);
+
+    this.e11 = parseFloat(strArray[0]);
+    this.e21 = parseFloat(strArray[1]);
+    this.e31 = 0;
+    this.e12 = parseFloat(strArray[2]);
+    this.e22 = parseFloat(strArray[3]);
+    this.e32 = 0;
+    this.e13 = parseFloat(strArray[4]);
+    this.e23 = parseFloat(strArray[5]);
+    this.e33 = 1;
+
+    return this;
+}
+
+/** Output function
+ *
+ *    @return a string that can be used as the &quot;transform&quot; attribute.
+ */
+matrixSVG.prototype.toAttribute = function()
+{
+    return &quot;matrix(&quot; + this.e11 + &quot;, &quot; + this.e21 + &quot;, &quot; + this.e12 + &quot;, &quot; + this.e22 + &quot;, &quot; + this.e13 + &quot;, &quot; + this.e23 + &quot;)&quot;;
+}
+
+/** Matrix nversion.
+ *
+ *    @return the inverse of the matrix
+ */
+matrixSVG.prototype.inv = function()
+{
+    out = new matrixSVG();
+
+    det = this.e11 * (this.e33 * this.e22 - this.e32 * this.e23) - this.e21 * (this.e33 * this.e12 - this.e32 * this.e13) + this.e31 * (this.e23 * this.e12 - this.e22 * this.e13);
+
+    out.e11 =  (this.e33 * this.e22 - this.e32 * this.e23) / det;
+    out.e12 = -(this.e33 * this.e12 - this.e32 * this.e13) / det;
+    out.e13 =  (this.e23 * this.e12 - this.e22 * this.e13) / det;
+    out.e21 = -(this.e33 * this.e21 - this.e31 * this.e23) / det;
+    out.e22 =  (this.e33 * this.e11 - this.e31 * this.e13) / det;
+    out.e23 = -(this.e23 * this.e11 - this.e21 * this.e13) / det;
+    out.e31 =  (this.e32 * this.e21 - this.e31 * this.e22) / det;
+    out.e32 = -(this.e32 * this.e11 - this.e31 * this.e12) / det;
+    out.e33 =  (this.e22 * this.e11 - this.e21 * this.e12) / det;
+
+    return out;
+}
+
+/** Matrix multiplication.
+ *
+ *    @param op another svg matrix
+ *    @return this * op
+ */
+matrixSVG.prototype.mult = function(op)
+{
+    out = new matrixSVG();
+
+    out.e11 = this.e11 * op.e11 + this.e12 * op.e21 + this.e13 * op.e31;
+    out.e12 = this.e11 * op.e12 + this.e12 * op.e22 + this.e13 * op.e32;
+    out.e13 = this.e11 * op.e13 + this.e12 * op.e23 + this.e13 * op.e33;
+    out.e21 = this.e21 * op.e11 + this.e22 * op.e21 + this.e23 * op.e31;
+    out.e22 = this.e21 * op.e12 + this.e22 * op.e22 + this.e23 * op.e32;
+    out.e23 = this.e21 * op.e13 + this.e22 * op.e23 + this.e23 * op.e33;
+    out.e31 = this.e31 * op.e11 + this.e32 * op.e21 + this.e33 * op.e31;
+    out.e32 = this.e31 * op.e12 + this.e32 * op.e22 + this.e33 * op.e32;
+    out.e33 = this.e31 * op.e13 + this.e32 * op.e23 + this.e33 * op.e33;
+
+    return out;
+}
+
+/** Matrix addition.
+ *
+ *    @param op another svg matrix
+ *    @return this + op
+ */
+matrixSVG.prototype.add = function(op)
+{
+    out = new matrixSVG();
+
+    out.e11 = this.e11 + op.e11;
+    out.e12 = this.e12 + op.e12;
+    out.e13 = this.e13 + op.e13;
+    out.e21 = this.e21 + op.e21;
+    out.e22 = this.e22 + op.e22;
+    out.e23 = this.e23 + op.e23;
+    out.e31 = this.e31 + op.e31;
+    out.e32 = this.e32 + op.e32;
+    out.e33 = this.e33 + op.e33;
+
+    return out;
+}
+
+/** Matrix mixing.
+ *
+ *    @param op another svg matrix
+ *    @parma contribOp contribution of the other matrix (0 &lt;= contribOp &lt;= 1)
+ *    @return (1 - contribOp) * this + contribOp * op
+ */
+matrixSVG.prototype.mix = function(op, contribOp)
+{
+    contribThis = 1.0 - contribOp;
+    out = new matrixSVG();
+
+    out.e11 = contribThis * this.e11 + contribOp * op.e11;
+    out.e12 = contribThis * this.e12 + contribOp * op.e12;
+    out.e13 = contribThis * this.e13 + contribOp * op.e13;
+    out.e21 = contribThis * this.e21 + contribOp * op.e21;
+    out.e22 = contribThis * this.e22 + contribOp * op.e22;
+    out.e23 = contribThis * this.e23 + contribOp * op.e23;
+    out.e31 = contribThis * this.e31 + contribOp * op.e31;
+    out.e32 = contribThis * this.e32 + contribOp * op.e32;
+    out.e33 = contribThis * this.e33 + contribOp * op.e33;
+
+    return out;
+}
+
+/** Trimming function for strings.
+*/
+String.prototype.trim = function()
+{
+    return this.replace(/^\s+|\s+$/g, '');
+}
+
+/** SVGElement.getTransformToElement polyfill */
+SVGElement.prototype.getTransformToElement = SVGElement.prototype.getTransformToElement || function(elem) {
+    return elem.getScreenCTM().inverse().multiply(this.getScreenCTM());
+};
+</script><g
+   id="layer1"
+   transform="translate(-1.9291032,-4.8085106)" /><circle
+   style="fill:#ffffff;stroke-width:1.18777"
+   id="path2315-3"
+   cx="21.942539"
+   cy="42.712578"
+   r="7.5" /><path
+   style="fill:#000000;stroke-width:0.074223"
+   d="M 21.087406,51.526493 C 19.281397,51.29216 17.691684,50.705567 16.225548,49.732492 15.340304,49.144965 14.069492,47.860548 13.457016,46.934308 11.37148,43.78044 11.316605,40.540557 13.302984,37.840563 c 0.828068,-1.125571 2.736048,-2.881759 4.563921,-4.200841 l 0.870768,-0.62838 -0.10554,-0.252634 c -0.220095,-0.526742 -0.08411,-1.263791 0.308862,-1.674077 0.181468,-0.189464 0.182434,-0.19738 0.07475,-0.610933 -0.217552,-0.835225 0.09506,-1.566078 0.828387,-1.936731 0.191631,-0.09685 0.241235,-0.16781 0.241235,-0.345082 0,-0.473307 0.452692,-1.150359 0.890384,-1.331653 0.152315,-0.06309 0.223024,-0.144162 0.223024,-0.25572 0,-0.360351 0.239122,-0.854071 0.554407,-1.144692 0.328722,-0.303009 0.706379,-0.454256 1.136084,-0.454993 0.187764,-2.93e-4 0.258417,-0.04073 0.310491,-0.17773 0.09775,-0.257074 0.508182,-0.702046 0.774983,-0.840171 0.126617,-0.06557 0.411163,-0.139011 0.632308,-0.163219 l 0.402093,-0.04405 0.239949,-0.96495 c 0.439823,-1.768783 1.129622,-3.723336 1.74826,-4.95375 1.149359,-2.285987 2.758512,-3.573492 5.147328,-4.118483 0.81552,-0.186058 2.767283,-0.166307 3.692645,0.03735 2.042101,0.44947 3.702384,1.322786 5.155152,2.711643 0.918898,0.878474 1.555801,1.737434 2.101756,2.834566 1.071746,2.153706 1.242111,4.160044 0.52101,6.135911 -0.674526,1.848235 -2.551373,3.855686 -5.715434,6.113152 -0.387826,0.276706 -0.71394,0.509664 -0.724683,0.517691 -0.01077,0.0079 0.03103,0.135548 0.09278,0.28339 0.22672,0.542625 0.09585,1.274791 -0.302097,1.69028 -0.180545,0.188488 -0.181939,0.199312 -0.07754,0.600024 0.199143,0.764569 -0.08533,1.504698 -0.721748,1.87765 -0.297248,0.174198 -0.330584,0.223351 -0.374118,0.551492 -0.05829,0.439424 -0.374052,0.901245 -0.773343,1.131035 -0.253324,0.145797 -0.296718,0.213321 -0.372316,0.57931 -0.150335,0.727865 -0.718564,1.225176 -1.50651,1.318494 -0.33513,0.03967 -0.383402,0.06997 -0.511264,0.320589 -0.213154,0.417819 -0.520686,0.647173 -1.129023,0.842019 -0.11539,0.037 -0.117959,0.06861 -0.02654,0.327704 0.308715,0.874983 0.889623,1.648616 1.352674,1.801441 0.789461,0.260539 1.631534,-0.318798 3.169218,-2.180383 1.789755,-2.166755 2.853757,-2.98617 3.867691,-2.97859 1.02585,0.0077 1.742386,0.798965 2.191708,2.420411 0.18869,0.680901 0.189014,0.673455 -0.04186,0.947857 -0.151446,0.179984 -0.250934,0.228379 -0.46953,0.228379 -0.36545,0 -0.577004,-0.228509 -0.720582,-0.778311 -0.242655,-0.929233 -0.617487,-1.522727 -0.96171,-1.522727 -0.515457,0 -1.547373,0.898215 -2.820026,2.454641 -1.577164,1.928834 -2.577115,2.659646 -3.726914,2.723796 -0.463716,0.02595 -0.655487,6.44e-4 -1.005561,-0.131237 -0.515283,-0.194411 -1.165814,-0.797463 -1.510247,-1.400018 -0.125192,-0.219 -0.244036,-0.369312 -0.264102,-0.334016 -0.0201,0.03523 -0.161644,0.481684 -0.314622,0.991991 -0.532368,1.775894 -1.329551,3.584298 -2.044355,4.637608 -1.129551,1.66447 -2.940387,2.739287 -5.063655,3.005523 -0.586546,0.07355 -1.558727,0.08573 -2.024069,0.02533 z m 2.231808,-1.362943 c 1.530582,-0.238161 2.999473,-1.176799 3.832869,-2.449231 0.85961,-1.312464 1.633479,-3.305581 2.289836,-5.897513 L 29.723866,40.7034 29.525223,40.539062 c -0.109247,-0.09039 -0.217559,-0.165542 -0.240685,-0.167013 -0.02313,-0.002 -0.08617,0.222794 -0.140045,0.498359 -0.339539,1.736257 -1.101491,4.004235 -1.8762,5.584627 -0.481854,0.982951 -0.57869,1.126635 -1.127209,1.672545 -1.903613,1.894554 -5.025945,2.166255 -7.925447,0.68966 -2.061163,-1.049663 -3.587114,-2.801272 -4.255657,-4.884971 -0.163731,-0.510322 -0.209191,-0.81539 -0.237816,-1.595878 -0.0521,-1.42006 0.180481,-2.249518 0.923419,-3.2935 0.760203,-1.068238 2.901648,-2.992705 4.732633,-4.253093 0.42974,-0.295826 0.781351,-0.55712 0.781351,-0.580659 0,-0.02357 -0.09651,-0.09982 -0.214474,-0.169509 l -0.214479,-0.126685 -0.80615,0.563647 c -2.281559,1.595279 -4.194666,3.411214 -4.994256,4.740605 -1.387885,2.307468 -0.87168,5.421895 1.310772,7.908347 2.075081,2.364119 5.099465,3.501503 8.078234,3.038006 z m -0.170212,-1.824474 c 0.938025,-0.213353 1.495737,-0.520834 2.154863,-1.18804 0.810535,-0.82045 1.903412,-3.582129 2.541358,-6.421896 0.241215,-1.07373 0.248469,-1.144783 0.12637,-1.237357 -0.339873,-0.257707 -0.36725,-0.249872 -0.417398,0.119367 -0.08746,0.643908 -0.704273,3.011866 -1.048366,4.024634 -0.406378,1.196098 -1.0271,2.502452 -1.433129,3.01612 -0.767579,0.971056 -2.21284,1.481065 -3.668165,1.294422 -1.584789,-0.203237 -3.012383,-0.901467 -4.129543,-2.019743 -1.265334,-1.266589 -1.846763,-2.577551 -1.77334,-3.998388 0.06047,-1.169518 0.379767,-1.745902 1.686058,-3.043358 1.106763,-1.099278 3.082399,-2.618019 4.501688,-3.460599 0.134123,-0.07964 0.132137,-0.09009 -0.04532,-0.238762 -0.102065,-0.08552 -0.20998,-0.156603 -0.239832,-0.157962 -0.110323,-0.0052 -2.050325,1.345287 -2.84058,1.977145 -1.025138,0.819654 -2.606559,2.380677 -2.960442,2.922266 -0.475266,0.727338 -0.597336,1.174238 -0.59733,2.186785 6e-6,1.00038 0.100033,1.432409 0.532756,2.301036 0.375007,0.75277 0.811439,1.334639 1.475478,1.967141 1.082887,1.031469 2.248213,1.654381 3.67339,1.96356 0.659845,0.14316 1.817211,0.140161 2.461457,-0.0068 z m 0.140071,-1.910404 c 0.231122,-0.109958 0.539455,-0.331886 0.685165,-0.49318 0.771597,-0.854068 1.854548,-3.958111 2.33454,-6.691495 l 0.138962,-0.791361 -1.705412,-1.162422 -1.705404,-1.162433 -0.752079,0.454005 c -1.585181,0.956926 -3.282872,2.28164 -4.381889,3.419199 -0.968425,1.002371 -1.121515,1.297701 -1.114442,2.149833 0.0046,0.534335 0.04121,0.71618 0.240041,1.187637 0.629784,1.493142 2.119869,2.745466 3.799061,3.192868 0.815631,0.217322 1.88242,0.172832 2.461457,-0.102651 z m 8.149596,-6.537687 c 0.252018,-0.303663 0.229254,-0.321096 -5.554187,-4.253565 -3.452113,-2.347277 -5.66126,-3.804134 -5.768527,-3.804134 -0.200746,0 -0.356776,0.236251 -0.291622,0.441536 0.02423,0.07648 1.804741,1.33509 3.956692,2.797012 2.15191,1.461903 4.662327,3.168395 5.578694,3.792203 0.916367,0.623814 1.73898,1.134204 1.828029,1.134204 0.08903,0 0.201957,-0.0483 0.250921,-0.107256 z m 1.844212,-1.169441 c 0.162954,-0.162965 0.09914,-0.415477 -0.152166,-0.602139 -1.089158,-0.808969 -12.382951,-8.400866 -12.530008,-8.422903 -0.109984,-0.01648 -0.229424,0.01932 -0.284049,0.08514 -0.158643,0.191151 -0.06372,0.437293 0.251156,0.651692 0.163299,0.111165 2.802071,1.902885 5.863923,3.981606 3.061864,2.078713 5.764613,3.918122 6.006123,4.087579 0.449037,0.315052 0.687241,0.376802 0.845021,0.219022 z m 1.1995,-1.783592 c 0.104928,-0.18754 0.102362,-0.213164 -0.03466,-0.345675 -0.289954,-0.280456 -12.604041,-8.618779 -12.728275,-8.618779 -0.06963,0 -0.189109,0.06908 -0.265526,0.153521 -0.125374,0.138551 -0.128313,0.171208 -0.0301,0.334596 0.149853,0.249218 12.612378,8.71543 12.799196,8.694916 0.08026,-0.0088 0.196966,-0.107171 0.2593,-0.218579 z m 1.101534,-1.556619 c 0.163258,-0.163269 0.09928,-0.415471 -0.152171,-0.599822 -0.132681,-0.09727 -2.646189,-1.808357 -5.58557,-3.802417 -2.939385,-1.99405 -5.661656,-3.84773 -6.049482,-4.119278 -0.816957,-0.57202 -0.923666,-0.620862 -1.123124,-0.514115 -0.106751,0.05714 -0.141092,0.140239 -0.124525,0.301319 0.02112,0.205034 0.516464,0.558726 6.33218,4.521289 3.470112,2.364366 6.377758,4.29958 6.461448,4.300471 0.08369,6.44e-4 0.192253,-0.03841 0.241244,-0.08745 z m 0.417782,-2.180144 c 0.151024,-0.151018 0.147419,-0.276781 -0.01327,-0.462124 -0.07146,-0.08244 -1.649691,-1.183269 -3.507218,-2.446319 -1.85753,-1.263056 -4.34301,-2.952934 -5.523298,-3.755286 -1.180282,-0.802348 -2.188311,-1.458815 -2.240059,-1.458815 -0.165526,0 -0.336168,0.23523 -0.312841,0.431268 0.01909,0.160757 0.883173,0.775027 5.625034,3.998923 3.08134,2.094948 5.659269,3.808992 5.728715,3.808992 0.06949,0 0.178773,-0.05248 0.242919,-0.116639 z m 1.093629,-2.637032 c 2.560951,-1.829119 4.433792,-3.687032 5.109471,-5.068722 0.670607,-1.371331 0.714399,-3.164403 0.116119,-4.753906 -0.974334,-2.588556 -3.275788,-4.723519 -5.916294,-5.488289 -1.023889,-0.296549 -1.521918,-0.368194 -2.550198,-0.366854 -2.243859,0.0032 -3.993737,0.876632 -5.152706,2.572741 -0.700459,1.025081 -1.603316,3.348457 -2.196547,5.652507 l -0.324907,1.26186 0.185553,0.167002 c 0.102047,0.09186 0.21036,0.167021 0.2407,0.167021 0.03034,0 0.13218,-0.342384 0.226326,-0.760831 0.429494,-1.908996 1.146478,-3.978792 1.883461,-5.437117 0.393256,-0.778152 0.530622,-0.970998 1.086917,-1.525933 0.72586,-0.724088 1.464289,-1.15502 2.434047,-1.420458 0.839278,-0.229721 2.536281,-0.230314 3.456235,-0.0013 2.568792,0.639744 4.768278,2.389994 5.849584,4.65482 0.470517,0.985521 0.589928,1.45836 0.639575,2.532425 0.07844,1.697572 -0.324702,2.743875 -1.58817,4.121602 -1.052998,1.148237 -2.430571,2.333097 -3.956562,3.403086 -0.428657,0.300567 -0.810985,0.573846 -0.849621,0.607298 -0.08483,0.07341 0.163938,0.278282 0.342068,0.281692 0.06788,0.002 0.502079,-0.268132 0.964949,-0.598728 z M 35.822392,29.26269 c 2.229082,-1.548649 4.155554,-3.381973 4.716015,-4.487984 0.694825,-1.371179 0.438365,-3.276848 -0.658367,-4.891943 -0.30651,-0.451386 -1.109916,-1.283299 -1.609115,-1.666221 -1.311577,-1.006057 -2.800014,-1.539553 -4.305161,-1.543082 -1.372922,-0.0032 -2.458435,0.398295 -3.27016,1.20958 -0.946791,0.946288 -2.103698,3.897797 -2.735814,6.979705 l -0.136403,0.664996 0.186354,0.146586 c 0.102486,0.08065 0.208275,0.146583 0.235067,0.146583 0.02679,0 0.107123,-0.308957 0.178508,-0.686597 0.211248,-1.117524 0.549594,-2.396654 0.937516,-3.54433 0.945656,-2.79775 1.711265,-3.799144 3.254682,-4.257067 2.099679,-0.62296 4.943239,0.438062 6.520812,2.433122 1.428312,1.806303 1.681082,3.741604 0.683751,5.235115 -0.674329,1.009829 -2.695069,2.780988 -4.682454,4.104137 -0.562872,0.374742 -1.023399,0.699888 -1.023399,0.722533 0,0.02274 0.09157,0.09676 0.203517,0.164674 0.24093,0.146195 0.250282,0.141658 1.504651,-0.729807 z m -1.114358,-1.419565 c 1.875075,-1.288489 3.76568,-3.000037 4.182905,-3.786747 0.583097,-1.099486 0.145873,-2.596093 -1.134368,-3.882881 -0.715737,-0.719412 -1.374586,-1.141844 -2.269156,-1.454931 -0.527637,-0.184667 -0.697218,-0.20789 -1.521651,-0.208412 -0.845863,-5.21e-4 -0.964335,0.01655 -1.341029,0.1932 -0.227252,0.106583 -0.536125,0.320365 -0.686383,0.475079 -0.565177,0.581951 -1.368732,2.570043 -1.934734,4.78681 -0.340387,1.333153 -0.546725,2.569641 -0.452513,2.711719 0.0398,0.05999 0.801905,0.606733 1.693533,1.214852 l 1.621145,1.105676 0.568544,-0.334894 c 0.312699,-0.184202 0.885868,-0.552959 1.273707,-0.819471 z"
+   id="path2620" /></svg>

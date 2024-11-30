@@ -23,6 +23,7 @@ export let status = {
   version: "",
   notKaiOS: true,
   selected_marker: "",
+  previousView: "",
 };
 
 localforage
@@ -42,6 +43,21 @@ localforage
 
 // Initialize `settings` with default values for export
 export let settings;
+
+let myAreas = [];
+
+localforage
+  .getItem("myAreas")
+  .then((value) => {
+    if (value === null) {
+      localforage.setItem("myAreas", []);
+    } else {
+      myAreas = value;
+    }
+  })
+  .catch((err) => {
+    localforage.setItem("myAreas", []);
+  });
 
 localforage
   .getItem("settings")
@@ -584,28 +600,53 @@ var options = {
         class: "flex",
         oncreate: () => {
           top_bar("", "", "");
+          console.log(status);
 
           if (status.notKaiOS)
             top_bar("<img src='assets/icons/back.svg'>", "", "");
 
-          bottom_bar(
-            "",
-            "<img class='not-desktop' src='assets/icons/select.svg'>",
-            ""
-          );
+          bottom_bar("", "", "");
 
           if (status.notKaiOS) bottom_bar("", "", "");
         },
       },
       [
+        myAreas.length > 0
+          ? m(
+              "button",
+              {
+                class: "item",
+                onclick: () => {
+                  m.route.set("/myAreasView");
+                },
+              },
+              "MyAreas"
+            )
+          : null,
+        status.previousView == "/article"
+          ? m(
+              "button",
+              {
+                class: "item",
+                onclick: () => {
+                  console.log(current_article);
+                  if (myAreas == null) myAreas = [];
+                  myAreas.push(current_article);
+                  localforage.setItem("myAreas", myAreas).then(() => {
+                    history.back();
+                    show_success_animation();
+                  });
+                },
+              },
+              "Save area"
+            )
+          : null,
         ticks.length
           ? m(
               "button",
               {
                 class: "item",
                 oncreate: ({ dom }) => {
-                  dom.focus();
-
                   scrollToCenter();
                 },
                 onclick: () => {
@@ -619,9 +660,7 @@ var options = {
           "button",
           {
             class: "item",
-            oncreate: ({ dom }) => {
-              if (ticks.length == 0) dom.focus();
-            },
+            oncreate: ({ dom }) => {},
             onclick: () => {
               m.route.set("/about");
             },
@@ -648,6 +687,7 @@ var options = {
             },
             oncreate: () => {
               setTabindex();
+              document.querySelector(".item").focus();
             },
           },
           "Privacy Policy"
@@ -726,11 +766,7 @@ var tickView = {
           if (status.notKaiOS)
             top_bar("<img src='assets/icons/back.svg'>", "", "");
 
-          bottom_bar(
-            "",
-            "<img class='not-desktop' src='assets/icons/select.svg'>",
-            ""
-          );
+          bottom_bar("", "", "");
 
           if (status.notKaiOS) bottom_bar("", "", "");
         },
@@ -1125,6 +1161,10 @@ function getAllNestedKeys(obj, key) {
 }
 
 const article = {
+  onbeforeremove: function () {
+    status.previousView = "/article";
+  },
+
   view: function () {
     articles.find((h) => {
       var index = m.route.param("index");
@@ -1144,13 +1184,11 @@ const article = {
         class: "page",
 
         onremove: () => {
-          setTimeout(() => {
-            if (current_article != "") {
-              scrollToCenter();
-            } else {
-              scrollToTop();
-            }
-          }, 1000);
+          if (current_article != "") {
+            scrollToCenter();
+          } else {
+            scrollToTop();
+          }
         },
 
         oncreate: () => {
@@ -1163,6 +1201,7 @@ const article = {
           );
         },
       },
+
       m("h1", { class: "extra" }, "Climbs"),
       allClimbs.map((climb, i) => {
         return m(
@@ -1472,6 +1511,69 @@ var intro = {
 };
 
 //////////////
+////myAreas////
+////////////
+
+var myAreasView = {
+  view: function () {
+    return m(
+      "div",
+      {
+        class: "page",
+        id: "myAreasView",
+      },
+      [
+        m("h1", { class: "extra" }, "MyAreas"),
+        m("div", [
+          myAreas.map((e) => {
+            return m(
+              "article",
+              {
+                class: "item",
+                "data-lat": e.metadata.lat,
+                "data-lng": e.metadata.lng,
+
+                onclick: () => {
+                  current_article = e;
+                  m.route.set("/article");
+                },
+
+                onkeydown: (event) => {
+                  if (event.key === "Enter") {
+                    current_article = e;
+                    m.route.set("/article");
+                  }
+                },
+              },
+              [
+                m("div", { class: "tags" }, [
+                  m("span", { class: "tag" }, e.pathTokens[0]),
+
+                  e.metadata.isBoulder
+                    ? m("span", { class: "tag" }, "Bouldering")
+                    : m("span", { class: "tag" }, "Climbing"),
+                  m("span", { class: "tag" }, e.totalClimbs),
+                ]),
+
+                m(
+                  "h2",
+                  {
+                    oncreate: () => {
+                      setTabindex();
+                    },
+                  },
+                  e.areaName
+                ),
+              ]
+            );
+          }),
+        ]),
+      ]
+    );
+  },
+};
+
+//////////////
 ////TICKS////
 ////////////
 
@@ -1760,6 +1862,7 @@ m.route(root, "/intro", {
   "/privacy_policy": privacy_policy,
   "/tickView": tickView,
   "/ticksView": ticksView,
+  "/myAreasView": myAreasView,
 });
 
 function scrollToCenter() {
@@ -1791,6 +1894,7 @@ function scrollToCenter() {
       top: elY - scrollContainer.clientHeight / 2,
       behavior: "smooth",
     });
+    console.log(elY - scrollContainer.clientHeight / 2);
   } else {
     // If no scrollable parent is found, scroll the document body
     document.body.scrollBy({
@@ -2055,12 +2159,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         break;
 
       case "Backspace":
+        if (r.startsWith("/myAreasView")) {
+          history.back();
+        }
         if (r.startsWith("/mapView")) {
           history.back();
         }
 
         if (r.startsWith("/article")) {
-          history.back();
+          m.route.set("/start");
         }
 
         if (r.startsWith("/detail")) {

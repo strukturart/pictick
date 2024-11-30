@@ -484,6 +484,12 @@ article {
   margin: -0px 0 0 0;
 }
 
+#myAreasView {
+  min-width: 100%;
+  overflow: scroll;
+  margin: -0px 0 0 0;
+}
+
 article {
   margin: 30px 0 10px 0;
   position: relative;
@@ -737,6 +743,16 @@ div#bottom-bar div.button-center {
   color: white;
   padding: 2px;
   width: 32%;
+}
+
+div#sub-menu img {
+  width: 40px;
+}
+
+div#sub-menu {
+  position: fixed;
+  bottom: 70px;
+  left: 10px;
 }
 
 /*/ ////////////////
@@ -1034,6 +1050,12 @@ video {
     min-width: 100%;
     overflow: hidden;
     padding: 10px 0px 50px 0;
+  }
+
+  #start #search-results {
+    height: 80vh;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   div#top-bar div.button-left img {

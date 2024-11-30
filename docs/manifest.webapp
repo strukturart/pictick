@@ -1,7 +1,7 @@
 {
-  "version": "2.0.7",
-  "name": "feedolin",
-  "description": "Feedolin is an RSS / Atom / Mastodon reader and podcast player. It is intended for users who already use an rss reader client and want to read their feeds on a kaios device. the list of subscribed websites / podcasts is managed locally or online in an opml file.",
+  "version": "0.0.2",
+  "name": "picTick",
+  "description": "PicTick is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database..",
   "launch_path": "/index.html",
   "type": "privileged",
   "fullscreen": "true",
@@ -22,9 +22,9 @@
 
   "locales": {
     "en-US": {
-      "name": "feedolin",
-      "subtitle": "Feedolin is an RSS / Atom reader and podcast player. ",
-      "description": "Feedolin is an RSS / Atom / Mastodon reader and podcast player. It is intended for users who already use an rss reader client and want to read their feeds on a kaios device. the list of subscribed websites / podcasts is managed locally or online in an opml file."
+      "name": "picTick",
+      "subtitle": " ",
+        "description": "PicTick is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database.."
     }
   },
   "default_locale": "en-US",
@@ -43,7 +43,7 @@
 
   "redirects": [
     {
-      "from": "https://feedolin.strukturart.com/",
+      "from": "https://pictick.strukturart.com/",
       "to": "/index.html"
     }
   ],
