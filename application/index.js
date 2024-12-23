@@ -203,8 +203,7 @@ function map_function(lat, lng, id) {
     }
   };
   geolocation(geolocation_cb);
-
-  L.marker([lat, lng]).addTo(map);
+  if (lat != 0 && lng != 0) L.marker([lat, lng]).addTo(map);
   map.setView([lat, lng]);
 
   articles.map((e) => {
@@ -347,6 +346,8 @@ async function fetchGraphQL(query, variables) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
   });
+
+  const requestBody = JSON.stringify({ query, variables });
 
   if (!response.ok) {
     console.error(`HTTP error! status: ${response.status}`);
@@ -544,11 +545,10 @@ async function fetchAreas(searchValue) {
   }
 }
 
-/*
 let operationsDocLocation = `
   query MyQuery($lat: Float!, $lng: Float!) {
     cragsNear(
-      maxDistance: 10000000
+      maxDistance: 100000
       minDistance: 0
       includeCrags: true
       lnglat: { lat: $lat, lng: $lng }
@@ -558,13 +558,24 @@ let operationsDocLocation = `
         areaName
         totalClimbs
         pathTokens
+        uuid
+        id
+        climbs {
+          id
+          name
+          pathTokens
+          uuid
+        }
+        children {
+          id
+        }
         metadata {
           lng
           lat
           isBoulder
           leftRightIndex
         }
-        uuid
+        
       }
     }
   }
@@ -585,9 +596,48 @@ async function fetchAreasByLocation(lat, lng) {
     return { success: false, error: error.message };
   }
 }
-*/
-// Test
-//fetchAreasByLocation(43, -79).then((result) => console.log(result));
+
+const operationsDocId = `
+query MyQuery($uuid: ID!) {
+  area(uuid: $uuid) {
+    climbs {
+      uuid
+      name
+      boltsCount
+      gradeContext
+      length
+      fa
+      type {
+        bouldering
+        sport
+        trad
+      }
+      grades {
+        brazilianCrux
+        ewbank
+        font
+        french
+        uiaa
+        vscale
+        yds
+      }
+    }
+  }
+}
+`;
+
+async function fetchAreasById(uuid) {
+  try {
+    const variables = { uuid: uuid }; // Passing uuid as a variable
+    const { errors, data } = await fetchGraphQL(operationsDocId, variables);
+
+    if (errors) throw new Error(JSON.stringify(errors));
+
+    return { success: true, data };
+  } catch (error) {
+    console.error("Error:", error); // Handle errors
+  }
+}
 
 var root = document.getElementById("app");
 
@@ -954,6 +1004,7 @@ let articles = [];
 let current_article;
 
 let searchTerm = "";
+let searchTerm_id = "";
 let stats = "";
 let focused_article;
 localforage
@@ -964,6 +1015,10 @@ localforage
   .catch(() => {});
 
 const start = {
+  onbeforeremove: function () {
+    status.previousView = "/start";
+  },
+
   async search() {
     document.querySelector(".loading-spinner-2").style.display = "block";
     const result = await fetchAreas(searchTerm);
@@ -998,6 +1053,7 @@ const start = {
       searchTerm = params;
       this.search();
     }
+    // Retrieve the `id` parameter from the URL
   },
   onremove: () => {
     scrollToTop();
@@ -1417,30 +1473,45 @@ var detail = {
 
 let mapView = {
   view: function () {
-    return m("div", {
-      id: "map-container",
+    return m(
+      "div",
+      {
+        id: "map-container",
 
-      oncreate: (vnode) => {
-        bottom_bar("", "", "");
+        oncreate: (vnode) => {
+          status.AfterCragsNear = false;
 
-        if (!status.notKaiOS)
-          bottom_bar(
-            "<img src='assets/icons/plus.svg'>",
-            "",
-            "<img src='assets/icons/minus.svg'>"
-          );
+          bottom_bar("", "<img src='assets/icons/save.svg'>", "");
 
-        const params = new URLSearchParams(m.route.get().split("?")[1]);
-        const lat = parseFloat(params.get("lat"));
-        const lng = parseFloat(params.get("lng"));
-        const id = parseFloat(params.get("uuid"));
+          if (!status.notKaiOS)
+            bottom_bar(
+              "<img src='assets/icons/plus.svg'>",
+              "<img src='assets/icons/save.svg'>",
+              "<img src='assets/icons/minus.svg'>"
+            );
 
-        map_function(lat, lng, id);
+          const params = new URLSearchParams(m.route.get().split("?")[1]);
+          const lat = parseFloat(params.get("lat"));
+          const lng = parseFloat(params.get("lng"));
+          const id = parseFloat(params.get("uuid"));
 
-        if (status.notKaiOS)
-          top_bar("<img src='assets/icons/back.svg'>", "", "");
+          map_function(lat, lng, id);
+
+          if (status.notKaiOS)
+            top_bar("<img src='assets/icons/back.svg'>", "", "");
+        },
       },
-    });
+      [
+        m("div", { id: "cross" }, [
+          m("div", { id: "cross-inner" }, [
+            m("div"),
+            m("div"),
+            m("div"),
+            m("div"),
+          ]),
+        ]),
+      ]
+    );
   },
 };
 
@@ -2113,8 +2184,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/start")) {
-          console.log(current_article);
-          if (articles.length == 0) return false;
+          if (current_article == undefined) {
+            m.route.set("/mapView", {
+              lat: 0,
+              lng: 0,
+              uuid: 0,
+            });
+            return;
+          }
+          //if (articles.length == 0) return false;
           if (focused_article != null) {
             m.route.set("/mapView", {
               lat: current_article.metadata.lat,
@@ -2123,9 +2201,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             });
           } else {
             m.route.set("/mapView", {
-              lat: current_article.metadata.lat,
-              lng: current_article.metadata.lng,
-              uuid: current_article.uuid,
+              lat: current_article.metadata.lat || 0,
+              lng: current_article.metadata.lng || 0,
+              uuid: current_article.uuid || 0,
             });
           }
         }
@@ -2153,6 +2231,42 @@ document.addEventListener("DOMContentLoaded", function (e) {
           document.activeElement.children[0].focus();
         }
 
+        if (r.startsWith("/map")) {
+          let m = map.getCenter();
+
+          document.querySelector(".loading-spinner").style.display = "block";
+          //get crags around map center
+          fetchAreasByLocation(m.lat, m.lng).then((result) => {
+            status.AfterCragsNear = true;
+            result.data.cragsNear.map((e) => {
+              e.crags.map((n) => {
+                if (n.totalClimbs > 0) {
+                  //get climbs of crags
+                  // openbeta api do not provide the climbs not
+                  //direct with cragsNear endpoint :-(
+                  fetchAreasById(n.uuid).then((e) => {
+                    n.climbs = e.data.area.climbs;
+                    articles = result.data.cragsNear[0].crags;
+                  });
+                }
+                // Create the marker with a custom 'id' property
+                let marker = L.marker([n.metadata.lat, n.metadata.lng], {
+                  id: n.uuid,
+                })
+                  .addTo(map)
+                  .bindPopup(n.areaName);
+
+                // Add a click event listener to the marker
+                marker.on("click", (event) => {
+                  const markerId = event.target.options.id; // Retrieve the ID from the marker options
+                  status.selected_marker = markerId;
+                });
+              });
+            });
+            document.querySelector(".loading-spinner").style.display = "none";
+          });
+        }
+
         break;
 
       case "#":
@@ -2163,7 +2277,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
           history.back();
         }
         if (r.startsWith("/mapView")) {
-          history.back();
+          if (status.AfterCragsNear) {
+            m.route.set("/start", { "search": "" });
+          } else {
+            history.back();
+          }
         }
 
         if (r.startsWith("/article")) {

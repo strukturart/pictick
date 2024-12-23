@@ -392,6 +392,59 @@ label {
   background-color: #ffffff;
 }
 
+/*crosshair*/
+
+div#cross {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3000000000000;
+  opacity: 1;
+}
+
+div#cross div#cross-inner {
+  position: relative;
+}
+
+div#cross div {
+  min-width: 20px;
+  height: 3px;
+  background: black;
+  position: absolute;
+}
+
+div#cross div:nth-child(1) {
+  transform: rotate(90deg);
+  z-index: 20000000;
+}
+
+div#cross div:nth-child(2) {
+  z-index: 20000000;
+}
+
+div#cross div:nth-child(3) {
+  min-width: 20px;
+  outline: 2px solid white;
+}
+
+div#cross div:nth-child(4) {
+  outline: 2px solid white;
+  transform: rotate(90deg);
+}
+
+div.unavailable div:nth-child(4) {
+  outline: 2px solid yellow !important;
+}
+
+div.unavailable div:nth-child(3) {
+  outline: 2px solid yellow !important;
+}
+
+/*ticks*/
+
 #ticks-view span.name {
   font-weight: bold;
   flex: 1;

@@ -78,7 +78,6 @@ export const geolocation = function (callback) {
   let lastCallbackTime = 0;
 
   let showPosition = function (position) {
-    console.log(position);
     const now = Date.now();
 
     // Only proceed if 20 seconds have passed since the last callback
