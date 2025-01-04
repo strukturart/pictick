@@ -3,12 +3,14 @@
 "index.63982eba.css",
 "index.5671dcd7.css",
 "manifest.webapp",
+"index.779ab669.js",
 "index.339e55c4.js",
 "icon-56-56.bda5227e.png",
 "icon-16-16.a57fad36.png",
 "icon-512-512.93f8aab8.png",
 "Roboto-Regular.4f1a9903.ttf",
 "worker.85859de9.js",
+"index.d30df81c.js",
 "marker-icon.png",
 "icon-112-112.185b7f3e.png",
 "marker-icon.db6c4d0c.png",
@@ -78,5 +80,6 @@
 "assets/css/images/public-transport.png",
 "assets/css/images/layers.png",
 "assets/css/images/flag.png",
+"assets/js/leaflet-mapbox-gl.js",
 "assets/js/kaiads.v5.min.js"
 ]

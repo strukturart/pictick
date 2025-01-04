@@ -7,7 +7,7 @@
   "scripts": {
     "run": "parcel",
     "build": "rm -rf test/* && parcel build --dist-dir test --public-url ./ --no-source-maps --no-content-hash application/index.html && cp application/manifest.webapp test && cp application/manifest.webmanifest test && mkdir -p test/assets && cp -r application/assets/icons test/assets/ && cp -r application/assets/css test/assets/ &&  cp application/assets/css/images/marker-icon-2x.png application/ && mkdir -p test/assets/js/ && cp application/assets/js/kaiads.v5.min.js test/assets/js/ && cp application/assets/css/marker-icon.png test/ &&  cp -r application/assets/fonts test/assets/",
-    "web": "rm -rf docs/* && parcel build --dist-dir docs --public-url ./ --no-source-maps --no-content-hash application/index.html && cp application/manifest.webapp docs && cp application/manifest.webmanifest docs && mkdir -p docs/assets && cp -r application/assets/icons docs/assets/ && cp -r application/assets/css docs/assets/ &&  cp application/assets/css/images/marker-icon-2x.png application/ && mkdir -p docs/assets/js/ && cp application/assets/js/kaiads.v5.min.js docs/assets/js/ && cp application/assets/css/marker-icon.png docs/ &&  cp -r application/assets/fonts docs/assets/ && ./generate_file_list.sh"
+    "web": "rm -rf docs/* && parcel build --dist-dir docs --public-url ./ --no-source-maps --no-content-hash application/index.html && cp application/manifest.webapp docs && cp application/manifest.webmanifest docs && mkdir -p docs/assets && cp -r application/assets/icons docs/assets/ && cp -r application/assets/css docs/assets/ &&  cp application/assets/css/images/marker-icon-2x.png application/ && mkdir -p docs/assets/js/ && cp application/assets/js/kaiads.v5.min.js docs/assets/js/  && cp application/assets/js/leaflet-mapbox-gl.js  docs/assets/js/ && cp application/assets/css/marker-icon.png docs/ &&  cp -r application/assets/fonts docs/assets/ && ./generate_file_list.sh"
   },
   "keywords": [],
   "author": "",
@@ -48,7 +48,9 @@
     "dotenv": "^16.4.1",
     "json-to-csv-export": "^3.1.0",
     "leaflet": "^1.9.4",
+    "leaflet.vectorgrid": "^1.3.0",
     "localforage": "^1.10.0",
+    "mapbox-gl": "^3.9.2",
     "mithril": "^2.2.9",
     "uuid": "^9.0.0"
   }

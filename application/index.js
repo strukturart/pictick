@@ -12,9 +12,12 @@ import {
 import localforage from "localforage";
 import m from "mithril";
 import dayjs from "dayjs";
-import L from "leaflet";
 import { v4 as uuidv4 } from "uuid";
 import jsonToCsvExport from "json-to-csv-export";
+import L from "leaflet";
+
+import "leaflet.vectorgrid";
+//import "mapbox-gl";
 
 const sw_channel = new BroadcastChannel("sw-messages");
 
@@ -103,6 +106,16 @@ if (userAgent && userAgent.includes("KAIOS")) {
   status.notKaiOS = false;
 }
 
+/*
+const scripts = ["./assets/js/leaflet-mapbox-gl.js"];
+
+scripts.forEach((src) => {
+  const js = document.createElement("script");
+  js.type = "text/javascript";
+  js.src = src;
+  document.head.appendChild(js);
+});
+*/
 if (!status.notKaiOS) {
   const scripts = [
     "http://127.0.0.1/api/v1/shared/core.js",
@@ -132,52 +145,85 @@ if (status.debug) {
 //map
 
 let map;
-let step = 0.004;
-const mainmarker = { current_lat: 0, current_lng: 0 };
+const mainmarker = { current_lat: 20, current_lng: 0 };
 
-// Function to zoom the map
 function ZoomMap(in_out) {
-  if (!map) return; // Check if the map is initialized
+  if (!map) return; // Überprüfen, ob die Karte initialisiert ist
 
-  let current_zoom_level = map.getZoom();
   if (in_out === "in") {
-    map.setZoom(current_zoom_level + 1);
+    map.zoomIn(); // Zoomt hinein
   } else if (in_out === "out") {
-    map.setZoom(current_zoom_level - 1);
+    map.zoomOut(); // Zoomt heraus
   }
 }
 
-// Function to move the map
 function MoveMap(direction) {
-  let n = map.getCenter();
+  // Schrittweite, die mit der Zoomstufe skaliert
+  const baseStep = 0.01; // Basis-Schrittweite
+  const zoomFactor = Math.pow(2, map.getZoom()); // Skaliert entsprechend der Zoomstufe
+  const step = baseStep / zoomFactor;
 
-  mainmarker.current_lat = n.lat;
-  mainmarker.current_lng = n.lng;
+  // Aktuelle Mitte der Karte
+  let center = map.getCenter();
 
+  // Verschiebung berechnen
   if (direction === "left") {
-    mainmarker.current_lng -= step;
+    center.lng -= step;
   } else if (direction === "right") {
-    mainmarker.current_lng += step;
+    center.lng += step;
   } else if (direction === "up") {
-    mainmarker.current_lat += step;
+    center.lat += step;
   } else if (direction === "down") {
-    mainmarker.current_lat -= step;
+    center.lat -= step;
   }
-  map.panTo(new L.LatLng(mainmarker.current_lat, mainmarker.current_lng));
+
+  // Karte verschieben
+  map.panTo(center);
 }
 
 // Initialize the map and define the setup
-function map_function(lat, lng, id) {
+function map_function(lat, lng, zoom = 14) {
   map = L.map("map-container", {
     keyboard: true,
     zoomControl: false,
     shadowUrl: "",
-  }).setView([lat, lng], 13);
+    minZoom: 4,
+    worldCopyJump: true,
+  }).setView([lat, lng], zoom);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
+  // Vector tile server URL
 
+  /*
+  const url = `https://api.mapbox.com/v4/mapbox.outdoors-v12/{z}/{x}/{y}.vector.pbf?access_token=${process.env.mapBoxKey}`;
+
+  const customStyle = {
+    default: {
+      stroke: false, // Kein Rand um die Kacheln
+      fill: false,
+      fillOpacity: 0,
+    },
+  };
+
+  // Add vector tiles using VectorGrid
+  const vectorTileLayer = L.vectorGrid.protobuf(url, {
+    //rendererFactory: L.canvas.tile,
+    vectorTileLayerStyles: customStyle,
+
+    attribution: "&copy; mapBox contributors",
+  });
+
+  // Add the vector tile layer to the map
+  //vectorTileLayer.addTo(map);
+
+  var gl = L.mapboxGL({
+    accessToken: process.env.mapBoxKey,
+    style: "mapbox://styles/mapbox/outdoors-v12",
+  }).addTo(map);
+
+  */
   setTimeout(() => {
     document.querySelector(
       ".leaflet-control-attribution leaflet-control"
@@ -225,44 +271,6 @@ function map_function(lat, lng, id) {
       console.log("Clicked Marker ID:", markerId);
       status.selected_marker = markerId;
     });
-  });
-
-  map.on("zoomend", function () {
-    let zoom_level = map.getZoom();
-
-    if (zoom_level > 16) {
-      step = 0.0005;
-    } else if (zoom_level > 15) {
-      step = 0.001;
-    } else if (zoom_level > 14) {
-      step = 0.002;
-    } else if (zoom_level > 13) {
-      step = 0.004;
-    } else if (zoom_level > 12) {
-      step = 0.01;
-    } else if (zoom_level > 11) {
-      step = 0.02;
-    } else if (zoom_level > 10) {
-      step = 0.04;
-    } else if (zoom_level > 9) {
-      step = 0.075;
-    } else if (zoom_level > 8) {
-      step = 0.15;
-    } else if (zoom_level > 7) {
-      step = 0.3;
-    } else if (zoom_level > 6) {
-      step = 0.5;
-    } else if (zoom_level > 5) {
-      step = 1.2;
-    } else if (zoom_level > 4) {
-      step = 2.75;
-    } else if (zoom_level > 3) {
-      step = 4.5;
-    } else if (zoom_level > 2) {
-      step = 8;
-    } else {
-      step = 20;
-    }
   });
 }
 
@@ -1495,7 +1503,7 @@ let mapView = {
           const lng = parseFloat(params.get("lng"));
           const id = parseFloat(params.get("uuid"));
 
-          map_function(lat, lng, id);
+          map_function(lat, lng, 20);
 
           if (status.notKaiOS)
             top_bar("<img src='assets/icons/back.svg'>", "", "");
