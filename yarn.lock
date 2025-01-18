@@ -920,6 +920,11 @@
   resolved "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz"
   integrity sha512-6j56HdLTwWGO0fJPlrZtdU/B13q8Uwmo18Ck2GnGgN9PCFyKTZ3UbXeEdRFh18i9XQ92eH2VdtpJHpBD3aripQ==
 
+"@mapbox/point-geometry@~1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-1.1.0.tgz"
+  integrity sha512-YGcBz1cg4ATXDCM/71L9xveh4dynfGmcLDqufR+nQQy3fKwsAZsWd/x4621/6uJaeB9mwOHE6hPeDgXz9uViUQ==
+
 "@mapbox/tiny-sdf@^2.0.6":
   version "2.0.6"
   resolved "https://registry.npmjs.org/@mapbox/tiny-sdf/-/tiny-sdf-2.0.6.tgz"
@@ -936,6 +941,15 @@
   integrity sha512-MCEddb8u44/xfQ3oD+Srl/tNcQoqTw3goGk2oLsrFxOTc3dUp+kAnby3PvAeeBYSMSjSPD1nd1AJA6W49WnoUw==
   dependencies:
     "@mapbox/point-geometry" "~0.1.0"
+
+"@mapbox/vector-tile@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/@mapbox/vector-tile/-/vector-tile-2.0.3.tgz"
+  integrity sha512-Fq8PzBAaBeG3sEZA7Bomlv+8ZJcS5KCD6MRlCqiFrroOLnwZFFSJVydk1J9sneScJq9q4yyGfxKa+i7x2TLG8A==
+  dependencies:
+    "@mapbox/point-geometry" "~1.1.0"
+    "@types/geojson" "^7946.0.14"
+    pbf "^4.0.1"
 
 "@mapbox/whoots-js@^3.1.0":
   version "3.1.0"
@@ -2030,7 +2044,7 @@
   dependencies:
     "@types/geojson" "*"
 
-"@types/geojson@*", "@types/geojson@^7946.0.15":
+"@types/geojson@*", "@types/geojson@^7946.0.14", "@types/geojson@^7946.0.15":
   version "7946.0.15"
   resolved "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.15.tgz"
   integrity sha512-9oSxFzDCT2Rj6DfcHF8G++jxBKS7mBqXl5xrRW+Kbvjry6Uduya2iiwqHPhVXpasAVMBYKkEPGgKhd3+/HZ6xA==
@@ -3274,6 +3288,18 @@ keyv@^4.0.0:
   dependencies:
     json-buffer "3.0.1"
 
+leaflet-geometryutil@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.npmjs.org/leaflet-geometryutil/-/leaflet-geometryutil-0.10.3.tgz"
+  integrity sha512-Qeas+KsnenE0Km/ydt8km3AqFe7kJhVwuLdbCYM2xe2epsxv5UFEaVJiagvP9fnxS8QvBNbm7DJlDA0tkKo9VA==
+  dependencies:
+    leaflet "^1.6.0"
+
+leaflet-vector-tile-layer@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.npmjs.org/leaflet-vector-tile-layer/-/leaflet-vector-tile-layer-0.16.1.tgz"
+  integrity sha512-jC1ymX83OYjxmJ0S5+k3Gogtm0iTtqKhruVA5u1250xkVuWlBwNQIfo74tl0gfI8YtNIIEiZ4t7SvYrHiaHKoQ==
+
 leaflet.vectorgrid@^1.3.0:
   version "1.3.0"
   resolved "https://registry.npmjs.org/leaflet.vectorgrid/-/leaflet.vectorgrid-1.3.0.tgz"
@@ -3284,7 +3310,7 @@ leaflet.vectorgrid@^1.3.0:
     vector-tile "^1.3.0"
     whatwg-fetch "^2.0.3"
 
-leaflet@^1.0.2, leaflet@^1.9.4:
+leaflet@^1.0.0, leaflet@^1.0.2, leaflet@^1.6.0, leaflet@^1.9.4:
   version "1.9.4"
   resolved "https://registry.npmjs.org/leaflet/-/leaflet-1.9.4.tgz"
   integrity sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==
@@ -3746,12 +3772,27 @@ path-parse@^1.0.7:
   resolved "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-pbf@^3.0.2, pbf@^3.2.1:
+pbf@^3.0.2:
   version "3.3.0"
   resolved "https://registry.npmjs.org/pbf/-/pbf-3.3.0.tgz"
   integrity sha512-XDF38WCH3z5OV/OVa8GKUNtLAyneuzbCisx7QUCF8Q6Nutx0WnJrQe5O+kOtBlLfRNUws98Y58Lblp+NJG5T4Q==
   dependencies:
     ieee754 "^1.1.12"
+    resolve-protobuf-schema "^2.1.0"
+
+pbf@^3.2.1:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/pbf/-/pbf-3.3.0.tgz"
+  integrity sha512-XDF38WCH3z5OV/OVa8GKUNtLAyneuzbCisx7QUCF8Q6Nutx0WnJrQe5O+kOtBlLfRNUws98Y58Lblp+NJG5T4Q==
+  dependencies:
+    ieee754 "^1.1.12"
+    resolve-protobuf-schema "^2.1.0"
+
+pbf@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/pbf/-/pbf-4.0.1.tgz"
+  integrity sha512-SuLdBvS42z33m8ejRbInMapQe8n0D3vN/Xd5fmWM3tufNgRQFBpaW2YVJxQZV4iPNqb0vEFvssMEo5w9c6BTIA==
+  dependencies:
     resolve-protobuf-schema "^2.1.0"
 
 pbkdf2@^3.1.2:

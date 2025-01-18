@@ -635,6 +635,10 @@ img.myMarker {
   filter: hue-rotate(120deg);
 }
 
+img.selected-marker {
+  filter: hue-rotate(120deg);
+}
+
 #start section#stats-footer {
   padding: 20px 0;
   font-size: 0.9rem;
@@ -665,6 +669,25 @@ section#stats-footer span {
 
 #detail ul li div {
   font-weight: bold;
+}
+
+#image-wrapper li:only-child {
+  flex: 0 0 100%; /* Make the single <li> span 100% width */
+}
+
+#image-wrapper li {
+  flex: 0 0 29.2%; /* Default: 33.33% width for multiple <li> elements */
+}
+
+#image-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  gap: 20px; /* Add space between items */
+  margin: 40px 0;
+}
+
+#image-wrapper li img {
+  width: 100%; /* Ensure the image fills the <li> */
 }
 
 /*///////////////////////////
@@ -1028,6 +1051,12 @@ video {
     width: 100vw;
     padding: 0;
   }
+
+  #image-wrapper img {
+    width: 100%;
+    flex: 0 0 44.3333%;
+    display: block;
+  }
 }
 
 @media screen and (min-width: 0px) and (max-width: 400px) {
@@ -1188,5 +1217,13 @@ video {
 
   #my-tick-list {
     padding: 0 0 50px 0;
+  }
+
+  #image-wrapper li:only-child {
+    flex: 0 0 100%; /* Make the single <li> span 100% width */
+  }
+
+  #image-wrapper li {
+    flex: 0 0 100%; /* Default: 33.33% width for multiple <li> elements */
   }
 }

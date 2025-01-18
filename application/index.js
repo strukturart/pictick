@@ -17,7 +17,14 @@ import jsonToCsvExport from "json-to-csv-export";
 import L from "leaflet";
 
 import "leaflet.vectorgrid";
-//import "mapbox-gl";
+
+import { VectorTile } from "@mapbox/vector-tile";
+import Protobuf from "pbf";
+
+import markerIcon from "./assets/css/marker-icon.png";
+import markerIconRetina from "./assets/css/marker-icon-2x.png";
+
+import GeometryUtil from "leaflet-geometryutil";
 
 const sw_channel = new BroadcastChannel("sw-messages");
 
@@ -27,6 +34,7 @@ export let status = {
   notKaiOS: true,
   selected_marker: "",
   previousView: "",
+  selected_marker_cragId: "",
 };
 
 localforage
@@ -106,16 +114,6 @@ if (userAgent && userAgent.includes("KAIOS")) {
   status.notKaiOS = false;
 }
 
-/*
-const scripts = ["./assets/js/leaflet-mapbox-gl.js"];
-
-scripts.forEach((src) => {
-  const js = document.createElement("script");
-  js.type = "text/javascript";
-  js.src = src;
-  document.head.appendChild(js);
-});
-*/
 if (!status.notKaiOS) {
   const scripts = [
     "http://127.0.0.1/api/v1/shared/core.js",
@@ -158,9 +156,9 @@ function ZoomMap(in_out) {
 }
 
 function MoveMap(direction) {
-  // Schrittweite, die mit der Zoomstufe skaliert
-  const baseStep = 0.01; // Basis-Schrittweite
-  const zoomFactor = Math.pow(2, map.getZoom()); // Skaliert entsprechend der Zoomstufe
+  document.querySelector("#map-container").focus();
+  const baseStep = 0.01;
+  const zoomFactor = Math.pow(2, map.getZoom());
   const step = baseStep / zoomFactor;
 
   // Aktuelle Mitte der Karte
@@ -176,63 +174,175 @@ function MoveMap(direction) {
   } else if (direction === "down") {
     center.lat -= step;
   }
-
-  // Karte verschieben
   map.panTo(center);
 }
 
+function findClosestMarker() {
+  const mapCenter = map.getCenter(); // Get the map center
+  const radiusInKm = 150; // Define the maximum radius (150 km)
+  const radiusInDegrees = radiusInKm / 111; // Convert km to degrees (~111 km per degree)
+
+  // Create a reduced bounding box around the map center
+  const reducedBounds = L.latLngBounds(
+    [mapCenter.lat - radiusInDegrees, mapCenter.lng - radiusInDegrees],
+    [mapCenter.lat + radiusInDegrees, mapCenter.lng + radiusInDegrees]
+  );
+
+  let markers = [];
+
+  map.eachLayer(function (layer) {
+    if (layer instanceof L.Marker) {
+      const markerLatLng = layer.getLatLng();
+
+      // Check if the marker is within the reduced bounds
+      if (reducedBounds.contains(markerLatLng)) {
+        layer.getElement().classList.remove("selected-marker");
+        markers.push(layer);
+      }
+    }
+  });
+
+  // Handle the case where no markers are found in the reduced bounds
+  if (markers.length === 0) {
+    return null;
+  }
+
+  // Find the closest marker to the map center
+  return L.GeometryUtil.closestLayer(map, markers, mapCenter).layer;
+}
+
 // Initialize the map and define the setup
-function map_function(lat, lng, zoom = 14) {
+function map_function(lat, lng, zoom = 10) {
   map = L.map("map-container", {
     keyboard: true,
     zoomControl: false,
     shadowUrl: "",
-    minZoom: 4,
+    minZoom: 3,
     worldCopyJump: true,
   }).setView([lat, lng], zoom);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
-  // Vector tile server URL
 
-  /*
-  const url = `https://api.mapbox.com/v4/mapbox.outdoors-v12/{z}/{x}/{y}.vector.pbf?access_token=${process.env.mapBoxKey}`;
+  // Vector tile server URL
+  const addedMarkers = new Set();
+
+  const url = "https://maptiles.openbeta.io/crags/{z}/{x}/{y}.pbf";
 
   const customStyle = {
     default: {
-      stroke: false, // Kein Rand um die Kacheln
       fill: false,
+      fillColor: "#ff0000",
       fillOpacity: 0,
+      stroke: false,
+      color: "#000000",
+      weight: 0,
     },
   };
 
-  // Add vector tiles using VectorGrid
+  // Vektorkacheln hinzufügen
   const vectorTileLayer = L.vectorGrid.protobuf(url, {
-    //rendererFactory: L.canvas.tile,
+    rendererFactory: L.canvas.tile,
     vectorTileLayerStyles: customStyle,
-
     attribution: "&copy; mapBox contributors",
+    interactive: false,
+    debug: false,
+    opacity: 0,
+
+    minZoom: 0,
+    maxZoom: 10,
   });
 
-  // Add the vector tile layer to the map
-  //vectorTileLayer.addTo(map);
+  // Vektorkachel-Layer zur Karte hinzufügen
+  vectorTileLayer.addTo(map);
 
-  var gl = L.mapboxGL({
-    accessToken: process.env.mapBoxKey,
-    style: "mapbox://styles/mapbox/outdoors-v12",
-  }).addTo(map);
+  // Listen to the 'tileload' event to process the tile once it's loaded
+  vectorTileLayer.on("tileload", function (event) {
+    const coords = event.coords; // The coordinates of the tile (x, y, z)
 
-  */
-  setTimeout(() => {
-    document.querySelector(
-      ".leaflet-control-attribution leaflet-control"
-    ).style.display = "none";
-  }, 5000);
+    // Construct the URL for the .pbf tile using the coordinates
+    const tileUrl = L.Util.template(url, coords);
+
+    // Fetch the .pbf tile data manually
+    fetch(tileUrl)
+      .then((response) => response.arrayBuffer()) // Convert the response to ArrayBuffer
+      .then((arrayBuffer) => {
+        // Decode the .pbf data using VectorTile and Protobuf
+        const tile = new VectorTile(new Protobuf(new Uint8Array(arrayBuffer)));
+
+        // Loop through the layers in the vector tile
+        for (const layerName in tile.layers) {
+          const layer = tile.layers[layerName];
+
+          // Loop through each feature in the layer
+          for (let i = 0; i < layer.length; i++) {
+            const feature = layer
+              .feature(i)
+              .toGeoJSON(coords.x, coords.y, coords.z);
+
+            if (
+              feature.type === "Feature" &&
+              feature.geometry.type === "Point"
+            ) {
+              const [lon, lat] = feature.geometry.coordinates;
+
+              if (
+                !addedMarkers.has(feature.properties.id) &&
+                feature.properties.type == "crag" &&
+                feature.properties.totalClimbs > 0
+              ) {
+                var popup = L.popup().setContent(
+                  "<strong>" +
+                    feature.properties.name +
+                    "</strong><br>Climbs: " +
+                    feature.properties.totalClimbs
+                );
+
+                let marker = L.marker([lat, lon], { id: feature.properties.id })
+                  .bindPopup(popup)
+                  .addTo(map);
+
+                map.on("moveend", () => {
+                  if (!status.notKaiOS) {
+                    const closestMarker = findClosestMarker();
+                    if (closestMarker.options.id) {
+                      closestMarker
+                        .getElement()
+                        .classList.add("selected-marker");
+                      closestMarker.openPopup();
+                      status.selected_marker_cragId = closestMarker.options.id;
+                    }
+                  }
+                });
+
+                marker.on("click", (event) => {
+                  status.selected_marker_cragId = event.target.options.id;
+                  articles = [];
+                  fetchAreasById(status.selected_marker_cragId)
+                    .then((r) => {
+                      articles.push(r.data.area);
+                      cache_search();
+                    })
+                    .catch((e) => {
+                      console.log(e);
+                    });
+                });
+              }
+            }
+          }
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching or decoding tile:", err);
+      });
+  });
 
   let myMarker = null;
   L.Icon.Default.prototype.options.shadowUrl = "";
-  L.Icon.Default.prototype.options.iconUrl = "/assets/css/marker-icon.png";
+
+  L.Icon.Default.prototype.options.iconUrl = markerIcon;
+  L.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetina;
 
   let geolocation_cb = function (e) {
     if (!myMarker) {
@@ -242,7 +352,6 @@ function map_function(lat, lng, zoom = 14) {
         .bindPopup("It's me");
       myMarker._icon.classList.add("myMarker");
       myMarker.options.shadowUrl = "";
-      myMarker.options.url = "/assets/css/marker-icon.png";
 
       // Update the marker's position
       myMarker.setLatLng([e.coords.latitude, e.coords.longitude]);
@@ -375,6 +484,10 @@ const operationsDoc = `
       areaName
       totalClimbs
       uuid
+      media {
+        mediaUrl
+        format
+      }
       metadata {
         lat
         lng
@@ -388,6 +501,10 @@ const operationsDoc = `
         gradeContext
         length
         fa
+        media {
+        mediaUrl
+        format
+        }
         type {
           bouldering
           sport
@@ -489,6 +606,7 @@ const operationsDoc = `
           sport
           trad
         }
+
         grades {
           brazilianCrux
           ewbank
@@ -553,61 +671,24 @@ async function fetchAreas(searchValue) {
   }
 }
 
-let operationsDocLocation = `
-  query MyQuery($lat: Float!, $lng: Float!) {
-    cragsNear(
-      maxDistance: 100000
-      minDistance: 0
-      includeCrags: true
-      lnglat: { lat: $lat, lng: $lng }
-    ) {
-      count
-      crags {
-        areaName
-        totalClimbs
-        pathTokens
-        uuid
-        id
-        climbs {
-          id
-          name
-          pathTokens
-          uuid
-        }
-        children {
-          id
-        }
-        metadata {
-          lng
-          lat
-          isBoulder
-          leftRightIndex
-        }
-        
-      }
-    }
-  }
-`;
-
-async function fetchAreasByLocation(lat, lng) {
-  try {
-    const { errors, data } = await fetchGraphQL(operationsDocLocation, {
-      lat: lat,
-      lng: lng,
-    });
-
-    if (errors) throw new Error(JSON.stringify(errors));
-
-    return { success: true, data };
-  } catch (error) {
-    console.error("Error:", error);
-    return { success: false, error: error.message };
-  }
-}
-
 const operationsDocId = `
 query MyQuery($uuid: ID!) {
   area(uuid: $uuid) {
+
+    areaName
+      totalClimbs
+      uuid
+      metadata {
+        lat
+        lng
+        isBoulder
+      }
+
+      media {
+        mediaUrl
+        format
+      }
+      pathTokens
     climbs {
       uuid
       name
@@ -619,6 +700,10 @@ query MyQuery($uuid: ID!) {
         bouldering
         sport
         trad
+      }
+      media {
+        mediaUrl
+        format
       }
       grades {
         brazilianCrux
@@ -640,6 +725,8 @@ async function fetchAreasById(uuid) {
     const { errors, data } = await fetchGraphQL(operationsDocId, variables);
 
     if (errors) throw new Error(JSON.stringify(errors));
+
+    console.log(data);
 
     return { success: true, data };
   } catch (error) {
@@ -1133,11 +1220,15 @@ const start = {
                   tabIndex: i + 1,
                   "data-lat": e.metadata.lat,
                   "data-lng": e.metadata.lng,
+                  "data-id": e.uuid,
 
                   oncreate: (vnode) => {
                     document.querySelector("#start").classList.add("search-ok");
                     if (status.selected_marker == e.uuid) {
                       vnode.dom.focus();
+                    }
+                    if (status.selected_marker == "") {
+                      current_article = articles[0];
                     }
                   },
                   onclick: () => {
@@ -1145,11 +1236,13 @@ const start = {
                       side_toaster("no climbs", 3000);
                     } else {
                       current_article = e.uuid;
-                      m.route.set("/article?index=" + e.uuid);
+                      if (current_article)
+                        m.route.set("/article?index=" + e.uuid);
                     }
                   },
                   onfocus: () => {
                     focused_article = e;
+                    current_article = e;
                   },
 
                   onkeydown: (event) => {
@@ -1171,6 +1264,9 @@ const start = {
                       ? m("span", { class: "tag" }, "Bouldering")
                       : m("span", { class: "tag" }, "Climbing"),
                     m("span", { class: "tag" }, e.totalClimbs),
+                    e?.media.length > 0
+                      ? m("span", { class: "tag" }, "media")
+                      : null,
                   ]),
 
                   m("h2", e.areaName),
@@ -1235,6 +1331,7 @@ const article = {
       if (index != h.uuid) return false;
 
       current_article = h;
+      console.log(current_article);
 
       return true;
     });
@@ -1316,21 +1413,25 @@ const article = {
                     : null;
                 }),
 
-              Object.entries(climb.type)
-                .filter(([key, value]) => value !== null)
-                .map(([key, value]) => {
-                  return value === true
-                    ? m("span", { class: "tag" }, key)
-                    : null;
-                }),
+              climb.type
+                ? Object.entries(climb.type)
+                    .filter(([key, value]) => value !== null)
+                    .map(([key, value]) => {
+                      return value === true
+                        ? m("span", { class: "tag" }, key)
+                        : null;
+                    })
+                : "",
 
-              Object.entries(climb.grades)
-                .filter(([key, value]) => value !== null)
-                .map(([key, value]) => {
-                  return value != null
-                    ? m("span", { class: "tag" }, value)
-                    : null;
-                }),
+              climb.grades
+                ? Object.entries(climb.grades)
+                    .filter(([key, value]) => value !== null)
+                    .map(([key, value]) => {
+                      return value != null
+                        ? m("span", { class: "tag" }, value)
+                        : null;
+                    })
+                : null,
 
               ticks
                 .filter((e) => e.routeId === climb.uuid)
@@ -1341,7 +1442,20 @@ const article = {
             m("h2", climb.name),
           ]
         );
-      })
+      }),
+      current_article.media?.length > 0
+        ? m("div", { id: "image-wrapper", class: "" }, [
+            current_article.media.map((e) => {
+              return m("li", [
+                m("img", {
+                  class: "",
+                  loading: "lazy",
+                  src: "https://media.openbeta.io" + e.mediaUrl + "?w=640&q=75",
+                }),
+              ]);
+            }),
+          ])
+        : null
     );
   },
 };
@@ -1486,24 +1600,36 @@ let mapView = {
       {
         id: "map-container",
 
-        oncreate: (vnode) => {
-          status.AfterCragsNear = false;
+        onremove: () => {
+          if (!status.notKaiOS) {
+            articles = [];
 
-          bottom_bar("", "<img src='assets/icons/save.svg'>", "");
+            fetchAreasById(status.selected_marker_cragId)
+              .then((r) => {
+                articles.push(r.data.area);
+                m.redraw();
+              })
+              .catch((e) => {
+                console.log(e);
+              });
+          }
+        },
+
+        oncreate: (vnode) => {
+          bottom_bar("", "", "");
 
           if (!status.notKaiOS)
             bottom_bar(
               "<img src='assets/icons/plus.svg'>",
-              "<img src='assets/icons/save.svg'>",
+              "",
               "<img src='assets/icons/minus.svg'>"
             );
 
           const params = new URLSearchParams(m.route.get().split("?")[1]);
-          const lat = parseFloat(params.get("lat"));
-          const lng = parseFloat(params.get("lng"));
-          const id = parseFloat(params.get("uuid"));
+          const lat = parseFloat(params.get("lat")) || "27.986065";
+          const lng = parseFloat(params.get("lng")) || "86.922623";
 
-          map_function(lat, lng, 20);
+          map_function(lat, lng, 16);
 
           if (status.notKaiOS)
             top_bar("<img src='assets/icons/back.svg'>", "", "");
@@ -2285,11 +2411,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           history.back();
         }
         if (r.startsWith("/mapView")) {
-          if (status.AfterCragsNear) {
-            m.route.set("/start", { "search": "" });
-          } else {
-            history.back();
-          }
+          m.route.set("/start", { "search": "" });
         }
 
         if (r.startsWith("/article")) {

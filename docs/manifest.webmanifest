@@ -54,7 +54,7 @@
   ],
 
   "b2g_features": {
-    "version": "1.66",
+    "version": "1.71",
     "id": "PicTick",
     "subtitle": "PicTick",
     "core": true,
