@@ -21,10 +21,14 @@ import "leaflet.vectorgrid";
 import { VectorTile } from "@mapbox/vector-tile";
 import Protobuf from "pbf";
 
-import markerIcon from "./assets/css/marker-icon.png";
-import markerIconRetina from "./assets/css/marker-icon-2x.png";
+import markerIcon from "./assets/css/images/marker-icon.png";
+import markerIconRetina from "./assets/css/images/marker-icon-2x.png";
 
 import GeometryUtil from "leaflet-geometryutil";
+import "leaflet.markercluster";
+
+import "leaflet.markercluster/dist/MarkerCluster.css"; // MarkerCluster default styles
+import "leaflet.markercluster/dist/MarkerCluster.Default.css"; // MarkerCluster default styles
 
 const sw_channel = new BroadcastChannel("sw-messages");
 
@@ -116,11 +120,12 @@ if (userAgent && userAgent.includes("KAIOS")) {
 
 if (!status.notKaiOS) {
   const scripts = [
+    "./assets/js/kaiads.v5.min.js",
     "http://127.0.0.1/api/v1/shared/core.js",
     "http://127.0.0.1/api/v1/shared/session.js",
     "http://127.0.0.1/api/v1/apps/service.js",
     "http://127.0.0.1/api/v1/audiovolumemanager/service.js",
-    "./assets/js/kaiads.v5.min.js",
+    "https://static.kaiads.com/ads-sdk/ads-sdk.v5.min.js",
   ];
 
   scripts.forEach((src) => {
@@ -146,12 +151,12 @@ let map;
 const mainmarker = { current_lat: 20, current_lng: 0 };
 
 function ZoomMap(in_out) {
-  if (!map) return; // Überprüfen, ob die Karte initialisiert ist
+  if (!map) return;
 
   if (in_out === "in") {
-    map.zoomIn(); // Zoomt hinein
+    map.zoomIn();
   } else if (in_out === "out") {
-    map.zoomOut(); // Zoomt heraus
+    map.zoomOut();
   }
 }
 
@@ -175,40 +180,87 @@ function MoveMap(direction) {
     center.lat -= step;
   }
   map.panTo(center);
+
+  getMarkers();
 }
 
-function findClosestMarker() {
-  const mapCenter = map.getCenter(); // Get the map center
-  const radiusInKm = 150; // Define the maximum radius (150 km)
-  const radiusInDegrees = radiusInKm / 111; // Convert km to degrees (~111 km per degree)
+let getMarkers = async () => {
+  // Get the current bounds of the map
+  const bounds = map.getBounds();
 
-  // Create a reduced bounding box around the map center
-  const reducedBounds = L.latLngBounds(
-    [mapCenter.lat - radiusInDegrees, mapCenter.lng - radiusInDegrees],
-    [mapCenter.lat + radiusInDegrees, mapCenter.lng + radiusInDegrees]
-  );
+  // Get the center of the map for distance calculations
+  const mapCenter = map.getCenter();
 
-  let markers = [];
+  // Reset the list of markers in bounds
+  status.markers_in_bounds = [];
 
+  // Iterate over all layers on the map
   map.eachLayer(function (layer) {
     if (layer instanceof L.Marker) {
       const markerLatLng = layer.getLatLng();
 
-      // Check if the marker is within the reduced bounds
-      if (reducedBounds.contains(markerLatLng)) {
-        layer.getElement().classList.remove("selected-marker");
-        markers.push(layer);
+      // Check if the marker is within the map bounds
+      if (bounds.contains(markerLatLng)) {
+        // Remove any previous "selected" class
+        if (layer.getElement()) {
+          layer.getElement().classList.remove("selected-marker");
+        }
+
+        // Calculate the distance from the map center
+        const distance = mapCenter.distanceTo(markerLatLng);
+
+        // Add the marker and its distance to the list
+        status.markers_in_bounds.push({ layer, distance });
       }
     }
   });
 
-  // Handle the case where no markers are found in the reduced bounds
-  if (markers.length === 0) {
-    return null;
+  // Sort the markers by distance (ascending)
+  status.markers_in_bounds.sort((a, b) => a.distance - b.distance);
+
+  // Extract only the marker layers from the sorted list
+  status.markers_in_bounds = status.markers_in_bounds.map((item) => item.layer);
+
+  console.log(status.markers_in_bounds.length);
+  // Return the markers in bounds
+};
+
+let currentMarkerIndex = -1; // Initialize the index for tracking the current marker
+
+let previousMarkerIndex = null;
+
+function panToNextMarker() {
+  const markers = status.markers_in_bounds;
+
+  if (!markers || markers.length === 0) {
+    console.warn("No markers in bounds to pan to.");
+    return;
   }
 
-  // Find the closest marker to the map center
-  return L.GeometryUtil.closestLayer(map, markers, mapCenter).layer;
+  // Increment the index and loop back to the start if at the end of the list
+  currentMarkerIndex = (currentMarkerIndex + 1) % markers.length;
+  const selectedMarker = markers[currentMarkerIndex];
+  const markerLatLng = selectedMarker.getLatLng();
+
+  // Open popup for the selected marker
+  selectedMarker.openPopup();
+  status.selected_marker_cragId = selectedMarker.options.id;
+
+  // Pan the map to the selected marker
+  map.panTo(markerLatLng);
+
+  // Update classes for the current and previous markers
+  if (
+    previousMarkerIndex !== null &&
+    previousMarkerIndex !== currentMarkerIndex
+  ) {
+    const previousMarker = markers[previousMarkerIndex];
+    previousMarker.getElement().classList.remove("selected-marker");
+  }
+
+  selectedMarker.getElement().classList.add("selected-marker");
+
+  previousMarkerIndex = currentMarkerIndex; // Update the previous marker index
 }
 
 // Initialize the map and define the setup
@@ -225,31 +277,24 @@ function map_function(lat, lng, zoom = 10) {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  // Vector tile server URL
+  if (!status.notKaiOS)
+    document.getElementsByClassName(
+      "leaflet-control-attribution"
+    )[0].style.display = "none";
+
   const addedMarkers = new Set();
 
+  // Vector tile server URL
   const url = "https://maptiles.openbeta.io/crags/{z}/{x}/{y}.pbf";
-
-  const customStyle = {
-    default: {
-      fill: false,
-      fillColor: "#ff0000",
-      fillOpacity: 0,
-      stroke: false,
-      color: "#000000",
-      weight: 0,
-    },
-  };
 
   // Vektorkacheln hinzufügen
   const vectorTileLayer = L.vectorGrid.protobuf(url, {
     rendererFactory: L.canvas.tile,
-    vectorTileLayerStyles: customStyle,
+    vectorTileLayerStyles: {},
     attribution: "&copy; mapBox contributors",
     interactive: false,
     debug: false,
     opacity: 0,
-
     minZoom: 0,
     maxZoom: 10,
   });
@@ -264,23 +309,34 @@ function map_function(lat, lng, zoom = 10) {
     // Construct the URL for the .pbf tile using the coordinates
     const tileUrl = L.Util.template(url, coords);
 
-    // Fetch the .pbf tile data manually
+    // Fetch and decode the vector tile
     fetch(tileUrl)
-      .then((response) => response.arrayBuffer()) // Convert the response to ArrayBuffer
+      .then((response) => response.arrayBuffer())
       .then((arrayBuffer) => {
-        // Decode the .pbf data using VectorTile and Protobuf
+        // Decode .pbf data using VectorTile and Protobuf
         const tile = new VectorTile(new Protobuf(new Uint8Array(arrayBuffer)));
 
-        // Loop through the layers in the vector tile
+        //marker group or cluster
+        let markers;
+        if (status.notKaiOS) {
+          markers = L.markerClusterGroup({
+            disableClusteringAtZoom: 16,
+          });
+        } else {
+          markers = L.layerGroup([]);
+        }
+
+        // Process each layer in the tile
         for (const layerName in tile.layers) {
           const layer = tile.layers[layerName];
 
-          // Loop through each feature in the layer
+          // Process each feature in the layer
           for (let i = 0; i < layer.length; i++) {
             const feature = layer
               .feature(i)
               .toGeoJSON(coords.x, coords.y, coords.z);
 
+            // Add markers for relevant features
             if (
               feature.type === "Feature" &&
               feature.geometry.type === "Point"
@@ -289,49 +345,45 @@ function map_function(lat, lng, zoom = 10) {
 
               if (
                 !addedMarkers.has(feature.properties.id) &&
-                feature.properties.type == "crag" &&
+                feature.properties.type === "crag" &&
                 feature.properties.totalClimbs > 0
               ) {
-                var popup = L.popup().setContent(
-                  "<strong>" +
-                    feature.properties.name +
-                    "</strong><br>Climbs: " +
-                    feature.properties.totalClimbs
+                const popup = L.popup().setContent(
+                  `<strong>${feature.properties.name}</strong><br>Climbs: ${feature.properties.totalClimbs}`
                 );
 
-                let marker = L.marker([lat, lon], { id: feature.properties.id })
-                  .bindPopup(popup)
-                  .addTo(map);
+                const marker = L.marker([lat, lon], {
+                  id: feature.properties.id,
+                }).bindPopup(popup);
 
-                map.on("moveend", () => {
-                  if (!status.notKaiOS) {
-                    const closestMarker = findClosestMarker();
-                    if (closestMarker.options.id) {
-                      closestMarker
-                        .getElement()
-                        .classList.add("selected-marker");
-                      closestMarker.openPopup();
-                      status.selected_marker_cragId = closestMarker.options.id;
-                    }
-                  }
-                });
+                markers.addLayer(marker);
 
+                // Handle marker click events
                 marker.on("click", (event) => {
                   status.selected_marker_cragId = event.target.options.id;
                   articles = [];
                   fetchAreasById(status.selected_marker_cragId)
                     .then((r) => {
                       articles.push(r.data.area);
-                      cache_search();
                     })
                     .catch((e) => {
-                      console.log(e);
+                      console.error(e);
                     });
                 });
+
+                // Track added markers to avoid duplicates
+                addedMarkers.add(feature.properties.id);
               }
             }
           }
         }
+
+        markers.addTo(map);
+
+        // Handle moveend events for marker selection
+        map.on("zoomend", () => {
+          getMarkers();
+        });
       })
       .catch((err) => {
         console.error("Error fetching or decoding tile:", err);
@@ -358,7 +410,7 @@ function map_function(lat, lng, zoom = 10) {
     }
   };
   geolocation(geolocation_cb);
-  if (lat != 0 && lng != 0) L.marker([lat, lng]).addTo(map);
+  // if (lat != 0 && lng != 0) L.marker([lat, lng]).addTo(map);
   map.setView([lat, lng]);
 
   articles.map((e) => {
@@ -377,7 +429,6 @@ function map_function(lat, lng, zoom = 10) {
     // Add a click event listener to the marker
     marker.on("click", (event) => {
       const markerId = event.target.options.id; // Retrieve the ID from the marker options
-      console.log("Clicked Marker ID:", markerId);
       status.selected_marker = markerId;
     });
   });
@@ -429,12 +480,8 @@ let app_launcher = () => {
             setTimeout(() => {
               window.close();
             }, 3000);
-
-            // alert(rv);
           },
           (err) => {
-            //alert(err);
-
             if (err == "NO_PROVIDER") {
             }
           }
@@ -446,16 +493,6 @@ let app_launcher = () => {
   }, 2000);
 };
 if (!status.notKaiOS) app_launcher();
-
-//test if device online
-let checkOnlineStatus = async () => {
-  return fetch("https://www.google.com", {
-    method: "HEAD",
-    mode: "no-cors",
-  })
-    .then(() => true)
-    .catch(() => false);
-};
 
 async function fetchGraphQL(query, variables) {
   const response = await fetch("https://api.openbeta.io/", {
@@ -841,7 +878,7 @@ var options = {
           id: "KaiOSads-Wrapper",
 
           oncreate: () => {
-            if (status.notKaiOS == false) load_ads();
+            if (!status.notKaiOS) load_ads();
           },
         }),
       ]
@@ -1010,7 +1047,6 @@ var tickView = {
           {
             "data-tick-type": "flash",
             class: "item",
-            oncreate: () => {},
             onclick: () => {
               let location =
                 "lat:" +
@@ -1099,7 +1135,6 @@ let articles = [];
 let current_article;
 
 let searchTerm = "";
-let searchTerm_id = "";
 let stats = "";
 let focused_article;
 localforage
@@ -1131,7 +1166,6 @@ const start = {
             stats = e;
           })
           .catch((e) => {});
-      cache_search();
     } else {
       console.error("Failed to fetch areas:", result.error);
       side_toaster("data could not be loaded", 3000);
@@ -1147,8 +1181,9 @@ const start = {
     if (params) {
       searchTerm = params;
       this.search();
+    } else {
+      searchTerm = "";
     }
-    // Retrieve the `id` parameter from the URL
   },
   onremove: () => {
     scrollToTop();
@@ -1331,7 +1366,6 @@ const article = {
       if (index != h.uuid) return false;
 
       current_article = h;
-      console.log(current_article);
 
       return true;
     });
@@ -1369,8 +1403,9 @@ const article = {
           "article",
           {
             class: "item",
-            tabIndex: i,
             oncreate: (vnode) => {
+              setTabindex();
+
               if (current_detail.uuid == climb.uuid) {
                 vnode.dom.focus();
               }
@@ -1391,6 +1426,8 @@ const article = {
             },
 
             onkeydown: (event) => {
+              setTabindex();
+
               if (event.key === "Enter") {
                 current_detail = climb;
 
@@ -1444,13 +1481,15 @@ const article = {
         );
       }),
       current_article.media?.length > 0
-        ? m("div", { id: "image-wrapper", class: "" }, [
+        ? m("div", { id: "image-wrapper" }, [
             current_article.media.map((e) => {
-              return m("li", [
+              return m("li", { class: "item" }, [
                 m("img", {
-                  class: "",
                   loading: "lazy",
                   src: "https://media.openbeta.io" + e.mediaUrl + "?w=640&q=75",
+                  oncreate: () => {
+                    setTabindex();
+                  },
                 }),
               ]);
             }),
@@ -1579,8 +1618,9 @@ var detail = {
                 oncreate: () => {
                   document.querySelector("#my-tick-list-title").style.opacity =
                     "1";
+                  setTabindex();
                 },
-                class: "flex justify-content-spacebetween",
+                class: "flex justify-content-spacebetween item",
               },
               [
                 m("span", { class: "" }, e.style),
@@ -1601,6 +1641,9 @@ let mapView = {
         id: "map-container",
 
         onremove: () => {
+          searchTerm = "";
+          localforage.setItem("searchTerm", searchTerm);
+
           if (!status.notKaiOS) {
             articles = [];
 
@@ -1621,7 +1664,7 @@ let mapView = {
           if (!status.notKaiOS)
             bottom_bar(
               "<img src='assets/icons/plus.svg'>",
-              "",
+              "<img src='assets/icons/select.svg'>",
               "<img src='assets/icons/minus.svg'>"
             );
 
@@ -1802,6 +1845,7 @@ var ticksView = {
                 class: "item",
                 oncreate: () => {
                   bottom_bar("<img src='assets/icons/save.svg'>", "", "");
+                  setTabindex();
                 },
               },
               [
@@ -2099,7 +2143,6 @@ function scrollToCenter() {
       top: elY - scrollContainer.clientHeight / 2,
       behavior: "smooth",
     });
-    console.log(elY - scrollContainer.clientHeight / 2);
   } else {
     // If no scrollable parent is found, scroll the document body
     document.body.scrollBy({
@@ -2124,6 +2167,10 @@ let scrollToTop = () => {
   });
 };
 
+document.addEventListener("onbeforeunload", function (e) {
+  cache_search();
+});
+
 document.addEventListener("DOMContentLoaded", function (e) {
   /////////////////
   ///NAVIGATION
@@ -2145,6 +2192,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let items = 0;
 
     items = document.getElementById("app").querySelectorAll(".item");
+    console.log(items);
 
     if (document.activeElement.parentNode.classList.contains("input-parent")) {
       document.activeElement.parentNode.focus();
@@ -2307,14 +2355,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/map")) {
-          ZoomMap("in");
+          ZoomMap("out");
         }
         break;
 
       case "SoftLeft":
       case "Control":
         if (r.startsWith("/map")) {
-          ZoomMap("out");
+          ZoomMap("in");
         }
 
         if (r.startsWith("/start")) {
@@ -2366,39 +2414,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/map")) {
-          let m = map.getCenter();
-
-          document.querySelector(".loading-spinner").style.display = "block";
-          //get crags around map center
-          fetchAreasByLocation(m.lat, m.lng).then((result) => {
-            status.AfterCragsNear = true;
-            result.data.cragsNear.map((e) => {
-              e.crags.map((n) => {
-                if (n.totalClimbs > 0) {
-                  //get climbs of crags
-                  // openbeta api do not provide the climbs not
-                  //direct with cragsNear endpoint :-(
-                  fetchAreasById(n.uuid).then((e) => {
-                    n.climbs = e.data.area.climbs;
-                    articles = result.data.cragsNear[0].crags;
-                  });
-                }
-                // Create the marker with a custom 'id' property
-                let marker = L.marker([n.metadata.lat, n.metadata.lng], {
-                  id: n.uuid,
-                })
-                  .addTo(map)
-                  .bindPopup(n.areaName);
-
-                // Add a click event listener to the marker
-                marker.on("click", (event) => {
-                  const markerId = event.target.options.id; // Retrieve the ID from the marker options
-                  status.selected_marker = markerId;
-                });
-              });
-            });
-            document.querySelector(".loading-spinner").style.display = "none";
-          });
+          panToNextMarker();
         }
 
         break;

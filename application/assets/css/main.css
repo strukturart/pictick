@@ -140,14 +140,6 @@ article img {
   padding: 10px;
 }
 
-img[src=""] {
-  display: none;
-}
-
-img[src=" "] {
-  display: none;
-}
-
 button {
   font-size: 1rem;
   background: rgb(255, 255, 255);
@@ -739,7 +731,6 @@ div#options {
   position: absolute;
   z-index: 4;
   top: 0;
-  display: none;
   padding: 5px;
   height: 92vh;
   overflow: hidden;

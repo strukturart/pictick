@@ -3,16 +3,14 @@
 import { status, settings } from "../../index.js";
 
 export let setTabindex = () => {
-  let visibleElements = document.querySelectorAll(
-    '.item:not([style*="display: none"])'
+  const elements = document.querySelectorAll(".item");
+
+  let visibleElements = Array.from(elements).filter(
+    (element) => getComputedStyle(element).display !== "none"
   );
 
   visibleElements.forEach((element, index) => {
-    if (getComputedStyle(element).display !== "none") {
-      element.setAttribute("tabindex", index);
-    } else {
-      element.removeAttribute("tabindex");
-    }
+    element.tabIndex = index;
   });
 };
 

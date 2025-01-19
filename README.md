@@ -2,7 +2,7 @@
 
 # PicTick
 
-PicTick is a KaiOS app with which you can search for climbing areas. The data that is searched comes from <a href="https:/7openeta.io">openBeta.io</a>.
+PicTick is a KaiOS app with which you can search for climbing areas and tick your climbs. The data that is searched comes from <a href="https://opebeta.io">openBeta.io</a>.
 
 ![badge-release](https://img.shields.io/github/v/release/strukturart/pictick?include_prereleases&style=plastic)
 ![badge-downloads](https://img.shields.io/github/downloads/strukturart/pictick/total)
