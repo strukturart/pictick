@@ -4292,6 +4292,11 @@ svgo@^2.4.0, svgo@^3.0.2:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+swiped-events@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/swiped-events/-/swiped-events-1.2.0.tgz"
+  integrity sha512-KRu67z1hb4sPxMdFIF2kaufYHTcWOb8NVLbIl2g5dPWZkEQ6D3wfSIVJ7iXbicTt9cO3e0vARqgx9fITtTZxQw==
+
 term-size@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmjs.org/term-size/-/term-size-2.2.1.tgz"

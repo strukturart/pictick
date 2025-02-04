@@ -89,8 +89,8 @@ body {
 }
 
 .page {
-  padding: 10px 10px 60px 10px;
-  margin: 40px 0 0 0;
+  padding: 60px 10px 60px 10px !important;
+  margin: 0px 0 20px 0;
 }
 
 h1 {
@@ -106,6 +106,7 @@ h1.extra {
   border-radius: 10px;
   width: fit-content;
   display: inline-block;
+  margin: 0 0 20px 0;
 }
 
 h2 {
@@ -1007,7 +1008,7 @@ video {
     justify-content: center;
     align-items: flex-start;
     overflow: scroll;
-    padding: 20px 0 0 0;
+    padding: 10px 0 0 0;
   }
   #app {
     position: relative;

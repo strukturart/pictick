@@ -1,5 +1,5 @@
 {
-  "version": "0.0.6",
+  "version": "0.0.7",
   "name": "picTick",
   "description": "PicTick is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database..",
   "launch_path": "/index.html",
@@ -23,7 +23,7 @@
   "locales": {
     "en-US": {
       "name": "picTick",
-      "subtitle": " ",
+      "subtitle": "picTick",
         "description": "PicTick is an app with which you can search for climbing areas and climbing routes. you can also ‘tick’ your routes to create an overview of the routes you have climbed. The data that is searched comes from openbeta.io a free climbing database.."
     }
   },

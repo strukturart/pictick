@@ -54,7 +54,7 @@
   ],
 
   "b2g_features": {
-    "version": "1.87",
+    "version": "1.88",
     "id": "Pictick",
     "subtitle": "Pictick",
     "core": true,

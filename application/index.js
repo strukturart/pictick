@@ -15,6 +15,7 @@ import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import jsonToCsvExport from "json-to-csv-export";
 import L from "leaflet";
+import "swiped-events";
 
 import "leaflet.vectorgrid";
 
@@ -68,6 +69,8 @@ localforage
       localforage.setItem("myAreas", []);
     } else {
       myAreas = value;
+
+      check_myAreas_update();
     }
   })
   .catch((err) => {
@@ -349,7 +352,7 @@ function map_function(lat, lng, zoom = 10) {
                 feature.properties.totalClimbs > 0
               ) {
                 const popup = L.popup().setContent(
-                  `<strong>${feature.properties.name}</strong><br>Climbs: ${feature.properties.totalClimbs}`
+                  `<strong>${feature.properties.name}</strong><br>Climbs: ${feature.properties.totalClimbs}<br><a href="#" onclick="window.history.go(-1); return false;">Open</a>`
                 );
 
                 const marker = L.marker([lat, lon], {
@@ -433,6 +436,47 @@ function map_function(lat, lng, zoom = 10) {
     });
   });
 }
+
+//check if has update in downloaded areas
+
+function findUpdatedAtValues(obj) {
+  return Object.entries(obj).reduce((acc, [key, value]) => {
+    if (key === "updatedAt") {
+      acc.push(value);
+    } else if (typeof value === "object" && value !== null) {
+      acc.push(...findUpdatedAtValues(value)); // Recursively merge results
+    }
+    return acc;
+  }, []);
+}
+
+let getYoungestdate = (arr) => {
+  arr.sort((a, b) => b - a);
+  return arr[0];
+};
+
+let check_myAreas_update = async () => {
+  myAreas.forEach((e) => {
+    AreasUpdate(e.uuid).then((docs) => {
+      let updatedDocsDate = findUpdatedAtValues(docs);
+
+      getYoungestdate(updatedDocsDate);
+
+      if (updatedDocsDate.length > 0) {
+        AreasUpdate(e.uuid).then((docs) => {
+          let updatedDocsDate = findUpdatedAtValues(docs);
+
+          if (updatedDocsDate.length > 0 && e.downloaded < updatedDocsDate[0]) {
+            e.update = true;
+          } else {
+            e.update = false;
+          }
+        });
+      }
+    });
+  });
+};
+check_myAreas_update();
 
 //open KaiOS app
 let app_launcher = () => {
@@ -771,6 +815,55 @@ async function fetchAreasById(uuid) {
   }
 }
 
+const areaCheckUpdate = `query MyQuery($uuid: ID!) {
+  getAreaHistory(filter: {areaId: $uuid}) {
+    changes {
+      fullDocument {
+        ... on Area {
+          areaName
+          authorMetadata {
+            updatedAt
+            updatedByUser
+          }
+        }
+      }
+    }
+    operation
+  }
+}`;
+
+async function AreasUpdate(uuid) {
+  try {
+    const variables = { uuid: uuid }; // Passing uuid as a variable
+    const { errors, data } = await fetchGraphQL(areaCheckUpdate, variables);
+
+    if (errors) throw new Error(JSON.stringify(errors));
+
+    //console.log(data);
+
+    return { success: true, data };
+  } catch (error) {
+    console.error("Error:", error); // Handle errors
+  }
+}
+
+let myAreasDeleteItem = (id) => {
+  myAreas = myAreas.filter((e) => e.uuid !== id);
+
+  localforage
+    .setItem("myAreas", myAreas)
+    .then(() => {
+      m.redraw();
+    })
+    .catch((err) => {
+      console.error("Error saving to localforage:", err);
+    });
+};
+
+////////////////
+///VIEWS
+///////////////
+
 var root = document.getElementById("app");
 
 var options = {
@@ -811,8 +904,8 @@ var options = {
               {
                 class: "item",
                 onclick: () => {
-                  console.log(current_article);
                   if (myAreas == null) myAreas = [];
+                  current_article.downloaded = Date.now();
                   myAreas.push(current_article);
                   localforage.setItem("myAreas", myAreas).then(() => {
                     history.back();
@@ -1533,7 +1626,7 @@ var detail = {
           scrollToTop();
         },
       },
-      m("div", { id: "detail", class: "" }, [
+      m("div", { id: "detail" }, [
         m("h1", { class: "extra" }, "Climb"),
 
         m("ul", [
@@ -1780,10 +1873,36 @@ var myAreasView = {
                 class: "item",
                 "data-lat": e.metadata.lat,
                 "data-lng": e.metadata.lng,
+                "data-id": e.uuid,
+                "data-swipe-threshold": 20,
+                oninit: () => {},
+
+                onfocus: (vnode) => {
+                  bottom_bar("", "", "<img src='assets/icons/delete.svg'>");
+                  focused_article = e;
+                  current_article = e;
+                },
 
                 onclick: () => {
                   current_article = e;
-                  m.route.set("/article");
+                  if (current_article.update) {
+                    fetchAreasById(e.uuid)
+                      .then((r) => {
+                        current_article.update = false;
+                        e = r.data.area;
+                        e.downloaded = Date.now();
+                        localforage.setItem("myAreas", myAreas).then(() => {
+                          current_article = e;
+                          m.route.set("/article");
+                          side_toaster("content updated", 5000);
+                        });
+                      })
+                      .catch((e) => {
+                        console.error(e);
+                      });
+                  } else {
+                    m.route.set("/article");
+                  }
                 },
 
                 onkeydown: (event) => {
@@ -1796,6 +1915,7 @@ var myAreasView = {
               [
                 m("div", { class: "tags" }, [
                   m("span", { class: "tag" }, e.pathTokens[0]),
+                  e.update ? m("span", { class: "tag" }, "new") : null,
 
                   e.metadata.isBoulder
                     ? m("span", { class: "tag" }, "Bouldering")
@@ -2171,6 +2291,13 @@ document.addEventListener("onbeforeunload", function (e) {
   cache_search();
 });
 
+document.addEventListener("swiped", function (e) {
+  console.log(e.target); // element that was swiped
+  console.log(e.detail); // see event data below
+  console.log(e.detail.dir); // swipe direction
+  alert("delete ?");
+});
+
 document.addEventListener("DOMContentLoaded", function (e) {
   /////////////////
   ///NAVIGATION
@@ -2354,9 +2481,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
           m.route.set("/options");
         }
 
+        if (r.startsWith("/myAreas")) {
+          myAreasDeleteItem(focused_article);
+        }
+
         if (r.startsWith("/map")) {
           ZoomMap("out");
         }
+
         break;
 
       case "SoftLeft":
@@ -2431,7 +2563,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         if (r.startsWith("/article")) {
-          m.route.set("/start");
+          history.back();
         }
 
         if (r.startsWith("/detail")) {
