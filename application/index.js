@@ -1870,7 +1870,7 @@ var myAreasView = {
             return m(
               "article",
               {
-                class: "item",
+                class: "item area",
                 "data-lat": e.metadata.lat,
                 "data-lng": e.metadata.lng,
                 "data-id": e.uuid,
@@ -2292,10 +2292,18 @@ document.addEventListener("onbeforeunload", function (e) {
 });
 
 document.addEventListener("swiped", function (e) {
-  console.log(e.target); // element that was swiped
-  console.log(e.detail); // see event data below
-  console.log(e.detail.dir); // swipe direction
-  alert("delete ?");
+  let a = e.target.closest("article.area");
+
+  // Check if the swipe happened on an article and in the correct direction
+  if (a && (e.detail.dir == "left" || e.detail.dir == "right")) {
+    e.preventDefault();
+
+    let ask = confirm("Do you want to delete this area?");
+
+    if (ask) {
+      myAreasDeleteItem(a.getAttribute("data-id"));
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function (e) {
