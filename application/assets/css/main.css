@@ -522,6 +522,9 @@ article {
   min-width: 100%;
   background-image: radial-gradient(circle, #e2dddd 10%, transparent 11%);
   background-size: 5px 5px;
+
+  transition: transform 0.3s ease;
+  touch-action: pan-y;
 }
 
 #start {
